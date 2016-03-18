@@ -5,8 +5,11 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 import org.freyja.libgdx.cocostudio.ui.CocoStudioUIEditor;
@@ -46,6 +49,16 @@ public class TianScreen extends ScreenAdapter{
 
         Group group = editor.createGroup();
         stage.addActor(group);
+
+        Actor login = editor.findActor("Button_1");
+        login.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+
+                System.out.println("click LOGIN");
+                super.clicked(event, x, y);
+            }
+        });
     }
 
     @Override
