@@ -1,0 +1,213 @@
+{
+  "ID": "84d40d72-0b3a-4109-ae0e-9c379add060b",
+  "Version": "2.1.5.0",
+  "Name": "Scene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 14,
+        "PrePosition": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "PreSize": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Login/LI07.jpg"
+            },
+            "Scale9Width": 640,
+            "Scale9Height": 960,
+            "Tag": 24,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5000048
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "TopMargin": -0.00384521484,
+            "BottomMargin": 0.00384521484,
+            "ActionTag": -1690629887,
+            "Position": {
+              "X": 240.0,
+              "Y": 400.003876
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "Size": {
+              "X": 480.0,
+              "Y": 800.0
+            },
+            "FrameEvent": "",
+            "Name": "Image_1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "Login/BaS32.png"
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "Login/BaS32.png"
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Login/BaS31.png"
+            },
+            "Scale9Enable": true,
+            "Scale9Width": 240,
+            "Scale9Height": 81,
+            "TouchEnable": true,
+            "StretchWidthEnable": true,
+            "Tag": 25,
+            "PrePosition": {
+              "X": 0.474284351,
+              "Y": 0.312562376
+            },
+            "PreSize": {
+              "X": 0.5,
+              "Y": 0.10125
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 107.656494,
+            "RightMargin": 132.3435,
+            "TopMargin": 509.4501,
+            "BottomMargin": 209.5499,
+            "ActionTag": 508480679,
+            "Position": {
+              "X": 227.6565,
+              "Y": 250.0499
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "Size": {
+              "X": 240.0,
+              "Y": 81.0
+            },
+            "FrameEvent": "",
+            "Name": "Button_3",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "Button",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "Login/BaS32.png"
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "Login/LI02.png"
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Login/LI01.png"
+            },
+            "Scale9Enable": true,
+            "Scale9Width": 240,
+            "Scale9Height": 81,
+            "TouchEnable": true,
+            "Tag": 27,
+            "PrePosition": {
+              "X": 0.46733743,
+              "Y": 0.4431169
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 201.32196,
+            "RightMargin": 232.67804,
+            "TopMargin": 427.50647,
+            "BottomMargin": 336.49353,
+            "ActionTag": 493152780,
+            "Position": {
+              "X": 224.32196,
+              "Y": 354.49353
+            },
+            "Scale": {
+              "ScaleX": 5.15459728,
+              "ScaleY": 2.11111712
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "Size": {
+              "X": 46.0,
+              "Y": 36.0
+            },
+            "FrameEvent": "",
+            "Name": "Button_5",
+            "ctype": "ButtonObjectData"
+          }
+        ],
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Scale": {
+          "ScaleX": 1.0,
+          "ScaleY": 1.0
+        },
+        "AnchorPoint": {},
+        "CColor": {},
+        "Size": {
+          "X": 480.0,
+          "Y": 800.0
+        },
+        "FrameEvent": "",
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "ctype": "GameProjectData"
+    }
+  },
+  "Type": "Scene"
+}

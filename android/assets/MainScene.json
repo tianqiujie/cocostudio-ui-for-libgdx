@@ -1,0 +1,511 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "MainScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "HelloWorld.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.0,
+              "Y": 320.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 5,
+            "ActionTag": 953446860,
+            "Size": {
+              "X": 960.0,
+              "Y": 640.0
+            },
+            "Name": "Default",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "Login/BaS32.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "Login/BaS32.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Login/BaS31.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 210,
+            "Scale9Height": 59,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 160.497,
+              "Y": 189.5392
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1672,
+              "Y": 0.2962
+            },
+            "PreSize": {
+              "X": 0.25,
+              "Y": 0.1266
+            },
+            "LeftMargin": 40.497,
+            "RightMargin": 679.503,
+            "TopMargin": 409.9608,
+            "BottomMargin": 149.0392,
+            "Tag": 3,
+            "ActionTag": -196558744,
+            "Size": {
+              "X": 240.0,
+              "Y": 81.0
+            },
+            "Name": "Button_1",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Login/LI07.jpg",
+              "Plist": ""
+            },
+            "Scale9OriginX": 211,
+            "Scale9OriginY": 316,
+            "Scale9Width": 218,
+            "Scale9Height": 328,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 845.7815,
+              "Y": 452.8892
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.881,
+              "Y": 0.7076
+            },
+            "PreSize": {
+              "X": 0.1969,
+              "Y": 0.4496
+            },
+            "LeftMargin": 751.2749,
+            "RightMargin": 19.7119,
+            "TopMargin": 43.2241,
+            "BottomMargin": 309.0025,
+            "Tag": 4,
+            "ActionTag": 1728852694,
+            "Size": {
+              "X": 189.0132,
+              "Y": 287.7734
+            },
+            "Name": "Image_1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "CheckedState": true,
+            "NormalBackFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBox_Normal.png",
+              "Plist": ""
+            },
+            "PressedBackFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBox_Press.png",
+              "Plist": ""
+            },
+            "DisableBackFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBox_Disable.png",
+              "Plist": ""
+            },
+            "NodeNormalFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBoxNode_Normal.png",
+              "Plist": ""
+            },
+            "NodeDisableFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBoxNode_Disable.png",
+              "Plist": ""
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 55.5321,
+              "Y": 365.6391
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0578,
+              "Y": 0.5713
+            },
+            "PreSize": {
+              "X": 0.0417,
+              "Y": 0.0625
+            },
+            "LeftMargin": 35.5321,
+            "RightMargin": 884.4679,
+            "TopMargin": 254.3609,
+            "BottomMargin": 345.6391,
+            "Tag": 5,
+            "ActionTag": 1709335335,
+            "Size": {
+              "X": 40.0,
+              "Y": 40.0
+            },
+            "Name": "CheckBox_1",
+            "ctype": "CheckBoxObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "button_bg.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 14,
+            "Scale9OriginY": 13,
+            "Scale9Width": 14,
+            "Scale9Height": 14,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 184.0,
+              "Y": 320.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 36,
+              "G": 203,
+              "B": 18
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1917,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.1573,
+              "Y": 0.0844
+            },
+            "LeftMargin": 108.5,
+            "RightMargin": 700.5,
+            "TopMargin": 293.0,
+            "BottomMargin": 293.0,
+            "Tag": 7,
+            "ActionTag": -1868418769,
+            "Size": {
+              "X": 151.0,
+              "Y": 54.0
+            },
+            "Name": "Image_2",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "Button",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "button_bg.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "button_bg.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "button_bg.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 9,
+            "Scale9Height": 18,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 167.0,
+              "Y": 505.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "G": 165,
+              "B": 0
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.174,
+              "Y": 0.7891
+            },
+            "PreSize": {
+              "X": 0.1656,
+              "Y": 0.0625
+            },
+            "LeftMargin": 87.5,
+            "RightMargin": 713.5,
+            "TopMargin": 115.0,
+            "BottomMargin": 485.0,
+            "Tag": 10,
+            "ActionTag": -1344420292,
+            "Size": {
+              "X": 159.0,
+              "Y": 40.0
+            },
+            "Name": "Button_3",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "button_bg.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 9,
+            "Scale9Height": 18,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 121.0,
+              "Y": 62.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.126,
+              "Y": 0.0969
+            },
+            "PreSize": {
+              "X": 0.2135,
+              "Y": 0.0625
+            },
+            "LeftMargin": 18.5,
+            "RightMargin": 736.5,
+            "TopMargin": 558.0,
+            "BottomMargin": 42.0,
+            "Tag": 11,
+            "ActionTag": 1390440746,
+            "Size": {
+              "X": 205.0,
+              "Y": 40.0
+            },
+            "Name": "Button_4",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Default",
+              "Path": "Default/defaultParticle.plist",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 775,
+              "Dst": 1
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 787.0,
+              "Y": 129.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8198,
+              "Y": 0.2016
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 787.0,
+            "RightMargin": 173.0,
+            "TopMargin": 511.0,
+            "BottomMargin": 129.0,
+            "Tag": 12,
+            "ActionTag": 50242526,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Particle_1",
+            "ctype": "ParticleObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "button_bg.png",
+        "Default/Button_Disable.png",
+        "Default/Button_Press.png",
+        "Default/CheckBox_Disable.png",
+        "Default/CheckBox_Normal.png",
+        "Default/CheckBox_Press.png",
+        "Default/CheckBoxNode_Disable.png",
+        "Default/CheckBoxNode_Normal.png",
+        "Default/defaultParticle.plist",
+        "HelloWorld.png",
+        "Login/BaS31.png",
+        "Login/BaS32.png",
+        "Login/LI07.jpg"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
