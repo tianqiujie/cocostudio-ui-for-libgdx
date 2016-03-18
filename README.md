@@ -1,5 +1,7 @@
 
+![](screenshut_1.png)
 
+![](screenshut_2.png)
 ##cocostudio-ui-for-libgdx是什么?
 * a ui library of ligdx with cocostudio
 * Thank for the project: https://github.com/121077313/cocostudio-ui-libgdx
