@@ -60,7 +60,6 @@ nb-configuration.xml
 ## Gradle
 
 .gradle
-<<<<<<< HEAD
 gradle-app.setting
 build/
 
@@ -68,4 +67,3 @@ build/
 .DS_Store
 =======
 build/
->>>>>>> 68ffb4e31bc1589167ed51bf0b6d20e4ba22c289
