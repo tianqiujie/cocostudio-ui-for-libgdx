@@ -21,12 +21,10 @@ www-test/
 android/libs/armeabi/
 android/libs/armeabi-v7a/
 android/libs/x86/
-<<<<<<< HEAD
-=======
 android/libs/arm64-v8a/
 android/libs/x86_64/
->>>>>>> 68ffb4e31bc1589167ed51bf0b6d20e4ba22c289
 android/gen/
+
 .idea/
 *.ipr
 *.iws
