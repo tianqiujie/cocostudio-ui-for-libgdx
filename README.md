@@ -2,6 +2,10 @@
 ![](screenshut_1.png)
 
 ![](screenshut_2.png)
+
+![](screenshut_3.png)
+必须要下载cocostudio后设置 编辑-> 拖动修改尺寸
+
 ##cocostudio-ui-for-libgdx是什么?
 * a ui library of ligdx with cocostudio
 * Thank for the project: https://github.com/121077313/cocostudio-ui-libgdx
