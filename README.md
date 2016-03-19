@@ -37,6 +37,7 @@
 
 * [121077313/cocostudio-ui-libgdx](https://github.com/121077313/cocostudio-ui-libgdx)
 * 感谢群友@Hey对粒子效果的解析贡献
+* 感谢群友[@315君](http://www.huangyunkun.com/)做出的努力
 
 
 ##关于作者
