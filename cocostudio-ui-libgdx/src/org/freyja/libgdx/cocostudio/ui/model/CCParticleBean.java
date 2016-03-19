@@ -10,26 +10,26 @@ public class CCParticleBean {
     int blendFuncSource;
     int duration;
     double emitterType;
-    double finishColorAlpha;
-    double finishColorBlue;
-    double finishColorGreen;
-    double finishColorRed;
-    double finishColorVarianceAlpha;
-    double finishColorVarianceBlue;
-    double finishColorVarianceGreen;
-    double finishColorVarianceRed;
+    float finishColorAlpha;
+    float finishColorBlue;
+    float finishColorGreen;
+    float finishColorRed;
+    float finishColorVarianceAlpha;
+    float finishColorVarianceBlue;
+    float finishColorVarianceGreen;
+    float finishColorVarianceRed;
     double finishParticleSize;
     double finishParticleSizeVariance;
-    double gravityx;
-    double gravityy;
+    float gravityx;
+    float gravityy;
     int maxParticles;
     int maxRadius;
-    double maxRadiusVariance;
-    double minRadius;
-    double particleLifespan;
-    double particleLifespanVariance;
-    double radialAccelVariance;
-    double radialAcceleration;
+    float maxRadiusVariance;
+    float minRadius;
+    float particleLifespan;
+    float particleLifespanVariance;
+    float radialAccelVariance;
+    float radialAcceleration;
     double rotatePerSecond;
     double rotatePerSecondVariance;
     double rotationEnd;
@@ -40,20 +40,20 @@ public class CCParticleBean {
     int sourcePositionVariancey;
     double sourcePositionx;
     double sourcePositiony;
-    double speed;
-    double speedVariance;
-    double startColorAlpha;
-    double startColorBlue;
-    double startColorGreen;
-    double startColorRed;
-    double startColorVarianceAlpha;
-    double startColorVarianceBlue;
-    double startColorVarianceGreen;
-    double startColorVarianceRed;
+    float speed;
+    float speedVariance;
+    float startColorAlpha;
+    float startColorBlue;
+    float startColorGreen;
+    float startColorRed;
+    float startColorVarianceAlpha;
+    float startColorVarianceBlue;
+    float startColorVarianceGreen;
+    float startColorVarianceRed;
     double startParticleSize;
-    int startParticleSizeVariance;
-    double tangentialAccelVariance;
-    double tangentialAcceleration;
+    double startParticleSizeVariance;
+    float tangentialAccelVariance;
+    float tangentialAcceleration;
     String textureFileName;
     String textureImageData;
 
@@ -105,67 +105,67 @@ public class CCParticleBean {
         this.emitterType = emitterType;
     }
 
-    public double getFinishColorAlpha() {
+    public float getFinishColorAlpha() {
         return finishColorAlpha;
     }
 
-    public void setFinishColorAlpha(double finishColorAlpha) {
+    public void setFinishColorAlpha(float finishColorAlpha) {
         this.finishColorAlpha = finishColorAlpha;
     }
 
-    public double getFinishColorBlue() {
+    public float getFinishColorBlue() {
         return finishColorBlue;
     }
 
-    public void setFinishColorBlue(double finishColorBlue) {
+    public void setFinishColorBlue(float finishColorBlue) {
         this.finishColorBlue = finishColorBlue;
     }
 
-    public double getFinishColorGreen() {
+    public float getFinishColorGreen() {
         return finishColorGreen;
     }
 
-    public void setFinishColorGreen(double finishColorGreen) {
+    public void setFinishColorGreen(float finishColorGreen) {
         this.finishColorGreen = finishColorGreen;
     }
 
-    public double getFinishColorRed() {
+    public float getFinishColorRed() {
         return finishColorRed;
     }
 
-    public void setFinishColorRed(double finishColorRed) {
+    public void setFinishColorRed(float finishColorRed) {
         this.finishColorRed = finishColorRed;
     }
 
-    public double getFinishColorVarianceAlpha() {
+    public float getFinishColorVarianceAlpha() {
         return finishColorVarianceAlpha;
     }
 
-    public void setFinishColorVarianceAlpha(double finishColorVarianceAlpha) {
+    public void setFinishColorVarianceAlpha(float finishColorVarianceAlpha) {
         this.finishColorVarianceAlpha = finishColorVarianceAlpha;
     }
 
-    public double getFinishColorVarianceBlue() {
+    public float getFinishColorVarianceBlue() {
         return finishColorVarianceBlue;
     }
 
-    public void setFinishColorVarianceBlue(double finishColorVarianceBlue) {
+    public void setFinishColorVarianceBlue(float finishColorVarianceBlue) {
         this.finishColorVarianceBlue = finishColorVarianceBlue;
     }
 
-    public double getFinishColorVarianceGreen() {
+    public float getFinishColorVarianceGreen() {
         return finishColorVarianceGreen;
     }
 
-    public void setFinishColorVarianceGreen(double finishColorVarianceGreen) {
+    public void setFinishColorVarianceGreen(float finishColorVarianceGreen) {
         this.finishColorVarianceGreen = finishColorVarianceGreen;
     }
 
-    public double getFinishColorVarianceRed() {
+    public float getFinishColorVarianceRed() {
         return finishColorVarianceRed;
     }
 
-    public void setFinishColorVarianceRed(double finishColorVarianceRed) {
+    public void setFinishColorVarianceRed(float finishColorVarianceRed) {
         this.finishColorVarianceRed = finishColorVarianceRed;
     }
 
@@ -185,19 +185,19 @@ public class CCParticleBean {
         this.finishParticleSizeVariance = finishParticleSizeVariance;
     }
 
-    public double getGravityx() {
+    public float getGravityx() {
         return gravityx;
     }
 
-    public void setGravityx(double gravityx) {
+    public void setGravityx(float gravityx) {
         this.gravityx = gravityx;
     }
 
-    public double getGravityy() {
+    public float getGravityy() {
         return gravityy;
     }
 
-    public void setGravityy(double gravityy) {
+    public void setGravityy(float gravityy) {
         this.gravityy = gravityy;
     }
 
@@ -217,51 +217,51 @@ public class CCParticleBean {
         this.maxRadius = maxRadius;
     }
 
-    public double getMaxRadiusVariance() {
+    public float getMaxRadiusVariance() {
         return maxRadiusVariance;
     }
 
-    public void setMaxRadiusVariance(double maxRadiusVariance) {
+    public void setMaxRadiusVariance(float maxRadiusVariance) {
         this.maxRadiusVariance = maxRadiusVariance;
     }
 
-    public double getMinRadius() {
+    public float getMinRadius() {
         return minRadius;
     }
 
-    public void setMinRadius(double minRadius) {
+    public void setMinRadius(float minRadius) {
         this.minRadius = minRadius;
     }
 
-    public double getParticleLifespan() {
+    public float getParticleLifespan() {
         return particleLifespan;
     }
 
-    public void setParticleLifespan(double particleLifespan) {
+    public void setParticleLifespan(float particleLifespan) {
         this.particleLifespan = particleLifespan;
     }
 
-    public double getParticleLifespanVariance() {
+    public float getParticleLifespanVariance() {
         return particleLifespanVariance;
     }
 
-    public void setParticleLifespanVariance(double particleLifespanVariance) {
+    public void setParticleLifespanVariance(float particleLifespanVariance) {
         this.particleLifespanVariance = particleLifespanVariance;
     }
 
-    public double getRadialAccelVariance() {
+    public float getRadialAccelVariance() {
         return radialAccelVariance;
     }
 
-    public void setRadialAccelVariance(double radialAccelVariance) {
+    public void setRadialAccelVariance(float radialAccelVariance) {
         this.radialAccelVariance = radialAccelVariance;
     }
 
-    public double getRadialAcceleration() {
+    public float getRadialAcceleration() {
         return radialAcceleration;
     }
 
-    public void setRadialAcceleration(double radialAcceleration) {
+    public void setRadialAcceleration(float radialAcceleration) {
         this.radialAcceleration = radialAcceleration;
     }
 
@@ -345,83 +345,83 @@ public class CCParticleBean {
         this.sourcePositiony = sourcePositiony;
     }
 
-    public double getSpeed() {
+    public float getSpeed() {
         return speed;
     }
 
-    public void setSpeed(double speed) {
+    public void setSpeed(float speed) {
         this.speed = speed;
     }
 
-    public double getSpeedVariance() {
+    public float getSpeedVariance() {
         return speedVariance;
     }
 
-    public void setSpeedVariance(double speedVariance) {
+    public void setSpeedVariance(float speedVariance) {
         this.speedVariance = speedVariance;
     }
 
-    public double getStartColorAlpha() {
+    public float getStartColorAlpha() {
         return startColorAlpha;
     }
 
-    public void setStartColorAlpha(double startColorAlpha) {
+    public void setStartColorAlpha(float startColorAlpha) {
         this.startColorAlpha = startColorAlpha;
     }
 
-    public double getStartColorBlue() {
+    public float getStartColorBlue() {
         return startColorBlue;
     }
 
-    public void setStartColorBlue(double startColorBlue) {
+    public void setStartColorBlue(float startColorBlue) {
         this.startColorBlue = startColorBlue;
     }
 
-    public double getStartColorGreen() {
+    public float getStartColorGreen() {
         return startColorGreen;
     }
 
-    public void setStartColorGreen(double startColorGreen) {
+    public void setStartColorGreen(float startColorGreen) {
         this.startColorGreen = startColorGreen;
     }
 
-    public double getStartColorRed() {
+    public float getStartColorRed() {
         return startColorRed;
     }
 
-    public void setStartColorRed(double startColorRed) {
+    public void setStartColorRed(float startColorRed) {
         this.startColorRed = startColorRed;
     }
 
-    public double getStartColorVarianceAlpha() {
+    public float getStartColorVarianceAlpha() {
         return startColorVarianceAlpha;
     }
 
-    public void setStartColorVarianceAlpha(double startColorVarianceAlpha) {
+    public void setStartColorVarianceAlpha(float startColorVarianceAlpha) {
         this.startColorVarianceAlpha = startColorVarianceAlpha;
     }
 
-    public double getStartColorVarianceBlue() {
+    public float getStartColorVarianceBlue() {
         return startColorVarianceBlue;
     }
 
-    public void setStartColorVarianceBlue(double startColorVarianceBlue) {
+    public void setStartColorVarianceBlue(float startColorVarianceBlue) {
         this.startColorVarianceBlue = startColorVarianceBlue;
     }
 
-    public double getStartColorVarianceGreen() {
+    public float getStartColorVarianceGreen() {
         return startColorVarianceGreen;
     }
 
-    public void setStartColorVarianceGreen(double startColorVarianceGreen) {
+    public void setStartColorVarianceGreen(float startColorVarianceGreen) {
         this.startColorVarianceGreen = startColorVarianceGreen;
     }
 
-    public double getStartColorVarianceRed() {
+    public float getStartColorVarianceRed() {
         return startColorVarianceRed;
     }
 
-    public void setStartColorVarianceRed(double startColorVarianceRed) {
+    public void setStartColorVarianceRed(float startColorVarianceRed) {
         this.startColorVarianceRed = startColorVarianceRed;
     }
 
@@ -433,27 +433,27 @@ public class CCParticleBean {
         this.startParticleSize = startParticleSize;
     }
 
-    public int getStartParticleSizeVariance() {
+    public double getStartParticleSizeVariance() {
         return startParticleSizeVariance;
     }
 
-    public void setStartParticleSizeVariance(int startParticleSizeVariance) {
+    public void setStartParticleSizeVariance(double startParticleSizeVariance) {
         this.startParticleSizeVariance = startParticleSizeVariance;
     }
 
-    public double getTangentialAccelVariance() {
+    public float getTangentialAccelVariance() {
         return tangentialAccelVariance;
     }
 
-    public void setTangentialAccelVariance(double tangentialAccelVariance) {
+    public void setTangentialAccelVariance(float tangentialAccelVariance) {
         this.tangentialAccelVariance = tangentialAccelVariance;
     }
 
-    public double getTangentialAcceleration() {
+    public float getTangentialAcceleration() {
         return tangentialAcceleration;
     }
 
-    public void setTangentialAcceleration(double tangentialAcceleration) {
+    public void setTangentialAcceleration(float tangentialAcceleration) {
         this.tangentialAcceleration = tangentialAcceleration;
     }
 

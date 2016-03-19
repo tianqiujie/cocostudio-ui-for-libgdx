@@ -144,7 +144,7 @@ public class CocoStudioUIEditor {
 
 		addParser(new CCSlider());
 
-        //addParser(new CCParticle());
+        addParser(new CCParticle());
 
 		actors = new HashMap<String, Array<Actor>>();
 		actionActors = new HashMap<Integer, Actor>();
@@ -289,12 +289,12 @@ public class CocoStudioUIEditor {
 		return null;
 	}
 
-    public FileHandle findParticePath(ObjectData option, String name){
+    public String findParticePath(String name){
         if (name == null || name.equals("")) {
             return null;
         }
 
-        return Gdx.files.internal(dirName + name);
+        return (dirName + name);
     }
 
 	/**
