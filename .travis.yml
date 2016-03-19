@@ -4,5 +4,16 @@ jdk:
   - oraclejdk8
   - oraclejdk7
 
+env:
+ - GDX_VERSION=1.9.2
+ - GDX_VERSION=1.9.1
+ - GDX_VERSION=1.9.0
+ - GDX_VERSION=1.8.0
+ - GDX_VERSION=1.7.0
+
+ script:
+   - ./gradlew check
+   - ./gradlew build
+
 before_install:
  - chmod +x gradlew

@@ -1,3 +1,3 @@
 ext {
-    gdxVersion = '1.9.2'
+    gdxVersion = System.env.GDX_VERSION != null ? System.env.GDX_VERSION : '1.9.2';
 }
