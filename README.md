@@ -1,9 +1,9 @@
 
-![](screenshut_1.png)
+![](docs/screenshut_1.png)
 
-![](screenshut_4.gif)
+![](docs/screenshut_4.gif)
 
-![](screenshut_3.png)
+![](docs/screenshut_3.png)
 必须要下载cocostudio后设置 编辑-> 拖动修改尺寸
 
 ##cocostudio-ui-for-libgdx是什么?
@@ -16,6 +16,9 @@
 * 1.可以使用最新版的cocostudio进行开发 http://www.cocos.com/download/
 * 2.修复了原版本的CheckBox，现在和cocos2dx里面的CheckBox一样的用法
 * 3.能解析cocostudio的粒子效果(还不完善)
+
+## 源码构建
+项目使用gradle管理，直接运行`./gradlew build`即可。如果需要运行demo，执行`./gradlew demo`即可。
 
 ##有问题反馈
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
@@ -32,7 +35,7 @@
 ##感谢
 感谢以下的个人或者项目,排名不分先后
 
-* [121077313/cocostudio-ui-libgdx](https://github.com/121077313/cocostudio-ui-libgdx) 
+* [121077313/cocostudio-ui-libgdx](https://github.com/121077313/cocostudio-ui-libgdx)
 * 感谢群友@Hey对粒子效果的解析贡献
 
 
