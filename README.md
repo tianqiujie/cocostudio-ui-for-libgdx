@@ -57,7 +57,9 @@ a ui library of ligdx with cocostudio
 
 
 ### 下一步计划
-* 1.完善cocos2dx的粒子系统
++ 完善cocos2dx的粒子系统
++ 添加单元测试
++ 尽可能修复checkstyle的错误
 
 ### 希望
-* 1.希望大家一起完善，为libgdx做出贡献
++ 希望大家一起完善，为libgdx做出贡献
