@@ -1,0 +1,15 @@
+apply plugin: 'nebula.contacts'
+apply plugin: 'nebula.info'
+
+contacts {
+    'tqj.zyy@gmail.com' {
+        id 'tian'
+    }
+    'htynkn@gmail.com' {
+        name 'Yunkun Huang'
+        id 'htynkn'
+    }
+    '121077313@qq,com' {
+        id 'isee'
+    }
+}
