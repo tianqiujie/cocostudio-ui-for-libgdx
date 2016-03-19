@@ -54,7 +54,6 @@ public class CCButton extends GroupParser {
         if (widget.getButtonText() != null && !widget.getButtonText().equals("")) {
             BitmapFont bitmapFont = editor.createLabelStyleBitmapFint(widget, widget.getButtonText(), editor
                     .getColor(widget.getTextColor(), widget.getAlpha()));
-            bitmapFont.setColor(Color.RED);
 
             TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle(
                 editor.findDrawable(widget, widget.getNormalFileData()),
@@ -62,9 +61,6 @@ public class CCButton extends GroupParser {
                 null,
                 bitmapFont
             );
-
-            LogUtil.Log(widget.getTextColor().getR() + " " +widget.getTextColor().getG() + " " +
-                widget.getTextColor().getB() + " ");
 
             button = new TextButton(widget.getButtonText(), textButtonStyle);
         } else {

@@ -336,6 +336,7 @@ public class CocoStudioUIEditor {
             return null;
         }
         TextureRegion tr = null;
+
         if (textureAtlas == null || textureAtlas.size() == 0) {// 不使用合并纹理
             tr = new TextureRegion(new Texture(Gdx.files.internal(dirName
                 + name)));
@@ -488,14 +489,19 @@ public class CocoStudioUIEditor {
             if (np == null) {
                 return null;
             }
+
+            np.setColor(getColor(option.getCColor(), option.getAlpha()));
             return new NinePatchDrawable(np);
         }
 
         TextureRegion tr = findTextureRegion(option, name);
+
         if (tr == null) {
             return null;
         }
 
+        TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(tr);
+        textureRegionDrawable.tint(getColor(option.getCColor(), option.getAlpha()));
         return new TextureRegionDrawable(tr);
     }
 
@@ -636,8 +642,13 @@ public class CocoStudioUIEditor {
         // }
 
         if (fontFile == null) {
-            debug(option, "ttf字体:" + option.getFontResource().getPath()
-                + " 不存在,使用默认字体");
+            try {
+                debug(option, "ttf字体:" + option.getFontResource().getPath()
+                    + " 不存在,使用默认字体");
+            }catch (Exception e){
+                //e.printStackTrace();
+                debug(option, "不存在字体,使用默认字体");
+            }
         }
 
         BitmapFont font = FontUtil.createFont(fontFile, text,
