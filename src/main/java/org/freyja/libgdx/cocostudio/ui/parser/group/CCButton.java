@@ -15,6 +15,9 @@
  */
 package org.freyja.libgdx.cocostudio.ui.parser.group;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g3d.utils.TextureBinder;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
@@ -25,6 +28,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import org.freyja.libgdx.cocostudio.ui.CocoStudioUIEditor;
 import org.freyja.libgdx.cocostudio.ui.model.ObjectData;
 import org.freyja.libgdx.cocostudio.ui.parser.GroupParser;
+import org.freyja.libgdx.cocostudio.ui.util.LogUtil;
+
+import javax.xml.soap.Text;
 
 public class CCButton extends GroupParser {
 
@@ -44,16 +50,21 @@ public class CCButton extends GroupParser {
         //
 
         final Button button;
-
         //分开解决TextButton和ImageButton
         if (widget.getButtonText() != null && !widget.getButtonText().equals("")) {
+            BitmapFont bitmapFont = editor.createLabelStyleBitmapFint(widget, widget.getButtonText(), editor
+                    .getColor(widget.getTextColor(), widget.getAlpha()));
+            bitmapFont.setColor(Color.RED);
+
             TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle(
                 editor.findDrawable(widget, widget.getNormalFileData()),
                 editor.findDrawable(widget, widget.getPressedFileData()),
                 null,
-                editor.createLabelStyleBitmapFint(widget, widget.getButtonText(), editor
-                    .getColor(widget.getTextColor(), 0))
+                bitmapFont
             );
+
+            LogUtil.Log(widget.getTextColor().getR() + " " +widget.getTextColor().getG() + " " +
+                widget.getTextColor().getB() + " ");
 
             button = new TextButton(widget.getButtonText(), textButtonStyle);
         } else {

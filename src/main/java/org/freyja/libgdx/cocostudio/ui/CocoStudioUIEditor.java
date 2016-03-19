@@ -53,6 +53,7 @@ import org.freyja.libgdx.cocostudio.ui.parser.widget.CCSlider;
 import org.freyja.libgdx.cocostudio.ui.parser.widget.CCSpriteView;
 import org.freyja.libgdx.cocostudio.ui.parser.widget.CCTextField;
 import org.freyja.libgdx.cocostudio.ui.util.FontUtil;
+import org.freyja.libgdx.cocostudio.ui.util.LogUtil;
 import org.freyja.libgdx.cocostudio.ui.widget.TTFLabelStyle;
 
 import java.io.File;
@@ -640,7 +641,9 @@ public class CocoStudioUIEditor {
         }
 
         BitmapFont font = FontUtil.createFont(fontFile, text,
-            option.getFontSize());
+            option.getFontSize(), color);
+
+        font.setColor(color);
 
         return font;
     }

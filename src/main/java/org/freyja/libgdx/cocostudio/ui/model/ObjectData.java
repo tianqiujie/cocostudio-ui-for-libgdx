@@ -22,11 +22,11 @@ import java.util.List;
  */
 public class ObjectData {
 
-    int fontSize;
+    int FontSize;
 
-    String buttonText;
+    String ButtonText;
 
-    CColor textColor;
+    CColor TextColor;
 
     String placeHolderText;
 
@@ -320,11 +320,11 @@ public class ObjectData {
     }
 
     public int getFontSize() {
-        return fontSize;
+        return FontSize;
     }
 
-    public void setFontSize(int fontSize) {
-        this.fontSize = fontSize;
+    public void setFontSize(int FontSize) {
+        this.FontSize = FontSize;
     }
 
     public CColor getSingleColor() {
@@ -384,19 +384,19 @@ public class ObjectData {
     }
 
     public String getButtonText() {
-        return buttonText;
+        return ButtonText;
     }
 
-    public void setButtonText(String buttonText) {
-        this.buttonText = buttonText;
+    public void setButtonText(String ButtonText) {
+        this.ButtonText = ButtonText;
     }
 
     public CColor getTextColor() {
-        return textColor;
+        return TextColor;
     }
 
-    public void setTextColor(CColor textColor) {
-        this.textColor = textColor;
+    public void setTextColor(CColor TextColor) {
+        this.TextColor = TextColor;
     }
 
     public FileData getDisabledFileData() {

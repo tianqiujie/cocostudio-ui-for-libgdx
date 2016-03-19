@@ -15,12 +15,15 @@
  */
 package org.freyja.libgdx.cocostudio.ui.model;
 
+/**
+ * 缺省为255
+ */
 public class CColor {
-    int R;
+    int R = 255;
 
-    int G;
+    int G = 255;
 
-    int B;
+    int B = 255;
 
     public int getR() {
         return R;
