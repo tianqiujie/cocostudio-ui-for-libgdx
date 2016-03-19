@@ -1,7 +1,7 @@
 
 ![](screenshut_1.png)
 
-![](screenshut_2.png)
+![](screenshut_4.gif)
 
 ![](screenshut_3.png)
 必须要下载cocostudio后设置 编辑-> 拖动修改尺寸
@@ -15,6 +15,7 @@
 
 * 1.可以使用最新版的cocostudio进行开发 http://www.cocos.com/download/
 * 2.修复了原版本的CheckBox，现在和cocos2dx里面的CheckBox一样的用法
+* 3.能解析cocostudio的粒子效果(还不完善)
 
 ##有问题反馈
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
@@ -32,6 +33,7 @@
 感谢以下的项目,排名不分先后
 
 * [121077313/cocostudio-ui-libgdx](https://github.com/121077313/cocostudio-ui-libgdx) 
+* 感谢群友@Hey对粒子效果的解析贡献
 
 
 ##关于作者
@@ -52,7 +54,7 @@ a ui library of ligdx with cocostudio
 
 
 ### 下一步计划
-* 1.移植cocos2dx的粒子系统
+* 1.完善cocos2dx的粒子系统
 
 ### 希望
 * 1.希望大家一起完善，为libgdx做出贡献
