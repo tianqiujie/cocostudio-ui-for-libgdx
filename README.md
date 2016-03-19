@@ -1,18 +1,18 @@
-
-![](docs/screenshut_1.png)
-
-![](docs/screenshut_4.gif)
-
-![](docs/screenshut_3.png)
-必须要下载cocostudio后设置 编辑-> 拖动修改尺寸
-
 ##cocostudio-ui-for-libgdx是什么?
 * a ui library of ligdx with cocostudio
 * Thank for the project: https://github.com/121077313/cocostudio-ui-libgdx
 * 非常感谢cocostudio-ui-libgdx项目。这个项目是基于该项目修改的。
 
-##cocostudio-ui-for-libgdx有哪些特性？
+## 展示
+![](docs/screenshut_1.png)
 
+![](docs/screenshut_4.gif)
+
+![](docs/screenshut_3.png)
+
+必须要下载cocostudio后设置 编辑-> 拖动修改尺寸
+
+##cocostudio-ui-for-libgdx有哪些特性？
 * 1.可以使用最新版的cocostudio进行开发 http://www.cocos.com/download/
 * 2.修复了原版本的CheckBox，现在和cocos2dx里面的CheckBox一样的用法
 * 3.能解析cocostudio的粒子效果(还不完善)
