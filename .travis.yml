@@ -11,9 +11,9 @@ env:
  - GDX_VERSION=1.8.0
  - GDX_VERSION=1.7.0
 
- script:
-   - ./gradlew check
-   - ./gradlew build
+script:
+ - ./gradlew check
+ - ./gradlew build
 
 before_install:
  - chmod +x gradlew
