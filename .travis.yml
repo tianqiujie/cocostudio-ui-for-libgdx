@@ -14,5 +14,5 @@ env:
 before_install:
  - chmod +x gradlew
 
- after_success:
+after_success:
  - ./gradlew cobertura coveralls
