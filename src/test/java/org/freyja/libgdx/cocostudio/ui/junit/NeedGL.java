@@ -13,17 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.freyja.libgdx.cocostudio.ui.util;
+package org.freyja.libgdx.cocostudio.ui.junit;
 
-import org.junit.Test;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-public class StringUtilTest {
-    @Test
-    public void shouldRemoveRepeatChars() throws Exception {
-        String origin = "ThisIsReq";
-        assertThat(StringUtil.removeRepeatedChar(origin), is("ThisIReq"));
-    }
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD})
+public @interface NeedGL {
 }
