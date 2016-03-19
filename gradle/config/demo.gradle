@@ -1,0 +1,17 @@
+apply plugin: 'nebula.facet'
+facets {
+    demo
+}
+task demo(dependsOn: demoClasses, type: JavaExec) {
+    main = "org.freyja.libgdx.cocostudio.ui.Runner"
+    classpath = sourceSets.demo.runtimeClasspath
+    standardInput = System.in
+    workingDir = "$projectDir/src/demo/resources"
+    ignoreExitValue = true
+}
+
+dependencies {
+    demoCompile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+    demoCompile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    demoCompile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+}
