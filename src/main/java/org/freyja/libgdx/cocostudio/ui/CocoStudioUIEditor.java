@@ -27,16 +27,26 @@ import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
+
 import org.freyja.libgdx.cocostudio.ui.model.CCExport;
 import org.freyja.libgdx.cocostudio.ui.model.CColor;
 import org.freyja.libgdx.cocostudio.ui.model.FileData;
 import org.freyja.libgdx.cocostudio.ui.model.ObjectData;
+import org.freyja.libgdx.cocostudio.ui.model.animation.CCAction;
+import org.freyja.libgdx.cocostudio.ui.model.animation.CCActionFrame;
+import org.freyja.libgdx.cocostudio.ui.model.animation.CCActionNode;
+import org.freyja.libgdx.cocostudio.ui.model.animation.CCAnimation;
+import org.freyja.libgdx.cocostudio.ui.model.timelines.CCTimelineActionData;
+import org.freyja.libgdx.cocostudio.ui.model.timelines.CCTimelineData;
+import org.freyja.libgdx.cocostudio.ui.model.timelines.CCTimelineFrame;
 import org.freyja.libgdx.cocostudio.ui.parser.group.CCButton;
 import org.freyja.libgdx.cocostudio.ui.parser.group.CCCheckBox;
 import org.freyja.libgdx.cocostudio.ui.parser.group.CCLabelAtlas;
@@ -59,6 +69,7 @@ import org.freyja.libgdx.cocostudio.ui.widget.TTFLabelStyle;
 import java.io.File;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -92,6 +103,9 @@ public class CocoStudioUIEditor {
     protected Map<Integer, Actor> actionActors;
 
     Map<String, Map<Actor, Action>> animations;
+
+    //k: 控件ActionTag v: Action
+    protected Map<Integer, Action> actionTagActionMap;
 
     /**
      * 字体集合
@@ -174,6 +188,8 @@ public class CocoStudioUIEditor {
 
         animations = new HashMap<String, Map<Actor, Action>>();
 
+        actionTagActionMap = new HashMap<Integer, Action>();
+
         dirName = jsonFile.parent().toString();
 
         if (!dirName.equals("")) {
@@ -183,6 +199,8 @@ public class CocoStudioUIEditor {
         Json jj = new Json();
         jj.setIgnoreUnknownFields(true);
         export = jj.fromJson(CCExport.class, json);
+
+        parseAction();
     }
 
     /**
@@ -216,8 +234,6 @@ public class CocoStudioUIEditor {
         Actor actor = parseWidget(null, export.getContent().getContent()
             .getObjectData());
 
-        // parseAction();
-
         return (Group) actor;
     }
 
@@ -232,61 +248,169 @@ public class CocoStudioUIEditor {
     /**
      * 转换动作Action
      */
-    // void parseAction() {
-    //
-    // CCAnimation animation = export.getAnimation();
-    // for (CCAction action : animation.getActionlist()) {
-    //
-    // List<CCActionNode> nodes = action.getActionnodelist();
-    // Map<Actor, Action> actions = new HashMap<Actor, Action>();
-    // for (CCActionNode node : nodes) {
-    // Actor actor = actionActors.get(node.getActionTag());
-    // List<CCActionFrame> frames = node.getActionframelist();
-    // // frameid 排序.
-    // SequenceAction sequenceAction = Actions.sequence();
-    // for (CCActionFrame frame : frames) {
-    // Interpolation interpolation = getInterpolation(frame
-    // .getTweenType());
-    //
-    // float duration = 0;
-    // // Starttime 会是一个类似
-    // // 7.163279E-39的字符没办法直接转换Float,所以这里采用截取字符串的方法
-    // int length = frame.getStarttime().indexOf("E");
-    // if (length != -1) {
-    // duration = Float.parseFloat(frame.getStarttime()
-    // .substring(0, length));
-    // } else {
-    // duration = Float.parseFloat(frame.getStarttime());
-    // }
-    //
-    // Action moveTo = Actions.moveTo(frame.getPositionx(),
-    // frame.getPositiony(), duration, interpolation);
-    //
-    // Action scaleTo = Actions.scaleTo(frame.getScalex(),
-    // frame.getScaley(), duration, interpolation);
-    //
-    // Action color = Actions.color(new Color(
-    // frame.getColorr() / 255.0f,
-    // frame.getColorg() / 255.0f,
-    // frame.getColorb() / 255.0f,
-    // frame.getOpacity() / 255.0f), duration,
-    // interpolation);
-    //
-    // Action rotateTo = Actions.rotateTo(frame.getRotation(),
-    // duration, interpolation);
-    //
-    // sequenceAction.addAction(Actions.parallel(moveTo, scaleTo,
-    // color, rotateTo));
-    // }
-    //
-    // actions.put(actor, sequenceAction);
-    // }
-    //
-    // animations.put(action.getName(), actions);
-    // }
-    //
-    // }
+    void parseAction() {
+        CCTimelineActionData ccTimelineActionData = export.getContent().getContent().getAnimation();
+        float duration = ccTimelineActionData.getDuration();
+        float speed = ccTimelineActionData.getSpeed();
+
+        List<CCTimelineData> ccTimelineDatas = ccTimelineActionData.getTimelines();
+
+        for (CCTimelineData ccTimelineData : ccTimelineDatas) {
+            //位移动画
+            if (ccTimelineData.getProperty().equals("Position")) {
+                List<CCTimelineFrame> ccTimelineFrames = ccTimelineData.getFrames();
+
+                SequenceAction sequenceAction = Actions.sequence();
+
+                /*for (int i = 0; i < ccTimelineFrames.size(); i++) {
+                    CCTimelineFrame ccTimelineFrame = ccTimelineFrames.get(i);
+
+                }*/
+
+                for (CCTimelineFrame ccTimelineFrame : ccTimelineFrames) {
+                    Action action = Actions.moveTo(ccTimelineFrame.getX(), ccTimelineFrame.getY()
+                        , speed
+                            / duration *
+                            ccTimelineFrame
+                                .getFrameIndex(),
+                        getInterpolation(ccTimelineFrame.getEasingData().getType()));
+
+                    sequenceAction.addAction(action);
+                }
+
+                actionTagActionMap.put(ccTimelineData.getActionTag(), sequenceAction);
+            }
+        }
+
+       /* CCAnimation animation = export.getContent().getContent().getAnimation();
+        for (CCAction action : animation.getActionlist()) {
+
+            List<CCActionNode> nodes = action.getActionnodelist();
+            Map<Actor, Action> actions = new HashMap<Actor, Action>();
+            for (CCActionNode node : nodes) {
+                Actor actor = actionActors.get(node.getActionTag());
+                List<CCActionFrame> frames = node.getActionframelist();
+                // frameid 排序.
+                SequenceAction sequenceAction = Actions.sequence();
+                for (CCActionFrame frame : frames) {
+                    Interpolation interpolation = getInterpolation(frame
+                        .getTweenType());
+
+                    float duration = 0;
+                    // Starttime 会是一个类似
+                    // 7.163279E-39的字符没办法直接转换Float,所以这里采用截取字符串的方法
+                    int length = frame.getStarttime().indexOf("E");
+                    if (length != -1) {
+                        duration = Float.parseFloat(frame.getStarttime()
+                            .substring(0, length));
+                    } else {
+                        duration = Float.parseFloat(frame.getStarttime());
+                    }
+
+                    Action moveTo = Actions.moveTo(frame.getPositionx(),
+                        frame.getPositiony(), duration, interpolation);
+
+                    Action scaleTo = Actions.scaleTo(frame.getScalex(),
+                        frame.getScaley(), duration, interpolation);
+
+                    Action color = Actions.color(new Color(
+                            frame.getColorr() / 255.0f,
+                            frame.getColorg() / 255.0f,
+                            frame.getColorb() / 255.0f,
+                            frame.getOpacity() / 255.0f), duration,
+                        interpolation);
+
+                    Action rotateTo = Actions.rotateTo(frame.getRotation(),
+                        duration, interpolation);
+
+                    sequenceAction.addAction(Actions.parallel(moveTo, scaleTo,
+                        color, rotateTo));
+                }
+
+                actions.put(actor, sequenceAction);
+            }
+
+            animations.put(action.getName(), actions);
+        }*/
+
+    }
+
+    public Map<Integer, Action> getActionTagActionMap() {
+        return actionTagActionMap;
+    }
+
+    /**
+     * @param tweenType
+     * @return
+     * @author tian
+     * 根据传入的值返回插值类型
+     */
     public Interpolation getInterpolation(int tweenType) {
+        switch (tweenType) {
+            case 0:
+                return Interpolation.linear;
+            case 1:
+                return Interpolation.sineIn;
+            case 2:
+                return Interpolation.sineOut;
+            case 3:
+                return Interpolation.sine;
+            case 4:
+                return Interpolation.linear;//不支持Quad_EaseIn
+            case 5:
+                return Interpolation.linear;//不支持Quad_EaseOut
+            case 6:
+                return Interpolation.linear;//不支持Quad_EaseInOut
+            case 7:
+                return Interpolation.linear;//不支持Cubic_EaseIn
+            case 8:
+                return Interpolation.linear;//不支持Cubic_EaseOut
+            case 9:
+                return Interpolation.linear;//不支持Cubic_EaseInOut
+            case 10:
+                return Interpolation.linear;//不支持Quart_EaseIn
+            case 11:
+                return Interpolation.linear;//不支持Quart_EaseOut
+            case 12:
+                return Interpolation.linear;//不支持Quart_EaseInOut
+            case 13:
+                return Interpolation.linear;//不支持Quint_EaseIn
+            case 14:
+                return Interpolation.linear;//不支持Quint_EaseOut
+            case 15:
+                return Interpolation.linear;//不支持Quint_EaseInOut
+            case 16:
+                return Interpolation.exp10In;
+            case 17:
+                return Interpolation.exp10Out;
+            case 18:
+                return Interpolation.exp10;
+            case 19:
+                return Interpolation.circleIn;
+            case 20:
+                return Interpolation.circleOut;
+            case 21:
+                return Interpolation.circle;
+            case 22:
+                return Interpolation.elasticIn;
+            case 23:
+                return Interpolation.elasticOut;
+            case 24:
+                return Interpolation.elastic;
+            case 25:
+                return Interpolation.linear;//不支持Back_EaseIn
+            case 26:
+                return Interpolation.linear;//不支持Back_EaseOut
+            case 27:
+                return Interpolation.linear;//不支持Back_EaseInOut
+            case 28:
+                return Interpolation.bounceIn;
+            case 29:
+                return Interpolation.bounceOut;
+            case 30:
+                return Interpolation.bounce;
+        }
+
         return null;
     }
 
@@ -500,8 +624,8 @@ public class CocoStudioUIEditor {
             return null;
         }
 
-        TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(tr);
-        textureRegionDrawable.tint(getColor(option.getCColor(), option.getAlpha()));
+        //TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(tr);
+       // textureRegionDrawable.tint(getColor(option.getCColor(), option.getAlpha()));
         return new TextureRegionDrawable(tr);
     }
 
@@ -645,7 +769,7 @@ public class CocoStudioUIEditor {
             try {
                 debug(option, "ttf字体:" + option.getFontResource().getPath()
                     + " 不存在,使用默认字体");
-            }catch (Exception e){
+            } catch (Exception e) {
                 //e.printStackTrace();
                 debug(option, "不存在字体,使用默认字体");
             }

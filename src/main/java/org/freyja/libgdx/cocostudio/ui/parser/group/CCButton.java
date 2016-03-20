@@ -25,6 +25,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
+
 import org.freyja.libgdx.cocostudio.ui.CocoStudioUIEditor;
 import org.freyja.libgdx.cocostudio.ui.model.ObjectData;
 import org.freyja.libgdx.cocostudio.ui.parser.GroupParser;

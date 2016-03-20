@@ -23,6 +23,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
+
 import org.freyja.libgdx.cocostudio.ui.model.ObjectData;
 
 import java.lang.reflect.Method;
@@ -49,7 +50,7 @@ public abstract class BaseWidgetParser {
 
     /**
      * common attribute parser<br>
-     * <p>
+     * <p/>
      * according cocstudio ui setting properties of the configuration file
      *
      * @param editor
@@ -73,29 +74,33 @@ public abstract class BaseWidgetParser {
 
         // cocos anchor bug
 
-        // if (parent == null) {
-        // actor.setPosition(widget.getPosition().getX() - actor.getOriginX(),
-        // widget.getPosition().getY() - actor.getOriginY());
-        // } else {
-        //
-        // // 锚点要算上父控件的锚点,也就是原点
-        // actor.setX(parent.getOriginX()
-        // - (actor.getOriginX() - widget.getPosition().getX()));
-        //
-        // actor.setY(parent.getOriginY()
-        // - (actor.getOriginY() - widget.getPosition().getY()));
-        // }
+//        if (widget.getPosition() != null) {
+//            if (parent == null) {
+//                actor.setPosition(widget.getPosition().getX() - actor.getOriginX(),
+//                    widget.getPosition().getY() - actor.getOriginY());
+//            } else {
+//
+//                // 锚点要算上父控件的锚点,也就是原点
+//                actor.setX(parent.getOriginX()
+//                    - (actor.getOriginX() - widget.getPosition().getX()));
+//
+//                actor.setY(parent.getOriginY()
+//                    - (actor.getOriginY() - widget.getPosition().getY()));
+//            }
+//        }
 
         //判空，因为新版本的单独节点没有Postion属性
-        if (widget.getPosition() != null)
+        if (widget.getPosition() != null) {
             actor.setPosition(widget.getPosition().getX() - actor.getOriginX(),
                 widget.getPosition().getY() - actor.getOriginY());
+        }
 
         // CocoStudio的编辑器ScaleX,ScaleY 会有负数情况
         //判空，因为新版本的单独节点没有Scale属性
-        if (widget.getScale() != null)
+        if (widget.getScale() != null) {
             actor.setScale(widget.getScale().getScaleX(), widget.getScale()
                 .getScaleY());
+        }
 
         if (widget.getRotation() != 0) {// CocoStudio 是顺时针方向旋转,转换下.
             actor.setRotation(360 - widget.getRotation() % 360);
@@ -119,6 +124,11 @@ public abstract class BaseWidgetParser {
         addActor(editor, actor, widget);
 
         if (widget.getChildren() == null || widget.getChildren().size() == 0) {
+            //添加Action
+            if (editor.getActionTagActionMap().containsKey(widget.getActionTag())) {
+                actor.addAction(editor.getActionTagActionMap().get(widget.getActionTag()));
+            }
+
             return actor;
         }
 

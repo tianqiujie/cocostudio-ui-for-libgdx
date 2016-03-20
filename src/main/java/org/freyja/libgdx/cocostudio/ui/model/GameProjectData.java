@@ -16,22 +16,23 @@
 package org.freyja.libgdx.cocostudio.ui.model;
 
 import org.freyja.libgdx.cocostudio.ui.model.animation.CCAnimation;
+import org.freyja.libgdx.cocostudio.ui.model.timelines.CCTimelineActionData;
 
 import java.util.List;
 
 public class GameProjectData {
 
-    TimelineActionData Animation;
+    CCTimelineActionData Animation;
 
     List<CCAnimation> AnimationList;
 
     ObjectData ObjectData;
 
-    public TimelineActionData getAnimation() {
+    public CCTimelineActionData getAnimation() {
         return Animation;
     }
 
-    public void setAnimation(TimelineActionData animation) {
+    public void setAnimation(CCTimelineActionData animation) {
         Animation = animation;
     }
 

@@ -33,6 +33,7 @@ public abstract class GroupParser extends BaseWidgetParser {
     public Actor commonParse(CocoStudioUIEditor editor, ObjectData widget,
                              Group parent, Actor actor) {
         Actor ac = super.commonParse(editor, widget, parent, actor);
+
         if (ac != null) {
             return ac;
         }

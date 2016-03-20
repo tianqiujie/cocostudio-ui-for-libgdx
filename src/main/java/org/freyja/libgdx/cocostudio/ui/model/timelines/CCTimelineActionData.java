@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.freyja.libgdx.cocostudio.ui.model;
+package org.freyja.libgdx.cocostudio.ui.model.timelines;
 
 import java.util.List;
 
-public class TimelineActionData {
+public class CCTimelineActionData {
 
     float Duration;
     float Speed;
-    List Timelines;
+    List<CCTimelineData> Timelines;
     String ctype;
 
     public float getDuration() {
@@ -40,11 +40,11 @@ public class TimelineActionData {
         Speed = speed;
     }
 
-    public List getTimelines() {
+    public List<CCTimelineData> getTimelines() {
         return Timelines;
     }
 
-    public void setTimelines(List timelines) {
+    public void setTimelines(List<CCTimelineData> timelines) {
         Timelines = timelines;
     }
 

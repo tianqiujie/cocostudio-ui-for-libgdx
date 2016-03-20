@@ -9,10 +9,6 @@ env:
  - GDX_VERSION=1.9.0
  - GDX_VERSION=1.8.0
  - GDX_VERSION=1.7.0
- - COVERALLS_REPO_TOKEN=7fQFZdWXGLlQ7inWOYOD9ZpHezRHAjRsi
 
 before_install:
  - chmod +x gradlew
-
-after_success:
- - ./gradlew cobertura coveralls
