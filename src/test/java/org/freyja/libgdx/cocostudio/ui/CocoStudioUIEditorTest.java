@@ -17,15 +17,15 @@ package org.freyja.libgdx.cocostudio.ui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import org.freyja.libgdx.cocostudio.ui.junit.LibgdxRunner;
 import org.freyja.libgdx.cocostudio.ui.junit.NeedGL;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.internal.util.reflection.Whitebox;
 
-import static org.hamcrest.CoreMatchers.*;
+import java.util.Map;
+
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @RunWith(LibgdxRunner.class)
@@ -33,16 +33,14 @@ public class CocoStudioUIEditorTest {
 
     @Test
     @NeedGL
-    public void shouldParseSingleButtonWithImages() throws Exception {
+    public void shouldGetAllParsers() throws Exception {
         FileHandle defaultFont = Gdx.files.internal("share/MLFZS.ttf");
 
         CocoStudioUIEditor editor = new CocoStudioUIEditor(
             Gdx.files.internal("single-button/MainScene.json"), null, null, defaultFont, null);
 
-        Group group = editor.createGroup();
-        Actor actor = group.findActor("Button_1");
+        Map<String, BaseWidgetParser> parsers = (Map<String, BaseWidgetParser>) Whitebox.getInternalState(editor, "parsers");
 
-        assertThat(actor, not(nullValue()));
-        assertThat(actor, instanceOf(ImageButton.class));
+        assertThat(parsers.size(), is(15));
     }
 }
