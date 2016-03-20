@@ -7,3 +7,8 @@ checkstyle {
     //当前checkstyle错误过多 ， 暂时关闭
     ignoreFailures = true
 }
+
+apply plugin: "net.saliman.cobertura"
+cobertura.coverageFormats = ['html', 'xml']
+
+apply plugin: "com.github.kt3k.coveralls"
