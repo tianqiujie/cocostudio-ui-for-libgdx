@@ -28,7 +28,7 @@ public class ObjectData {
 
     CColor TextColor;
 
-    String placeHolderText;
+    String PlaceHolderText;
 
     boolean isCustomSize;
 
@@ -360,11 +360,11 @@ public class ObjectData {
     }
 
     public String getPlaceHolderText() {
-        return placeHolderText;
+        return PlaceHolderText;
     }
 
     public void setPlaceHolderText(String placeHolderText) {
-        this.placeHolderText = placeHolderText;
+        this.PlaceHolderText = placeHolderText;
     }
 
     public boolean isIsCustomSize() {

@@ -35,15 +35,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
-
 import org.freyja.libgdx.cocostudio.ui.model.CCExport;
 import org.freyja.libgdx.cocostudio.ui.model.CColor;
 import org.freyja.libgdx.cocostudio.ui.model.FileData;
 import org.freyja.libgdx.cocostudio.ui.model.ObjectData;
-import org.freyja.libgdx.cocostudio.ui.model.animation.CCAction;
-import org.freyja.libgdx.cocostudio.ui.model.animation.CCActionFrame;
-import org.freyja.libgdx.cocostudio.ui.model.animation.CCActionNode;
-import org.freyja.libgdx.cocostudio.ui.model.animation.CCAnimation;
 import org.freyja.libgdx.cocostudio.ui.model.timelines.CCTimelineActionData;
 import org.freyja.libgdx.cocostudio.ui.model.timelines.CCTimelineData;
 import org.freyja.libgdx.cocostudio.ui.model.timelines.CCTimelineFrame;
@@ -53,6 +48,7 @@ import org.freyja.libgdx.cocostudio.ui.parser.group.CCLabelAtlas;
 import org.freyja.libgdx.cocostudio.ui.parser.group.CCLayer;
 import org.freyja.libgdx.cocostudio.ui.parser.group.CCNode;
 import org.freyja.libgdx.cocostudio.ui.parser.group.CCPanel;
+import org.freyja.libgdx.cocostudio.ui.parser.group.CCProjectNode;
 import org.freyja.libgdx.cocostudio.ui.parser.group.CCScrollView;
 import org.freyja.libgdx.cocostudio.ui.parser.widget.CCImageView;
 import org.freyja.libgdx.cocostudio.ui.parser.widget.CCLabel;
@@ -63,7 +59,6 @@ import org.freyja.libgdx.cocostudio.ui.parser.widget.CCSlider;
 import org.freyja.libgdx.cocostudio.ui.parser.widget.CCSpriteView;
 import org.freyja.libgdx.cocostudio.ui.parser.widget.CCTextField;
 import org.freyja.libgdx.cocostudio.ui.util.FontUtil;
-import org.freyja.libgdx.cocostudio.ui.util.LogUtil;
 import org.freyja.libgdx.cocostudio.ui.widget.TTFLabelStyle;
 
 import java.io.File;
@@ -182,6 +177,7 @@ public class CocoStudioUIEditor {
         addParser(new CCSlider());
 
         addParser(new CCParticle());
+        addParser(new CCProjectNode());
 
         actors = new HashMap<String, Array<Actor>>();
         actionActors = new HashMap<Integer, Actor>();
@@ -625,7 +621,7 @@ public class CocoStudioUIEditor {
         }
 
         //TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(tr);
-       // textureRegionDrawable.tint(getColor(option.getCColor(), option.getAlpha()));
+        // textureRegionDrawable.tint(getColor(option.getCColor(), option.getAlpha()));
         return new TextureRegionDrawable(tr);
     }
 
@@ -823,4 +819,11 @@ public class CocoStudioUIEditor {
         this.actionActors = actionActors;
     }
 
+    public FileHandle getDefaultFont() {
+        return defaultFont;
+    }
+
+    public Collection<TextureAtlas> getTextureAtlas() {
+        return textureAtlas;
+    }
 }
