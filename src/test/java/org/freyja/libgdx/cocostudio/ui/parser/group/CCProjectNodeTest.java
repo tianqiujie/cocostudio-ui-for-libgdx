@@ -13,36 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.freyja.libgdx.cocostudio.ui;
+package org.freyja.libgdx.cocostudio.ui.parser.group;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import org.freyja.libgdx.cocostudio.ui.CocoStudioUIEditor;
 import org.freyja.libgdx.cocostudio.ui.junit.LibgdxRunner;
 import org.freyja.libgdx.cocostudio.ui.junit.NeedGL;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.internal.util.reflection.Whitebox;
 
-import java.io.File;
-import java.util.Map;
-
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 @RunWith(LibgdxRunner.class)
-public class CocoStudioUIEditorTest {
-
+public class CCProjectNodeTest {
     @Test
     @NeedGL
-    public void shouldGetAllParsers() throws Exception {
+    public void shouldEnableParseProjectNode() throws Exception {
         FileHandle defaultFont = Gdx.files.internal("share/MLFZS.ttf");
 
         CocoStudioUIEditor editor = new CocoStudioUIEditor(
-            Gdx.files.internal("single-button/MainScene.json"), null, null, defaultFont, null);
-        assertThat(editor.getDirName(), is("single-button" + File.separator));
+            Gdx.files.internal("mainMenu/MainScene.json"), null, null, defaultFont, null);
 
-        Map<String, BaseWidgetParser> parsers = (Map<String, BaseWidgetParser>) Whitebox.getInternalState(editor, "parsers");
-
-        assertThat(parsers.size(), is(16));
+        Group group = editor.createGroup();
+        Actor button = group.findActor("Bnss_2");
+        assertThat(button, not(nullValue()));
     }
 }
