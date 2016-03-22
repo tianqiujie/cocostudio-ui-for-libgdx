@@ -1,0 +1,720 @@
+{
+  "ID": "444184c6-b268-45bc-b6da-9c74bf060999",
+  "Version": "2.3.4",
+  "Name": "Login",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 91,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Login/LI07.jpg",
+              "Plist": ""
+            },
+            "Scale9Width": 640,
+            "Scale9Height": 960,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.0,
+              "Y": 480.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 92,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Login/BaS32.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Login/BaS31.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9Width": 240,
+                "Scale9Height": 81,
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 171.9999,
+                  "Y": 153.5001
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2687,
+                  "Y": 0.1599
+                },
+                "PreSize": {
+                  "X": 0.375,
+                  "Y": 0.0844
+                },
+                "LeftMargin": 51.9999,
+                "RightMargin": 348.0001,
+                "TopMargin": 765.9999,
+                "BottomMargin": 113.0001,
+                "Tag": 93,
+                "ActionTag": 2076448327,
+                "Size": {
+                  "X": 240.0,
+                  "Y": 81.0
+                },
+                "Name": "Button_1_2_6_10",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Login/LI02.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Login/LI01.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9Width": 240,
+                "Scale9Height": 81,
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 468.0001,
+                  "Y": 153.4998
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7313,
+                  "Y": 0.1599
+                },
+                "PreSize": {
+                  "X": 0.375,
+                  "Y": 0.0844
+                },
+                "HorizontalEdge": "RightEdge",
+                "LeftMargin": 348.0001,
+                "RightMargin": 51.9999,
+                "TopMargin": 766.0002,
+                "BottomMargin": 112.9998,
+                "Tag": 94,
+                "ActionTag": 147826963,
+                "Size": {
+                  "X": 240.0,
+                  "Y": 81.0
+                },
+                "Name": "Button_1_0_4_8_12",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": -146370099,
+            "Size": {
+              "X": 640.0,
+              "Y": 960.0
+            },
+            "Name": "Image_1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.7858,
+              "Y": 529.1125
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5012,
+              "Y": 0.5512
+            },
+            "PreSize": {
+              "X": 0.5813,
+              "Y": 0.0521
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 134.7858,
+            "RightMargin": 133.2142,
+            "TopMargin": 405.8875,
+            "BottomMargin": 504.1125,
+            "Tag": 95,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Login/Frd11.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 93.251,
+                  "Y": 25.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2507,
+                  "Y": 0.51
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 0.251,
+                "RightMargin": 185.749,
+                "TopMargin": -0.5,
+                "BottomMargin": 0.5,
+                "Tag": 96,
+                "ActionTag": 1837197815,
+                "Size": {
+                  "X": 186.0,
+                  "Y": 50.0
+                },
+                "Name": "Frd11_1_2_16_28",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FlipY": true,
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Login/Frd11.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 279.2508,
+                  "Y": 26.4999
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7507,
+                  "Y": 0.53
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 186.2508,
+                "RightMargin": -0.2508,
+                "TopMargin": -1.4999,
+                "BottomMargin": 1.4999,
+                "Tag": 97,
+                "ActionTag": 333690397,
+                "Size": {
+                  "X": 186.0,
+                  "Y": 50.0
+                },
+                "Name": "Frd11_1_0_4_18_30",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 20,
+                "IsCustomSize": true,
+                "LabelText": "",
+                "PlaceHolderText": "Username",
+                "MaxLengthText": 10,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 185.4526,
+                  "Y": 24.2319
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4985,
+                  "Y": 0.4846
+                },
+                "PreSize": {
+                  "X": 0.9409,
+                  "Y": 0.54
+                },
+                "LeftMargin": 10.4526,
+                "RightMargin": 11.5474,
+                "TopMargin": 12.2681,
+                "BottomMargin": 10.7319,
+                "Tag": 98,
+                "ActionTag": -1097765139,
+                "Size": {
+                  "X": 350.0,
+                  "Y": 27.0
+                },
+                "Name": "TextField_17_21",
+                "ctype": "TextFieldObjectData"
+              }
+            ],
+            "ActionTag": 282936416,
+            "Size": {
+              "X": 372.0,
+              "Y": 50.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.3361,
+              "Y": 430.8879
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5005,
+              "Y": 0.4488
+            },
+            "PreSize": {
+              "X": 0.5813,
+              "Y": 0.0521
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 134.3361,
+            "RightMargin": 133.6639,
+            "TopMargin": 504.1121,
+            "BottomMargin": 405.8879,
+            "Tag": 99,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Login/Frd11.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 93.251,
+                  "Y": 25.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2507,
+                  "Y": 0.51
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 0.251,
+                "RightMargin": 185.749,
+                "TopMargin": -0.5,
+                "BottomMargin": 0.5,
+                "Tag": 100,
+                "ActionTag": -1617159305,
+                "Size": {
+                  "X": 186.0,
+                  "Y": 50.0
+                },
+                "Name": "Frd11_1_2_16_24_32",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FlipY": true,
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Login/Frd11.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 279.2508,
+                  "Y": 26.4999
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7507,
+                  "Y": 0.53
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 186.2508,
+                "RightMargin": -0.2508,
+                "TopMargin": -1.4999,
+                "BottomMargin": 1.4999,
+                "Tag": 101,
+                "ActionTag": -1709579389,
+                "Size": {
+                  "X": 186.0,
+                  "Y": 50.0
+                },
+                "Name": "Frd11_1_0_4_18_26_34",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 20,
+                "IsCustomSize": true,
+                "LabelText": "",
+                "PlaceHolderText": "Password",
+                "MaxLengthText": 10,
+                "PasswordEnable": true,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 185.4523,
+                  "Y": 24.2316
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4985,
+                  "Y": 0.4846
+                },
+                "PreSize": {
+                  "X": 0.9409,
+                  "Y": 0.54
+                },
+                "LeftMargin": 10.4523,
+                "RightMargin": 11.5477,
+                "TopMargin": 12.2684,
+                "BottomMargin": 10.7316,
+                "Tag": 102,
+                "ActionTag": -426470207,
+                "Size": {
+                  "X": 350.0,
+                  "Y": 27.0
+                },
+                "Name": "TextField_17_19_23",
+                "ctype": "TextFieldObjectData"
+              }
+            ],
+            "ActionTag": -737595456,
+            "Size": {
+              "X": 372.0,
+              "Y": 50.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "CheckedState": true,
+            "NormalBackFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBox_Normal.png",
+              "Plist": ""
+            },
+            "PressedBackFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBox_Press.png",
+              "Plist": ""
+            },
+            "DisableBackFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBox_Disable.png",
+              "Plist": ""
+            },
+            "NodeNormalFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBoxNode_Normal.png",
+              "Plist": ""
+            },
+            "NodeDisableFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBoxNode_Disable.png",
+              "Plist": ""
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 396.8,
+              "Y": 364.8
+            },
+            "Scale": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.62,
+              "Y": 0.38
+            },
+            "PreSize": {
+              "X": 0.0521,
+              "Y": 0.0391
+            },
+            "LeftMargin": 376.8,
+            "RightMargin": 223.2,
+            "TopMargin": 575.2,
+            "BottomMargin": 344.8,
+            "Tag": 268,
+            "Children": [
+              {
+                "LabelText": "save password",
+                "LabelBMFontFile_CNB": {
+                  "Type": "Default",
+                  "Path": "Default/defaultBMFont.fnt",
+                  "Plist": ""
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 151.9658,
+                  "Y": 21.9979
+                },
+                "Scale": {
+                  "ScaleX": 1.2,
+                  "ScaleY": 1.2
+                },
+                "CColor": {
+                  "R": 12,
+                  "G": 7,
+                  "B": 7
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.7991,
+                  "Y": 0.5499
+                },
+                "PreSize": {
+                  "X": 4.175,
+                  "Y": 0.9
+                },
+                "HorizontalEdge": "RightEdge",
+                "LeftMargin": 68.4658,
+                "RightMargin": -195.4658,
+                "TopMargin": 0.0021,
+                "BottomMargin": 3.9979,
+                "Tag": 350,
+                "ActionTag": -1852878510,
+                "Size": {
+                  "X": 167.0,
+                  "Y": 36.0
+                },
+                "Name": "BitmapFontLabel_1",
+                "ctype": "TextBMFontObjectData"
+              }
+            ],
+            "ActionTag": 518689797,
+            "Size": {
+              "X": 40.0,
+              "Y": 40.0
+            },
+            "Name": "CheckBox_1",
+            "ctype": "CheckBoxObjectData"
+          }
+        ],
+        "Size": {
+          "X": 640.0,
+          "Y": 960.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "Default/CheckBox_Disable.png",
+        "Default/CheckBox_Normal.png",
+        "Default/CheckBox_Press.png",
+        "Default/CheckBoxNode_Disable.png",
+        "Default/CheckBoxNode_Normal.png",
+        "Default/defaultBMFont.fnt",
+        "Default/defaultBMFont.png",
+        "Login/BaS31.png",
+        "Login/BaS32.png",
+        "Login/Frd11.png",
+        "Login/LI01.png",
+        "Login/LI02.png",
+        "Login/LI07.jpg"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
