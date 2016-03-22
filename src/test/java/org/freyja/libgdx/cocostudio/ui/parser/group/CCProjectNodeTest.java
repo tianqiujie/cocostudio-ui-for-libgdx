@@ -19,15 +19,22 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.utils.SnapshotArray;
 import org.freyja.libgdx.cocostudio.ui.CocoStudioUIEditor;
 import org.freyja.libgdx.cocostudio.ui.junit.LibgdxRunner;
 import org.freyja.libgdx.cocostudio.ui.junit.NeedGL;
+import org.hamcrest.Matcher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static org.hamcrest.CoreMatchers.everyItem;
 import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(LibgdxRunner.class)
 public class CCProjectNodeTest {
@@ -42,5 +49,20 @@ public class CCProjectNodeTest {
         Group group = editor.createGroup();
         Actor button = group.findActor("Bnss_2");
         assertThat(button, not(nullValue()));
+    }
+
+    @Test
+    @NeedGL
+    public void shouldGetCorrectTouchableConfig() throws Exception {
+        FileHandle defaultFont = Gdx.files.internal("share/MLFZS.ttf");
+
+        CocoStudioUIEditor editor = new CocoStudioUIEditor(
+            Gdx.files.internal("mainMenu/MainScene.json"), null, null, defaultFont, null);
+
+        Group group = editor.createGroup();
+        assertThat(group.getTouchable(),is(Touchable.childrenOnly));
+        Group subGroup = (Group) group.getChildren().get(0);
+        assertThat(subGroup.getTouchable(), is(Touchable.childrenOnly));
+        assertThat(subGroup.getChildren(), (Matcher) everyItem(hasProperty("touchable",is(true))));
     }
 }
