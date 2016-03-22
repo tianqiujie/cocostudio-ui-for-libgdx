@@ -17,6 +17,8 @@ package org.freyja.libgdx.cocostudio.ui.parser.group;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
+
 import org.freyja.libgdx.cocostudio.ui.CocoStudioUIEditor;
 import org.freyja.libgdx.cocostudio.ui.model.ObjectData;
 import org.freyja.libgdx.cocostudio.ui.parser.GroupParser;
@@ -35,7 +37,6 @@ public class CCLayer extends GroupParser {
     @Override
     public Actor parse(CocoStudioUIEditor editor, ObjectData widget) {
         Group table = new Group();
-
         return table;
     }
 

@@ -21,6 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import org.freyja.libgdx.cocostudio.ui.CocoStudioUIEditor;
 import org.freyja.libgdx.cocostudio.ui.model.ObjectData;
 import org.freyja.libgdx.cocostudio.ui.parser.GroupParser;
+import org.freyja.libgdx.cocostudio.ui.widget.TCheckBox;
 
 /**
  * @author i see
@@ -35,9 +36,9 @@ public class CCCheckBox extends GroupParser {
 
     @Override
     public Actor parse(CocoStudioUIEditor editor, ObjectData widget) {
-        org.freyja.libgdx.cocostudio.ui.widget.TCheckBox.CheckBoxStyle style = new org.freyja.libgdx.cocostudio.ui.widget.TCheckBox.CheckBoxStyle(null, null, new BitmapFont(),
+        TCheckBox.CheckBoxStyle style = new TCheckBox.CheckBoxStyle(null, null, new BitmapFont(),
             Color.BLACK);
-
+        
         if (widget.getNodeNormalFileData() != null) {// 选中图片
 
             style.checkboxOff = editor.findDrawable(widget,
@@ -54,7 +55,7 @@ public class CCCheckBox extends GroupParser {
             , editor.findDrawable(widget, widget.getNodeNormalFileData())
             , editor.findDrawable(widget, widget.getNodeDisableFileData()));
 
-        org.freyja.libgdx.cocostudio.ui.widget.TCheckBox checkBox = new org.freyja.libgdx.cocostudio.ui.widget.TCheckBox("", style);
+        TCheckBox checkBox = new TCheckBox("", style);
         checkBox.setChecked(widget.isDisplayState());
         checkBox.setDisabled(widget.isDisplayState());
         return checkBox;

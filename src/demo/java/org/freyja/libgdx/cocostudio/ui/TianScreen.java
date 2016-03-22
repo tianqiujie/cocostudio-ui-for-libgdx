@@ -35,21 +35,23 @@ public class TianScreen extends ScreenAdapter {
     @Override
     public void show() {
         super.show();
-        stage = new Stage(new StretchViewport(GAME_WIDTH, GAME_HEIGHT));
+
+        //initDemo();
+        initLogin();
 
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
         inputMultiplexer.addProcessor(stage);
         Gdx.input.setInputProcessor(inputMultiplexer);
-
-        initDemo();
     }
 
     private void initDemo() {
+        stage = new Stage(new StretchViewport(GAME_WIDTH, GAME_HEIGHT));
+
         FileHandle defaultFont = Gdx.files
             .internal("demo/FangZhengZhunYuan_GBK.TTF");
 
         CocoStudioUIEditor editor = new CocoStudioUIEditor(
-            Gdx.files.internal("MainScene.json"), null, null, defaultFont,
+            Gdx.files.internal("MainScene_test.json"), null, null, defaultFont,
             null);
 
         Group group = editor.createGroup();
@@ -64,6 +66,20 @@ public class TianScreen extends ScreenAdapter {
                 super.clicked(event, x, y);
             }
         });
+    }
+
+    private void initLogin() {
+        stage = new Stage(new StretchViewport(GAME_HEIGHT, GAME_WIDTH));
+
+        FileHandle defaultFont = Gdx.files
+                .internal("demo/FangZhengZhunYuan_GBK.TTF");
+
+        CocoStudioUIEditor editor = new CocoStudioUIEditor(
+                Gdx.files.internal("MainScene.json"), null, null, defaultFont,
+                null);
+
+        Group group = editor.createGroup();
+        stage.addActor(group);
     }
 
     @Override

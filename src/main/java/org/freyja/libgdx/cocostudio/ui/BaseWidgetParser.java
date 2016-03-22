@@ -16,13 +16,29 @@
 package org.freyja.libgdx.cocostudio.ui;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.scenes.scene2d.*;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.ParallelAction;
+import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
+
 import org.freyja.libgdx.cocostudio.ui.model.ObjectData;
+import org.freyja.libgdx.cocostudio.ui.model.timelines.CCTimelineActionData;
+import org.freyja.libgdx.cocostudio.ui.model.timelines.CCTimelineData;
+import org.freyja.libgdx.cocostudio.ui.model.timelines.CCTimelineFrame;
+import org.freyja.libgdx.cocostudio.ui.util.LogUtil;
 
 import java.lang.reflect.Method;
 import java.util.Comparator;
+import java.util.List;
 
 /**
  * 控件 转换器
@@ -50,6 +66,7 @@ public abstract class BaseWidgetParser {
      *
      * @param editor
      * @param widget
+     * @param option
      * @param parent
      * @param actor
      * @return
@@ -63,37 +80,19 @@ public abstract class BaseWidgetParser {
         // set origin
         if (widget.getAnchorPoint() != null)
             actor.setOrigin(widget.getAnchorPoint().getScaleX() * actor.getWidth(),
-                widget.getAnchorPoint().getScaleY() * actor.getHeight());
-
-
-        // cocos anchor bug
-
-//        if (widget.getPosition() != null) {
-//            if (parent == null) {
-//                actor.setPosition(widget.getPosition().getX() - actor.getOriginX(),
-//                    widget.getPosition().getY() - actor.getOriginY());
-//            } else {
-//
-//                // 锚点要算上父控件的锚点,也就是原点
-//                actor.setX(parent.getOriginX()
-//                    - (actor.getOriginX() - widget.getPosition().getX()));
-//
-//                actor.setY(parent.getOriginY()
-//                    - (actor.getOriginY() - widget.getPosition().getY()));
-//            }
-//        }
+                    widget.getAnchorPoint().getScaleY() * actor.getHeight());
 
         //判空，因为新版本的单独节点没有Postion属性
         if (widget.getPosition() != null) {
             actor.setPosition(widget.getPosition().getX() - actor.getOriginX(),
-                widget.getPosition().getY() - actor.getOriginY());
+                    widget.getPosition().getY() - actor.getOriginY());
         }
 
         // CocoStudio的编辑器ScaleX,ScaleY 会有负数情况
         //判空，因为新版本的单独节点没有Scale属性
         if (widget.getScale() != null) {
             actor.setScale(widget.getScale().getScaleX(), widget.getScale()
-                .getScaleY());
+                    .getScaleY());
         }
 
         if (widget.getRotation() != 0) {// CocoStudio 是顺时针方向旋转,转换下.
@@ -118,9 +117,7 @@ public abstract class BaseWidgetParser {
 
         if (widget.getChildren() == null || widget.getChildren().size() == 0) {
             //添加Action
-            if (editor.getActionTagActionMap().containsKey(widget.getActionTag())) {
-                actor.addAction(editor.getActionTagActionMap().get(widget.getActionTag()));
-            }
+            parseAction(actor, widget);
 
             return actor;
         }
@@ -138,9 +135,99 @@ public abstract class BaseWidgetParser {
         }
     }
 
+    private void parseAction(final Actor actor, final ObjectData widget) {
+        CCTimelineActionData ccTimelineActionData = editor.export.getContent().getContent()
+                .getAnimation();
+        float duration = ccTimelineActionData.getDuration();
+        float speed = ccTimelineActionData.getSpeed();
+
+        List<CCTimelineData> ccTimelineDatas = ccTimelineActionData.getTimelines();
+
+        ParallelAction parallelAction = new ParallelAction();
+
+        for (CCTimelineData ccTimelineData : ccTimelineDatas) {
+            if (ccTimelineData.getActionTag() == widget.getActionTag()) {
+
+                List<CCTimelineFrame> ccTimelineFrames = ccTimelineData.getFrames();
+
+                //位移动画 MoveTo
+                if (ccTimelineData.getProperty().equals("Position")) {
+                    SequenceAction sequenceAction = Actions.sequence();
+
+                    for (CCTimelineFrame ccTimelineFrame : ccTimelineFrames) {
+                        Action moveTo = Actions.moveTo(
+                                ccTimelineFrame.getX() - actor.getWidth() / 2,
+                                ccTimelineFrame.getY() - actor.getHeight() / 2
+                                , speed / duration * ccTimelineFrame.getFrameIndex(),
+
+                                editor.getInterpolation(ccTimelineFrame.getEasingData().getType()));
+                        sequenceAction.addAction(moveTo);
+                    }
+
+                    parallelAction.addAction(sequenceAction);
+                }
+                //帧动画
+                else if (ccTimelineData.getProperty().equals("FileData")) {
+                    SequenceAction sequenceAction = Actions.sequence();
+                    for (CCTimelineFrame ccTimelineFrame : ccTimelineFrames) {
+                        final CCTimelineFrame temp = ccTimelineFrame;
+
+                        Action action = Actions.delay(speed / duration * ccTimelineFrame.getFrameIndex(), Actions.run(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((Image) (actor)).setDrawable(editor.findDrawable(widget, temp.getTextureFile()));
+                            }
+                        }));
+
+                        sequenceAction.addAction(action);
+                    }
+
+                    parallelAction.addAction(sequenceAction);
+                }
+                //缩放动画 ScaleTo
+                else if (ccTimelineData.getProperty().equals("Scale")) {
+                    SequenceAction sequenceAction = Actions.sequence();
+                    for (CCTimelineFrame ccTimelineFrame : ccTimelineFrames) {
+                        LogUtil.Log(speed / duration * ccTimelineFrame.getFrameIndex());
+                        Action scaleTo = Actions.scaleTo(
+                                ccTimelineFrame.getX(),
+                                ccTimelineFrame.getY(),
+                                speed / duration * ccTimelineFrame.getFrameIndex(),
+                                editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
+                        );
+
+                        sequenceAction.addAction(scaleTo);
+                    }
+
+                    parallelAction.addAction(sequenceAction);
+                }
+                //旋转动画
+                else if (ccTimelineData.getProperty().equals("RotationSkew")) {
+                    SequenceAction sequenceAction = Actions.sequence();
+                    for (CCTimelineFrame ccTimelineFrame : ccTimelineFrames) {
+
+                        float angle = new Vector2(ccTimelineFrame.getX(), ccTimelineFrame.getY()).angle();
+                        Action rotation = Actions.rotateTo(
+                                angle,
+                                speed / duration * ccTimelineFrame.getFrameIndex(),
+                                editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
+                        );
+
+                        sequenceAction.addAction(rotation);
+                    }
+
+                    // parallelAction.addAction(sequenceAction);
+                }
+            }
+        }
+
+        editor.actorActionMap.put(actor, parallelAction);
+        actor.addAction(Actions.forever(parallelAction));
+    }
+
     public void addCallback(final Actor actor, final ObjectData widget) {
         if (widget.getCallBackType() == null
-            || widget.getCallBackType().isEmpty()) {
+                || widget.getCallBackType().isEmpty()) {
             return;
         }
         if ("Click".equals(widget.getCallBackType())) {
@@ -223,7 +310,7 @@ public abstract class BaseWidgetParser {
             @Override
             public int compare(Actor arg0, Actor arg1) {
                 return getZOrder(widget, arg0.getName())
-                    - getZOrder(widget, arg1.getName());
+                        - getZOrder(widget, arg1.getName());
             }
         });
 

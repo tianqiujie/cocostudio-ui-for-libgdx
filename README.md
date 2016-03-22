@@ -19,7 +19,8 @@
 ##cocostudio-ui-for-libgdx有哪些特性？
 * 1.可以使用最新版的cocostudio进行开发 http://www.cocos.com/download/
 * 2.修复了原版本的CheckBox，现在和cocos2dx里面的CheckBox一样的用法
-* 3.能解析cocostudio的粒子效果(还不完善)
+* 3.能解析cocostudio的粒子效果
+* 4.支持cocostudio的动画，位移动画，缩放动画，帧动画（倾斜动画不支持）
 
 ## 源码构建
 项目使用gradle管理，直接运行`./gradlew build`即可。如果需要运行demo，执行`./gradlew demo`即可。

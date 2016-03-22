@@ -36,7 +36,6 @@ public class CCParticle extends WidgetParser {
             widget.getFileData().getPath()));
         ccParticleActor.setBlendAdditive(true);
 
-
         return ccParticleActor;
     }
 }

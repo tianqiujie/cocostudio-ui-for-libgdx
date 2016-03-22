@@ -37,7 +37,6 @@ public class CCImageView extends WidgetParser {
             return new Image();
         }
         Image image = new Image(tr);
-
         return image;
     }
 

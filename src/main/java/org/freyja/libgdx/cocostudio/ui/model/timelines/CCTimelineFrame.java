@@ -1,5 +1,7 @@
 package org.freyja.libgdx.cocostudio.ui.model.timelines;
 
+import org.freyja.libgdx.cocostudio.ui.model.FileData;
+
 /**
  * Created by tian on 2016/3/20.
  */
@@ -10,6 +12,10 @@ public class CCTimelineFrame {
     private int FrameIndex;
     private CCTimelineEasingData EasingData;
     private String ctype;
+
+    private FileData TextureFile;
+
+    private boolean Tween;
 
     public float getX() {
         return X;
@@ -49,5 +55,13 @@ public class CCTimelineFrame {
 
     public void setCtype(String ctype) {
         this.ctype = ctype;
+    }
+
+    public FileData getTextureFile() {
+        return TextureFile;
+    }
+
+    public void setTextureFile(FileData textureFile) {
+        TextureFile = textureFile;
     }
 }
