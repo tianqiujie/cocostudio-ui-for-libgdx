@@ -19,14 +19,11 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
 public class Runner {
-    public static int GAME_WIDTH = 640;
-    public static int GAME_HEIGHT = 960;
-    //    Don't run this in your IDE. use gradle run to see examples'
+
     public static void main(String[] args) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.width = GAME_WIDTH;
-        config.height = GAME_HEIGHT;
-
-        new LwjglApplication(new MyGdxGame(), config);
+        config.width = DemoGame.GAME_WIDTH;
+        config.height = DemoGame.GAME_HEIGHT;
+        new LwjglApplication(new DemoGame(), config);
     }
 }
