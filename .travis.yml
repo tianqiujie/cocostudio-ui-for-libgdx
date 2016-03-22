@@ -12,9 +12,6 @@ env:
  - GDX_VERSION=1.8.0
  - GDX_VERSION=1.7.0
 
-before_install:
- - chmod +x gradlew
-
 before_script:
  - "export DISPLAY=:99.0"
  - "sh -e /etc/init.d/xvfb start"
