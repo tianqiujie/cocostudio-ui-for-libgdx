@@ -16,14 +16,9 @@
 package org.freyja.libgdx.cocostudio.ui;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
-
 import org.freyja.libgdx.cocostudio.ui.model.ObjectData;
 
 import java.lang.reflect.Method;
@@ -55,7 +50,6 @@ public abstract class BaseWidgetParser {
      *
      * @param editor
      * @param widget
-     * @param option
      * @param parent
      * @param actor
      * @return
@@ -113,8 +107,7 @@ public abstract class BaseWidgetParser {
 
         actor.setColor(color);
 
-        actor.setTouchable(widget.isTouchEnable() ? Touchable.enabled
-            : Touchable.disabled);
+        actor.setTouchable(deduceTouchable(actor, widget));
 
         // callback
 
@@ -133,6 +126,16 @@ public abstract class BaseWidgetParser {
         }
 
         return null;
+    }
+
+    private Touchable deduceTouchable(Actor actor, ObjectData widget) {
+        if (widget.isTouchEnable()) {
+            return Touchable.enabled;
+        } else if (Touchable.childrenOnly.equals(actor.getTouchable())) {
+            return Touchable.childrenOnly;
+        } else {
+            return Touchable.disabled;
+        }
     }
 
     public void addCallback(final Actor actor, final ObjectData widget) {
