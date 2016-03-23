@@ -1,4 +1,4 @@
-['version', 'java', 'demo', 'contact', 'ide', 'wrapper', 'quality','publish'].each {
+['version', 'java', 'demo', 'contact', 'ide', 'wrapper', 'quality'].each {
     apply from: "gradle/config/${it}.gradle"
 }
 
