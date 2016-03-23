@@ -1,4 +1,4 @@
-['version', 'java', 'demo', 'contact', 'ide', 'wrapper', 'quality'].each {
+['version', 'java', 'demo', 'contact', 'ide', 'wrapper', 'quality','publish'].each {
     apply from: "gradle/config/${it}.gradle"
 }
 
@@ -14,7 +14,7 @@ buildscript {
     }
 }
 
-version = '1.0.0'
+version = '0.1.0-SNAPSHOT'
 
 repositories {
     jcenter()

@@ -41,7 +41,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * 控件 转换器
+ *
  *
  * @author i see
  */
@@ -61,12 +61,11 @@ public abstract class BaseWidgetParser {
 
     /**
      * common attribute parser<br>
-     * <p/>
+     *
      * according cocstudio ui setting properties of the configuration file
      *
      * @param editor
      * @param widget
-     * @param option
      * @param parent
      * @param actor
      * @return

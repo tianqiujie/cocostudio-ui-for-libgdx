@@ -1,0 +1,87 @@
+apply plugin: 'maven'
+apply plugin: 'signing' //使用signing plugin做数字签名
+
+//定义GroupID和Version，ArtefactID会自动使用Project名
+group = 'net.mwplay.tian'
+archivesBaseName="cocos-libgdx-ui"
+
+sourceSets {
+    main {
+        java {
+            srcDirs=['src/main']
+        }
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //为Pom文件做数字签名
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            //指定项目部署到的中央库地址，UserName和Password就是Part 1中注册的账号。
+            repository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: M_username, password: M_password)
+            }
+            //构造项目的Pom文件，参见Part 2中Pom文件的规范，不要遗漏必填项
+            pom.project {
+                name project.name
+                packaging 'jar'
+                description M_description
+                url M_url
+
+                scm {
+                    url M_scm_url
+                    connection M_scm_connection
+                    developerConnection M_scm_developerConnection
+                }
+
+                licenses {
+                    license {
+                        name M_license_name
+                        url M_license_url
+                        distribution 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'qq200600'
+                        name 'Tian qiujie'
+                    }
+                }
+            }
+        }
+    }
+}
+
+//清除上次的编译过的文件
+task clearPj(type:Delete){
+    delete 'build','target'
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.java.srcDirs
+}
+
+javadoc {
+    options.encoding = 'UTF-8'
+}
+
+//参见Part 2， 为项目生成**.jar/**-javadoc.jar/**-sources.jar
+task javadocJar(type: Jar, dependsOn: [javadoc]) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
+
+//为所有的jar包做数字签名
+signing {
+    sign configurations.archives
+}

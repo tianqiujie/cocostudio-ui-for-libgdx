@@ -25,7 +25,7 @@ import org.freyja.libgdx.cocostudio.ui.widget.TCheckBox;
 
 /**
  * @author i see
- * @tip libgdx的CheckBox只有选中和未选中两个状态的图片显示
+ * tip libgdx的CheckBox只有选中和未选中两个状态的图片显示
  */
 public class CCCheckBox extends GroupParser {
 

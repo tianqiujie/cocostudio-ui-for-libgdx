@@ -67,9 +67,9 @@ import java.util.Map;
  * 本解析器还处于初级阶段,部分控件与属性不支持.
  *
  * @author i see
- * @email 121077313@qq.com
- * @wiki https://github.com/121077313/cocostudio-ui-libgdx/wiki
- * @tip https://github.com/121077313/cocostudio-ui-libgdx/wiki/疑难解答
+ * email 121077313@qq.com
+ * wiki https://github.com/121077313/cocostudio-ui-libgdx/wiki
+ * tip https://github.com/121077313/cocostudio-ui-libgdx/wiki/疑难解答
  */
 public class CocoStudioUIEditor {
 
@@ -469,8 +469,8 @@ public class CocoStudioUIEditor {
 
     /***
      * 解析节点,创建控件
-     *
-     * @param node
+     *@param parent
+     * @param widget
      * @return
      */
     public Actor parseWidget(Group parent, ObjectData widget) {

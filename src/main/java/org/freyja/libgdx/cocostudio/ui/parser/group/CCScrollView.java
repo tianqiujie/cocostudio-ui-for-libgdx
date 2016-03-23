@@ -33,7 +33,7 @@ import org.freyja.libgdx.cocostudio.ui.parser.GroupParser;
 
 /**
  * @author i see
- * @tip 滚动方向, 回弹滚动支持不是很好
+ * tip 滚动方向, 回弹滚动支持不是很好
  */
 public class CCScrollView extends GroupParser {
 
