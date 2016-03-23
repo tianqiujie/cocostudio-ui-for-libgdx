@@ -33,7 +33,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
-
 import org.freyja.libgdx.cocostudio.ui.model.CCExport;
 import org.freyja.libgdx.cocostudio.ui.model.CColor;
 import org.freyja.libgdx.cocostudio.ui.model.FileData;
@@ -220,7 +219,7 @@ public class CocoStudioUIEditor {
      */
     public Group createGroup() {
         Actor actor = parseWidget(null, export.getContent().getContent()
-                .getObjectData());
+            .getObjectData());
 
         return (Group) actor;
     }
@@ -361,7 +360,7 @@ public class CocoStudioUIEditor {
 
         if (textureAtlas == null || textureAtlas.size() == 0) {// 不使用合并纹理
             tr = new TextureRegion(new Texture(Gdx.files.internal(dirName
-                    + name)));
+                + name)));
         } else {
             try {
                 String[] arr = name.split("\\/");
@@ -372,7 +371,7 @@ public class CocoStudioUIEditor {
                     name = name.substring(0, name.length() - 4);
                 } else {
                     name = name.substring(arr[0].length() + 1,
-                            name.length() - 4);
+                        name.length() - 4);
                 }
             } catch (Exception e) {
                 error(option, "资源名称不符合约定,无法解析.请查看github项目wiki第十条");
@@ -387,7 +386,7 @@ public class CocoStudioUIEditor {
                     int length = name.lastIndexOf("_");
 
                     Integer index = Integer.parseInt(name.substring(length + 1,
-                            name.length()));
+                        name.length()));
                     // 这里可能报错,属于正常,因为会出现 xx_xx名字的资源而不是xx_2这种
 
                     name = name.substring(0, length);
@@ -429,14 +428,15 @@ public class CocoStudioUIEditor {
     public Drawable findDrawable(ObjectData option, String name) {
 
         if (option.isScale9Enable()) {// 九宫格支持
-            NinePatch np = new NinePatch(findTextureRegion(option, name),
-                    option.getScale9OriginX(), option.getScale9OriginY(),
-                    option.getScale9Width(), option.getScale9Height());
-
+            TextureRegion textureRegion = findTextureRegion(option, name);
+            NinePatch np = new NinePatch(textureRegion,
+                option.getScale9OriginX(),
+                textureRegion.getRegionWidth() - option.getScale9Width() - option.getScale9OriginX(),
+                option.getScale9OriginY(),
+                textureRegion.getRegionHeight() - option.getScale9Height() - option.getScale9OriginY());
             if (np == null) {
                 return null;
             }
-
             np.setColor(getColor(option.getCColor(), option.getAlpha()));
             return new NinePatchDrawable(np);
         }
@@ -456,7 +456,7 @@ public class CocoStudioUIEditor {
 
     public void debug(ObjectData option, String message) {
         Gdx.app.debug(tag, "控件: " + option.getCtype() + "," + option.getName()
-                + " " + message);
+            + " " + message);
     }
 
     public void error(String message) {
@@ -498,12 +498,12 @@ public class CocoStudioUIEditor {
             font = bitmapFonts.get(option.getLabelBMFontFile_CNB().getPath());
         } else {
             font = new BitmapFont(Gdx.files.internal(dirName
-                    + option.getLabelBMFontFile_CNB().getPath()));
+                + option.getLabelBMFontFile_CNB().getPath()));
         }
 
         if (font == null) {
             debug(option, "BitmapFont字体:"
-                    + option.getLabelBMFontFile_CNB().getPath() + " 不存在");
+                + option.getLabelBMFontFile_CNB().getPath() + " 不存在");
             font = new BitmapFont();
         }
         return font;
@@ -548,14 +548,14 @@ public class CocoStudioUIEditor {
 
         if (fontFile == null) {
             debug(option, "ttf字体:" + option.getFontResource().getPath()
-                    + " 不存在,使用默认字体");
+                + " 不存在,使用默认字体");
         }
 
         BitmapFont font = FontUtil.createFont(fontFile, text,
-                option.getFontSize());
+            option.getFontSize());
 
         return new TTFLabelStyle(new LabelStyle(font, color), fontFile,
-                option.getFontSize());
+            option.getFontSize());
     }
 
     /**
@@ -579,7 +579,7 @@ public class CocoStudioUIEditor {
         if (fontFile == null) {
             try {
                 debug(option, "ttf字体:" + option.getFontResource().getPath()
-                        + " 不存在,使用默认字体");
+                    + " 不存在,使用默认字体");
             } catch (Exception e) {
                 //e.printStackTrace();
                 debug(option, "不存在字体,使用默认字体");
@@ -587,7 +587,7 @@ public class CocoStudioUIEditor {
         }
 
         BitmapFont font = FontUtil.createFont(fontFile, text,
-                option.getFontSize(), color);
+            option.getFontSize(), color);
 
         font.setColor(color);
 
