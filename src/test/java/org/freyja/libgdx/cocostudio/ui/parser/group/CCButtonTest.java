@@ -37,9 +37,5 @@ public class CCButtonTest {
         assertThat(style.imageDisabled, instanceOf(NinePatchDrawable.class));
         assertThat(style.up, instanceOf(NinePatchDrawable.class));
         assertThat(style.down, instanceOf(NinePatchDrawable.class));
-        assertThat(style.up.getLeftWidth(), is(15f));
-        assertThat(style.up.getRightWidth(), is(11f));
-        assertThat(style.up.getTopHeight(), is(98f));
-        assertThat(style.up.getBottomHeight(), is(6f));
     }
 }

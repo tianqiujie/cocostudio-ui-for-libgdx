@@ -17,6 +17,10 @@ package org.freyja.libgdx.cocostudio.ui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.g2d.NinePatch;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import org.freyja.libgdx.cocostudio.ui.junit.LibgdxRunner;
 import org.freyja.libgdx.cocostudio.ui.junit.NeedGL;
 import org.junit.Test;
@@ -44,5 +48,29 @@ public class CocoStudioUIEditorTest {
         Map<String, BaseWidgetParser> parsers = (Map<String, BaseWidgetParser>) Whitebox.getInternalState(editor, "parsers");
 
         assertThat(parsers.size(), is(16));
+    }
+
+    @Test
+    @NeedGL
+    public void shouldSupportNinePatch() throws Exception {
+        CocoStudioUIEditor editor = new CocoStudioUIEditor(
+            Gdx.files.internal("nine/MainScene.json"), null, null, null, null);
+
+        Group group = editor.createGroup();
+        Image leftContent = group.findActor("Image_119");
+        NinePatchDrawable drawable = (NinePatchDrawable) leftContent.getDrawable();
+        NinePatch patch = drawable.getPatch();
+        assertThat(patch.getPadLeft(), is(20f));
+        assertThat(patch.getPadRight(), is(0f));
+        assertThat(patch.getPadTop(), is(16f));
+        assertThat(patch.getPadBottom(), is(0f));
+
+        Image rightContent = group.findActor("Image_119_2");
+        drawable = (NinePatchDrawable) rightContent.getDrawable();
+        patch = drawable.getPatch();
+        assertThat(patch.getPadLeft(), is(20f));
+        assertThat(patch.getPadRight(), is(0f));
+        assertThat(patch.getPadTop(), is(0f));
+        assertThat(patch.getPadBottom(), is(26f));
     }
 }
