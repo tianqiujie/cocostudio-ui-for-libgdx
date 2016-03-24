@@ -5,14 +5,6 @@ apply plugin: 'maven'
 group = 'net.mwplay'
 archivesBaseName = "cocos-libgdx-ui"
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main']
-        }
-    }
-}
-
 ext {
     M_description = 'It is a ui library of ligdx with cocostudio.'
 
@@ -77,6 +69,14 @@ task clearPj(type: Delete) {
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.java.srcDirs
+    exclude('demo/')
+    exclude('test/')
+}
+
+task makeJar(type: Jar){
+    from sourceSets.main.java.srcDirs
+    exclude('demo/')
+    exclude('test/')
 }
 
 javadoc {
@@ -90,7 +90,7 @@ task javadocJar(type: Jar, dependsOn: [javadoc]) {
 }
 
 artifacts {
-    archives jar
+    archives makeJar
     archives javadocJar
     archives sourcesJar
 }
