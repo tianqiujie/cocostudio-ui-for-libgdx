@@ -1,0 +1,98 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "MainScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "BackGroundData": {
+              "Type": "Default",
+              "Path": "Default/Slider_Back.png",
+              "Plist": ""
+            },
+            "ProgressBarData": {
+              "Type": "Default",
+              "Path": "Default/Slider_PressBar.png",
+              "Plist": ""
+            },
+            "BallNormalData": {
+              "Type": "Default",
+              "Path": "Default/SliderNode_Normal.png",
+              "Plist": ""
+            },
+            "BallPressedData": {
+              "Type": "Default",
+              "Path": "Default/SliderNode_Press.png",
+              "Plist": ""
+            },
+            "BallDisabledData": {
+              "Type": "Default",
+              "Path": "Default/SliderNode_Disable.png",
+              "Plist": ""
+            },
+            "PercentInfo": 50,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 246.6295,
+              "Y": 568.084
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3854,
+              "Y": 0.5918
+            },
+            "PreSize": {
+              "X": 0.3125,
+              "Y": 0.0146
+            },
+            "LeftMargin": 146.6295,
+            "RightMargin": 293.3705,
+            "TopMargin": 384.916,
+            "BottomMargin": 561.084,
+            "Tag": 39,
+            "ActionTag": 1455106876,
+            "Size": {
+              "X": 200.0,
+              "Y": 14.0
+            },
+            "Name": "Slider_1",
+            "ctype": "SliderObjectData"
+          }
+        ],
+        "Size": {
+          "X": 640.0,
+          "Y": 960.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Default/Slider_Back.png",
+        "Default/Slider_PressBar.png",
+        "Default/SliderNode_Disable.png",
+        "Default/SliderNode_Normal.png",
+        "Default/SliderNode_Press.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

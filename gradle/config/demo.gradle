@@ -3,7 +3,7 @@ facets {
     demo
 }
 task demo(dependsOn: demoClasses, type: JavaExec) {
-    main = "Runner"
+    main = "net.mwplay.cocostudio.ui.Runner"
     classpath = sourceSets.demo.runtimeClasspath
     standardInput = System.in
     workingDir = "$projectDir/src/demo/resources"
