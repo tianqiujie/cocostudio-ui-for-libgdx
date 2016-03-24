@@ -25,9 +25,6 @@ import net.mwplay.cocostudio.ui.parser.WidgetParser;
 import net.mwplay.cocostudio.ui.util.FontUtil;
 import net.mwplay.cocostudio.ui.widget.TTFLabelStyle;
 
-/**
- * @author i see
- */
 public class CCTextField extends WidgetParser {
 
     @Override
@@ -49,10 +46,6 @@ public class CCTextField extends WidgetParser {
 
         TextFieldStyle style = new TextFieldStyle(labelStyle.font,
             labelStyle.fontColor, null, null, null);
-
-        // style.font = FontUtil.createFont(
-        // labelStyle.getFontFileHandle(), "0123456789",
-        // labelStyle.getFontSize());
 
         TextField textField = new TextField(widget.getLabelText(), style) {
 
