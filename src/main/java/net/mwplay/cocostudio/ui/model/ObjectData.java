@@ -21,7 +21,6 @@ import java.util.List;
  * 控件
  */
 public class ObjectData {
-
     int FontSize;
 
     String ButtonText;
@@ -47,6 +46,8 @@ public class ObjectData {
     FileData NormalFileData;
 
     int ProgressInfo;
+    //loading bar direction support
+    String ProgressType;
 
     int PercentInfo;
 

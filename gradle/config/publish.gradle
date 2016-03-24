@@ -24,8 +24,8 @@ ext {
     M_license_name = 'The Apache Software License, Version 2.0'
     M_license_url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
 
-    M_username = 'qq200600'
-    M_password = 'qq200600'
+    M_username = project.hasProperty("M_username") ? M_username : System.getenv("M_username")
+    M_password = project.hasProperty("M_password") ? M_username : System.getenv("M_username")
 }
 
 uploadArchives {
@@ -33,7 +33,6 @@ uploadArchives {
         mavenDeployer {
             //为Pom文件做数字签名
             //beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
             //指定项目部署到的中央库地址，UserName和Password就是Part 1中注册的账号。
             repository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
                 authentication(userName: M_username, password: M_password)

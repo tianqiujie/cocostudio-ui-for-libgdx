@@ -17,6 +17,7 @@ package net.mwplay.cocostudio.ui.parser.group;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
 
 import net.mwplay.cocostudio.ui.CocoStudioUIEditor;
 import net.mwplay.cocostudio.ui.model.ObjectData;
@@ -30,6 +31,10 @@ public class CCProjectNode extends GroupParser {
 
     @Override
     public Actor parse(CocoStudioUIEditor editor, ObjectData widget) {
+        if (widget.getFileData() == null){
+            return new Group();
+        }
+
         CocoStudioUIEditor cocoStudioUIEditor = new CocoStudioUIEditor(
             Gdx.files.internal(editor.getDirName() + widget.getFileData().getPath()),
             editor.getTtfs(), editor.getBitmapFonts(), editor.getDefaultFont(), editor.getTextureAtlas());
