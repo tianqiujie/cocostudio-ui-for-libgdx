@@ -29,11 +29,11 @@
        mavenCentral()
        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
-   
+
     dependencies {
        compile "net.mwplay:cocos-libgdx-ui:0.1.0-SNAPSHOT"
     }
-    
+
 ##有问题反馈
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
 
@@ -74,7 +74,6 @@ a ui library of ligdx with cocostudio
 ### 下一步计划
 + 完善cocos2dx的粒子系统
 + 添加单元测试
-+ 尽可能修复checkstyle的错误
 
 ### 希望
 + 希望大家一起完善，为libgdx做出贡献

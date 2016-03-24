@@ -24,7 +24,7 @@ public class Particle implements Poolable {
     public class ModeGravity { //重力模式
         public Vector2 dir = new Vector2(); //重力的方向
         public float radialAccel;  //径向加速度
-        public float tangentialAccel;//切向加速度
+        public float tangentialAccel; //切向加速度
 
         public void reset() {
             this.dir.setZero();
@@ -48,9 +48,9 @@ public class Particle implements Poolable {
     }
 
     public Vector2 pos = new Vector2();      //位置
-    public Vector2 startPos = new Vector2();//初始位置
+    public Vector2 startPos = new Vector2(); //初始位置
     public Color color = new Color();    //颜色
-    public Color deltaColor = new Color();//颜色差
+    public Color deltaColor = new Color(); //颜色差
     public float size;                 //大小
     public float deltaSize;           //大小差
     public float rotation;           //旋转

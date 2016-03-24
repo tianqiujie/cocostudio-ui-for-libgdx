@@ -27,9 +27,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Align;
 
-/**
- * Created by tian on 2016/3/18.
- */
 public class TCheckBox extends TextButton {
     private Image image;
     private Image bg;
@@ -58,7 +55,9 @@ public class TCheckBox extends TextButton {
     }
 
     public void setStyle(ButtonStyle style) {
-        if (!(style instanceof CheckBoxStyle)) throw new IllegalArgumentException("style must be a CheckBoxStyle.");
+        if (!(style instanceof CheckBoxStyle)) {
+            throw new IllegalArgumentException("style must be a CheckBoxStyle.");
+        }
         super.setStyle(style);
         this.style = (CheckBoxStyle) style;
     }
@@ -89,17 +88,19 @@ public class TCheckBox extends TextButton {
         Drawable checkbox = null;
         if (isDisabled()) {
             bg.setDrawable(style.disableBack);
-            if (isChecked())
+            if (isChecked()) {
                 checkbox = style.nodeDissable;
-            else
+            } else {
                 checkbox = null;
+            }
         } else {
-            if (isChecked() && style.checkboxOn != null)
+            if (isChecked() && style.checkboxOn != null) {
                 checkbox = style.checkboxOn;
-            else if (isOver() && style.checkboxOver != null && !isDisabled())
+            } else if (isOver() && style.checkboxOver != null && !isDisabled()) {
                 checkbox = style.checkboxOver;
-            else
+            } else {
                 checkbox = style.checkboxOff;
+            }
         }
 
         /*if (checkbox == null) {
@@ -119,64 +120,73 @@ public class TCheckBox extends TextButton {
     public void setScale(float scaleX, float scaleY) {
         super.setScale(scaleX, scaleY);
 
-        if (bg != null)
+        if (bg != null) {
             bg.setScale(scaleX, scaleY);
+        }
     }
 
     @Override
     public void setScale(float scaleXY) {
         super.setScale(scaleXY);
-        if (bg != null)
+        if (bg != null) {
             bg.setScale(scaleXY);
+        }
     }
 
     @Override
     public void setScaleX(float scaleX) {
         super.setScaleX(scaleX);
-        if (bg != null)
+        if (bg != null) {
             bg.setScaleX(scaleX);
+        }
     }
 
     @Override
     public void setScaleY(float scaleY) {
         super.setScaleY(scaleY);
-        if (bg != null)
+        if (bg != null) {
             bg.setScaleY(scaleY);
+        }
     }
 
     @Override
     public void setSize(float width, float height) {
         super.setSize(width, height);
-        if (bg != null)
+        if (bg != null) {
             bg.setSize(width, height);
+        }
     }
 
     @Override
     public void setWidth(float width) {
         super.setWidth(width);
-        if (bg != null)
+        if (bg != null) {
             bg.setWidth(width);
+        }
     }
 
     @Override
     public void setHeight(float height) {
         super.setHeight(height);
-        if (bg != null)
+        if (bg != null) {
             bg.setHeight(height);
+        }
     }
 
     @Override
     public void addAction(Action action) {
         super.addAction(action);
-        if (bg != null)
+        if (bg != null) {
             bg.addAction(action);
+        }
     }
 
     @Override
     public void act(float delta) {
         super.act(delta);
-        if (bg != null)
+        if (bg != null) {
             bg.act(delta);
+        }
     }
 
     public Image getImage() {
@@ -189,8 +199,6 @@ public class TCheckBox extends TextButton {
 
     /**
      * The style for a select box, see
-     *
-     * @author Nathan Sweet
      */
     static public class CheckBoxStyle extends TextButtonStyle {
         public Drawable checkboxOn, checkboxOff;

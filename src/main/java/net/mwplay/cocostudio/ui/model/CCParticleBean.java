@@ -15,9 +15,6 @@
  */
 package net.mwplay.cocostudio.ui.model;
 
-/**
- * Created by tian on 2016/3/18.
- */
 public class CCParticleBean {
     int angle;
     int angleVariance;

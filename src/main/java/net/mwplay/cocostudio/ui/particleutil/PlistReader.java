@@ -50,15 +50,11 @@ public class PlistReader extends XmlReader {
         SAX_ARRAY
     }
 
-    ;
-
     enum SAXResult {
         SAX_RESULT_NONE,
         SAX_RESULT_DICT,
         SAX_RESULT_ARRAY
     }
-
-    ;
 
     @Override
     protected String entity(String name) {

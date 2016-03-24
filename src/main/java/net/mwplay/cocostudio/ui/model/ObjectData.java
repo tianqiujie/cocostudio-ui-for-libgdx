@@ -72,7 +72,7 @@ public class ObjectData {
 
     int Scale9OriginY;
 
-    boolean TouchEnable = false;
+    boolean TouchEnable;
 
     FileData FontResource;
 
@@ -139,7 +139,7 @@ public class ObjectData {
     FileData NodeNormalFileData;
     FileData NodeDisableFileData;
 
-    boolean DisplayState = false;
+    boolean DisplayState;
 
     boolean IsBounceEnabled;
 

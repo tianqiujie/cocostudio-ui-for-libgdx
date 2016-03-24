@@ -61,14 +61,8 @@ public class FontUtil {
             parameter.size = fontSize;
             parameter.characters += newText;
             font = generator.generateFont(parameter);
-
-//			font = generator.generateFont(fontSize, newText, false);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            // if (generator != null) {
-            // generator.dispose();
-            // }
         }
         if (font == null) {
             return new BitmapFont();
@@ -110,14 +104,8 @@ public class FontUtil {
             parameter.characters += newText;
             parameter.color = color;
             font = generator.generateFont(parameter);
-
-//			font = generator.generateFont(fontSize, newText, false);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            // if (generator != null) {
-            // generator.dispose();
-            // }
         }
         if (font == null) {
             return new BitmapFont();

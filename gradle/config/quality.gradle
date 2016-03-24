@@ -5,7 +5,7 @@ checkstyle {
     configProperties = [checkstyleConfigDir: rootProject.file('gradle/checkstyle/')]
     configFile = rootProject.file('gradle/checkstyle/checkstyle.xml')
     //当前checkstyle错误过多 ， 暂时关闭
-    ignoreFailures = true
+//    ignoreFailures = true
 }
 
 apply plugin: "net.saliman.cobertura"

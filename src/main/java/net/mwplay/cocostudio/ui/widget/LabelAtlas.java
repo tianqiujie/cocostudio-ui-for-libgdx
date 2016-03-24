@@ -22,7 +22,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 /**
  * 数字标签控件,暂时不支持.首字符设置.也就是说数字图片必须是0-9
  *
- * @author i see
  */
 public class LabelAtlas extends Table {
     char[] chars;
@@ -46,7 +45,7 @@ public class LabelAtlas extends Table {
         trs = arr[0];
 
         if (startCharMap == null) {
-            startCharMap = "0";// 默认值
+            startCharMap = "0"; // 默认值
         }
         this.chars = startCharMap.toCharArray();
         setText(stringValue);
@@ -82,7 +81,7 @@ public class LabelAtlas extends Table {
 
             if (tr == null) {
                 img = new Image();
-                img.setSize(tileWidth, tileHeight);// 没有的字符显示空格
+                img.setSize(tileWidth, tileHeight); // 没有的字符显示空格
             } else {
                 img = new Image(tr);
             }

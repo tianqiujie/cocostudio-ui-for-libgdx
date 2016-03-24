@@ -16,13 +16,10 @@
 package net.mwplay.cocostudio.ui.parser.widget;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-
 import net.mwplay.cocostudio.ui.CocoStudioUIEditor;
-import net.mwplay.cocostudio.ui.parser.WidgetParser;
 import net.mwplay.cocostudio.ui.model.ObjectData;
-import net.mwplay.cocostudio.ui.widget.ProgressBar;
+import net.mwplay.cocostudio.ui.parser.WidgetParser;
 import net.mwplay.cocostudio.ui.widget.TLoadingBar;
 
 public class CCLoadingBar extends WidgetParser {

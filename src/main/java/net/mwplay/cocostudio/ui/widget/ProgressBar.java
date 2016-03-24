@@ -17,8 +17,6 @@ package net.mwplay.cocostudio.ui.widget;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.NinePatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -27,13 +25,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Pools;
 
-/**
- * A progress bar is a horizontal indicator that allows a user to set a value. The progress bar has a range (min, max) and a stepping between
- * each value the progress bar represents.
- * <p>
- * The preferred height of a progress bar is determined by the larger of the knob and background. The preferred width of a progress bar is
- * 140, a relatively arbitrary size.
- */
 public class ProgressBar extends Table {
     protected ProgressBarStyle style;
     protected float min, max, stepSize;
@@ -54,20 +45,13 @@ public class ProgressBar extends Table {
         this(min, max, stepSize, vertical, skin.get(styleName, ProgressBarStyle.class));
     }
 
-    /**
-     * Creates a new progress bar. It's width is determined by the given prefWidth parameter, its height is determined by the maximum of
-     * the height of either the progress bar {@link NinePatch} or progress bar handle {@link TextureRegion}. The min and max values determine
-     * the range the values of this progress bar can take on, the stepSize parameter specifies the distance between individual values.
-     * E.g. min could be 4, max could be 10 and stepSize could be 0.2, giving you a total of 30 values, 4.0 4.2, 4.4 and so on.
-     *
-     * @param min      the minimum value
-     * @param max      the maximum value
-     * @param stepSize the step size between values
-     * @param style    the {@link ProgressBarStyle}
-     */
     public ProgressBar(float min, float max, float stepSize, boolean vertical, ProgressBarStyle style) {
-        if (min > max) throw new IllegalArgumentException("min must be > max: " + min + " > " + max);
-        if (stepSize <= 0) throw new IllegalArgumentException("stepSize must be > 0: " + stepSize);
+        if (min > max) {
+            throw new IllegalArgumentException("min must be > max: " + min + " > " + max);
+        }
+        if (stepSize <= 0) {
+            throw new IllegalArgumentException("stepSize must be > 0: " + stepSize);
+        }
         setStyle(style);
         this.min = min;
         this.max = max;
@@ -80,7 +64,9 @@ public class ProgressBar extends Table {
     }
 
     public void setStyle(ProgressBarStyle style) {
-        if (style == null) throw new IllegalArgumentException("style cannot be null.");
+        if (style == null) {
+            throw new IllegalArgumentException("style cannot be null.");
+        }
         this.style = style;
         invalidateHierarchy();
     }
@@ -118,27 +104,27 @@ public class ProgressBar extends Table {
 
             float progressPosHeight = height - (bg.getTopHeight() + bg.getBottomHeight());
             if (min != max) {
-                progressPos = (value - min) / (max - min) * (progressPosHeight);
+                progressPos = (value - min) / (max - min) * progressPosHeight;
                 progressPos = Math.max(0, progressPos);
                 progressPos = Math.min(progressPosHeight, progressPos) + bg.getBottomHeight();
             }
 
             if (knobBefore != null) {
                 knobBefore.draw(batch, x + (int) ((width - knobBefore.getMinWidth()) * 0.5f), y, knobBefore.getMinWidth(),
-                    (int) (progressPos));
+                    (int) progressPos);
             }
         } else {
             bg.draw(batch, x, y + (int) ((height - bg.getMinHeight()) * 0.5f), width, bg.getMinHeight());
 
             float progressPosWidth = width - (bg.getLeftWidth() + bg.getRightWidth());
             if (min != max) {
-                progressPos = (value - min) / (max - min) * (progressPosWidth);
+                progressPos = (value - min) / (max - min) * progressPosWidth;
                 progressPos = Math.max(0, progressPos);
                 progressPos = Math.min(progressPosWidth, progressPos) + bg.getLeftWidth();
             }
 
             if (knobBefore != null) {
-                knobBefore.draw(batch, x, y + (int) ((height - knobBefore.getMinHeight()) * 0.5f), (int) (progressPos),
+                knobBefore.draw(batch, x, y + (int) ((height - knobBefore.getMinHeight()) * 0.5f), (int) progressPos,
                     knobBefore.getMinHeight());
             }
         }
@@ -154,20 +140,22 @@ public class ProgressBar extends Table {
         if (vertical) {
             float height = getHeight() - bg.getTopHeight() - bg.getBottomHeight();
             progressPos = y - bg.getBottomHeight();
-            value = min + (max - min) * (progressPos / (height));
+            value = min + (max - min) * (progressPos / height);
             progressPos = Math.max(0, progressPos);
             progressPos = Math.min(height, progressPos);
         } else {
             float width = getWidth() - bg.getLeftWidth() - bg.getRightWidth();
             progressPos = x - bg.getLeftWidth();
-            value = min + (max - min) * (progressPos / (width));
+            value = min + (max - min) * (progressPos / width);
             progressPos = Math.max(0, progressPos);
             progressPos = Math.min(width, progressPos);
         }
 
         float oldValue = value;
         boolean valueSet = setValue(value);
-        if (value == oldValue) progressPos = oldPosition;
+        if (value == oldValue) {
+            progressPos = oldPosition;
+        }
         return valueSet;
     }
 
@@ -179,8 +167,9 @@ public class ProgressBar extends Table {
      * If {@link #setAnimateDuration(float) animating} the progress bar value, this returns the value current displayed.
      */
     public float getVisualValue() {
-        if (animateTime > 0)
+        if (animateTime > 0) {
             return animateInterpolation.apply(animateFromValue, value, 1 - animateTime / animateDuration);
+        }
         return value;
     }
 
@@ -193,14 +182,16 @@ public class ProgressBar extends Table {
     public boolean setValue(float value) {
         value = snap(clamp(Math.round(value / stepSize) * stepSize));
         float oldValue = this.value;
-        if (value == oldValue) return false;
+        if (value == oldValue) {
+            return false;
+        }
         float oldVisualValue = getVisualValue();
         this.value = value;
         ChangeEvent changeEvent = Pools.obtain(ChangeEvent.class);
         boolean cancelled = fire(changeEvent);
-        if (cancelled)
+        if (cancelled) {
             this.value = oldValue;
-        else if (animateDuration > 0) {
+        } else if (animateDuration > 0) {
             animateFromValue = oldVisualValue;
             animateTime = animateDuration;
         }
@@ -219,19 +210,27 @@ public class ProgressBar extends Table {
      * Sets the range of this progress bar. The progress bar's current value is reset to min.
      */
     public void setRange(float min, float max) {
-        if (min > max) throw new IllegalArgumentException("min must be <= max");
+        if (min > max) {
+            throw new IllegalArgumentException("min must be <= max");
+        }
         this.min = min;
         this.max = max;
-        if (value < min)
+        if (value < min) {
             setValue(min);
-        else if (value > max) setValue(max);
+        } else {
+            if (value > max) {
+                setValue(max);
+            }
+        }
     }
 
     /**
      * Sets the step size of the progress bar
      */
     public void setStepSize(float stepSize) {
-        if (stepSize <= 0) throw new IllegalArgumentException("steps must be > 0: " + stepSize);
+        if (stepSize <= 0) {
+            throw new IllegalArgumentException("steps must be > 0: " + stepSize);
+        }
         this.stepSize = stepSize;
     }
 
@@ -239,14 +238,15 @@ public class ProgressBar extends Table {
         if (vertical) {
             final Drawable bg = style.background;
             return Math.max(0, bg.getMinWidth());
-        } else
+        } else {
             return 140;
+        }
     }
 
     public float getPrefHeight() {
-        if (vertical)
+        if (vertical) {
             return 140;
-        else {
+        } else {
             final Drawable bg = style.background;
             return Math.max(0, bg.getMinHeight());
         }
@@ -276,7 +276,9 @@ public class ProgressBar extends Table {
      * Sets the interpolation to use for {@link #setAnimateDuration(float)}.
      */
     public void setAnimateInterpolation(Interpolation animateInterpolation) {
-        if (animateInterpolation == null) throw new IllegalArgumentException("animateInterpolation cannot be null.");
+        if (animateInterpolation == null) {
+            throw new IllegalArgumentException("animateInterpolation cannot be null.");
+        }
         this.animateInterpolation = animateInterpolation;
     }
 
@@ -292,9 +294,13 @@ public class ProgressBar extends Table {
      * Returns a snapped value, or the original value
      */
     private float snap(float value) {
-        if (snapValues == null) return value;
+        if (snapValues == null) {
+            return value;
+        }
         for (int i = 0; i < snapValues.length; i++) {
-            if (Math.abs(value - snapValues[i]) <= threshold) return snapValues[i];
+            if (Math.abs(value - snapValues[i]) <= threshold) {
+                return snapValues[i];
+            }
         }
         return value;
     }

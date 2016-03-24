@@ -3,4 +3,15 @@
     "-//Puppy Crawl//DTD Suppressions 1.1//EN"
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 <suppressions>
+    <suppress checks="[a-zA-Z0-9]*" files="CCParticleActor.java"/>
+    <suppress checks="[a-zA-Z0-9]*" files="LogUtil.java"/>
+    <suppress checks="[a-zA-Z0-9]*" files="DemoGame.java"/>
+    <suppress checks="[a-zA-Z0-9]*" files="[\\/]src[\\/]test[\\/].*"/>
+    <suppress checks="MemberName|MethodName" files="net.mwplay.cocostudio.ui.model"/>
+    <suppress checks="MemberName|MethodName|ParameterName" files="ObjectData.java"/>
+    <suppress checks="MultipleVariableDeclarations" files="ProgressBar.java"/>
+    <suppress checks="MultipleVariableDeclarations" files="TCheckBox.java"/>
+    <suppress checks="AvoidNestedBlocks" files="PlistReader.java"/>
+    <suppress checks="EmptyBlock" files="CCScrollView.java"/>
+    <suppress checks="EmptyBlock" files="CCPanel.java"/>
 </suppressions>

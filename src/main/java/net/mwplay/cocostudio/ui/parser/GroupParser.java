@@ -25,8 +25,6 @@ import net.mwplay.cocostudio.ui.model.ObjectData;
 
 /**
  * 控件组转换器
- *
- * @author i see
  */
 public abstract class GroupParser extends BaseWidgetParser {
 

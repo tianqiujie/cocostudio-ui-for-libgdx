@@ -37,7 +37,7 @@ public class DemoScreen extends ScreenAdapter {
     private Stage stage;
     private List<String> demos;
     private FileHandle defaultFont;
-    private int currentIndex = 0;
+    private int currentIndex;
 
     @Override
     public void show() {

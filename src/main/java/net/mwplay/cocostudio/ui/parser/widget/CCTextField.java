@@ -60,8 +60,6 @@ public class CCTextField extends WidgetParser {
                 super.setText(text);
             }
 
-            ;
-
             @Override
             public void setMessageText(String messageText) {
 
@@ -73,7 +71,6 @@ public class CCTextField extends WidgetParser {
                 super.setMessageText(messageText);
             }
 
-            ;
         };
 
         textField.setMaxLength(widget.getMaxLengthText());

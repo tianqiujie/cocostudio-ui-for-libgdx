@@ -25,7 +25,6 @@ import net.mwplay.cocostudio.ui.model.ObjectData;
 import net.mwplay.cocostudio.ui.parser.GroupParser;
 
 /**
- * @author i see
  * tip libgdx的CheckBox只有选中和未选中两个状态的图片显示
  */
 public class CCCheckBox extends GroupParser {
@@ -39,7 +38,7 @@ public class CCCheckBox extends GroupParser {
     public Actor parse(CocoStudioUIEditor editor, ObjectData widget) {
         TCheckBox.CheckBoxStyle style = new TCheckBox.CheckBoxStyle(null, null, new BitmapFont(),
             Color.BLACK);
-        
+
         if (widget.getNodeNormalFileData() != null) {// 选中图片
 
             style.checkboxOff = editor.findDrawable(widget,

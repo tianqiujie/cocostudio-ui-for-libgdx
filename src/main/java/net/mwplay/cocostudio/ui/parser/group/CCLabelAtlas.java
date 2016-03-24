@@ -23,8 +23,6 @@ import net.mwplay.cocostudio.ui.parser.GroupParser;
 
 /**
  * 数字标签,暂时不支持.首字符设置.也就是说数字图片必须是0-9
- *
- * @author i see
  */
 public class CCLabelAtlas extends GroupParser {
 
@@ -35,19 +33,6 @@ public class CCLabelAtlas extends GroupParser {
 
     @Override
     public Actor parse(CocoStudioUIEditor editor, ObjectData widget) {
-
-//		if (option.getCharMapFileData() != null) {
-//			TextureRegion tr = editor.findTextureRegion(option, option
-//					.getCharMapFileData().getPath());
-//			if (tr != null) {
-//				LabelAtlas label = new LabelAtlas(tr, option.getItemWidth(),
-//						option.getItemHeight(), option.getStartCharMap(),
-//						option.getStringValue());
-//				return label;
-//
-//			}
-//		}
-
         return new Table();
     }
 }
