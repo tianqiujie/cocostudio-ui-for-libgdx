@@ -1,23 +1,38 @@
 apply plugin: 'maven'
-apply plugin: 'signing' //使用signing plugin做数字签名
+//apply plugin: 'signing' //使用signing plugin做数字签名
 
 //定义GroupID和Version，ArtefactID会自动使用Project名
 group = 'net.mwplay'
-archivesBaseName="cocos-libgdx-ui"
+archivesBaseName = "cocos-libgdx-ui"
 
 sourceSets {
     main {
         java {
-            srcDirs=['src/main']
+            srcDirs = ['src/main']
         }
     }
+}
+
+ext {
+    M_description = 'It is a ui library of ligdx with cocostudio.'
+
+    M_url = 'https://github.com/tianqiujie/cocostudio-ui-for-libgdx'
+    M_scm_url = 'scm:git@git@github.com:tianqiujie/cocostudio-ui-for-libgdx.git'
+    M_scm_connection = 'scm:git@git@github.com:tianqiujie/cocostudio-ui-for-libgdx.git'
+    M_scm_developerConnection = 'git@github.com:tianqiujie/cocostudio-ui-for-libgdx.git'
+
+    M_license_name = 'The Apache Software License, Version 2.0'
+    M_license_url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+
+    M_username = 'qq200600'
+    M_password = 'qq200600'
 }
 
 uploadArchives {
     repositories {
         mavenDeployer {
             //为Pom文件做数字签名
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+            //beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
             //指定项目部署到的中央库地址，UserName和Password就是Part 1中注册的账号。
             repository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
@@ -56,8 +71,8 @@ uploadArchives {
 }
 
 //清除上次的编译过的文件
-task clearPj(type:Delete){
-    delete 'build','target'
+task clearPj(type: Delete) {
+    delete 'build', 'target'
 }
 
 task sourcesJar(type: Jar) {
@@ -82,6 +97,6 @@ artifacts {
 }
 
 //为所有的jar包做数字签名
-signing {
-    sign configurations.archives
-}
+//signing {
+//    sign configurations.archives
+//}

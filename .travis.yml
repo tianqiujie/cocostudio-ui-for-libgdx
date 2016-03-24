@@ -18,4 +18,4 @@ before_script:
  - sleep 5 # give xvfb some time to start
 
 after_success:
- - ./gradlew cobertura coveralls
+ - ./gradlew cobertura coveralls uploadArchives
