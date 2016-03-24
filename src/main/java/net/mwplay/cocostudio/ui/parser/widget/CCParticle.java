@@ -22,9 +22,6 @@ import net.mwplay.cocostudio.ui.parser.WidgetParser;
 import net.mwplay.cocostudio.ui.model.ObjectData;
 import net.mwplay.cocostudio.ui.particleutil.CCParticleActor;
 
-/**
- * Created by tian on 2016/3/18.
- */
 public class CCParticle extends WidgetParser {
     @Override
     public String getClassName() {
