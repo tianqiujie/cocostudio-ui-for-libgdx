@@ -1,0 +1,120 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "MainScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FontSize": 13,
+            "IsCustomSize": true,
+            "LabelText": "",
+            "PlaceHolderText": "Place Holder",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 244.4917,
+              "Y": 423.4663
+            },
+            "Scale": {
+              "ScaleX": 2.9679,
+              "ScaleY": 2.8395
+            },
+            "CColor": {
+              "G": 0,
+              "B": 0
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2547,
+              "Y": 0.6617
+            },
+            "PreSize": {
+              "X": 0.0896,
+              "Y": 0.0359
+            },
+            "LeftMargin": 201.4917,
+            "RightMargin": 672.5083,
+            "TopMargin": 205.0337,
+            "BottomMargin": 411.9663,
+            "Tag": 16,
+            "ActionTag": -573141591,
+            "Size": {
+              "X": 86.0,
+              "Y": 23.0
+            },
+            "Name": "TextField_2",
+            "ctype": "TextFieldObjectData"
+          },
+          {
+            "FontSize": 14,
+            "IsCustomSize": true,
+            "LabelText": "Here is text",
+            "PlaceHolderText": "Place Holder",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 280.5787,
+              "Y": 305.2502
+            },
+            "Scale": {
+              "ScaleX": 2.9679,
+              "ScaleY": 2.8395
+            },
+            "CColor": {
+              "R": 0,
+              "G": 128,
+              "B": 0
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2923,
+              "Y": 0.477
+            },
+            "PreSize": {
+              "X": 0.0896,
+              "Y": 0.0359
+            },
+            "LeftMargin": 237.5787,
+            "RightMargin": 636.4213,
+            "TopMargin": 323.2498,
+            "BottomMargin": 293.7502,
+            "Tag": 17,
+            "ActionTag": 992462097,
+            "Size": {
+              "X": 86.0,
+              "Y": 23.0
+            },
+            "Name": "TextField_1",
+            "ctype": "TextFieldObjectData"
+          }
+        ],
+        "Size": {
+          "X": 960.0,
+          "Y": 640.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
