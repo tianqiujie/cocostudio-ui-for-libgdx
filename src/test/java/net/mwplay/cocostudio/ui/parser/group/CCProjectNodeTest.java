@@ -20,7 +20,6 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
-
 import net.mwplay.cocostudio.ui.CocoStudioUIEditor;
 import net.mwplay.cocostudio.ui.junit.LibgdxRunner;
 import net.mwplay.cocostudio.ui.junit.NeedGL;
@@ -34,7 +33,6 @@ import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 @RunWith(LibgdxRunner.class)
 public class CCProjectNodeTest {
@@ -60,9 +58,9 @@ public class CCProjectNodeTest {
             Gdx.files.internal("mainMenu/MainScene.json"), null, null, defaultFont, null);
 
         Group group = editor.createGroup();
-        assertThat(group.getTouchable(),is(Touchable.childrenOnly));
+        assertThat(group.getTouchable(), is(Touchable.childrenOnly));
         Group subGroup = (Group) group.getChildren().get(0);
         assertThat(subGroup.getTouchable(), is(Touchable.childrenOnly));
-        assertThat(subGroup.getChildren(), (Matcher) everyItem(hasProperty("touchable",is(true))));
+        assertThat(subGroup.getChildren(), (Matcher) everyItem(hasProperty("touchable", is(true))));
     }
 }

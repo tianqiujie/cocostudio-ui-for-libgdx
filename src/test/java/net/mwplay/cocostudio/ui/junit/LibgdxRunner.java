@@ -19,13 +19,10 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.jglfw.JglfwApplication;
 import com.badlogic.gdx.backends.jglfw.JglfwApplicationConfiguration;
-
 import net.mwplay.cocostudio.ui.junit.exception.LibgdxInitException;
 import net.mwplay.cocostudio.ui.junit.util.Condition;
-
-import org.apache.commons.io.FileUtils;
-
 import net.mwplay.cocostudio.ui.junit.util.ConditionWaiter;
+import org.apache.commons.io.FileUtils;
 import org.junit.runner.Description;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.BlockJUnit4ClassRunner;

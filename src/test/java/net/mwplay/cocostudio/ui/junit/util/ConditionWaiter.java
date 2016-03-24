@@ -16,7 +16,6 @@
 package net.mwplay.cocostudio.ui.junit.util;
 
 import net.mwplay.cocostudio.ui.junit.exception.TimeoutException;
-
 import org.junit.runner.Description;
 
 import java.util.concurrent.TimeUnit;

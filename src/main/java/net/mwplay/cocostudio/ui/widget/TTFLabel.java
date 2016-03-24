@@ -21,8 +21,6 @@ import net.mwplay.cocostudio.ui.util.FontUtil;
 
 /**
  * 让Label支持TTF,使用ttf后Label的font不会发生变化,每次修改Text的时候重新创建font
- *
- * @author i see
  */
 public class TTFLabel extends Label {
 

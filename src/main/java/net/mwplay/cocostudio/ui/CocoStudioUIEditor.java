@@ -65,11 +65,6 @@ import java.util.Map;
 /**
  * CocoStudio ui 解析器.根据CocoStudio的ui编辑器生成的json文件,创建出一个对应Group.
  * 本解析器还处于初级阶段,部分控件与属性不支持.
- *
- * @author i see
- * email 121077313@qq.com
- * wiki https://github.com/121077313/cocostudio-ui-libgdx/wiki
- * tip https://github.com/121077313/cocostudio-ui-libgdx/wiki/疑难解答
  */
 public class CocoStudioUIEditor {
 
@@ -238,9 +233,6 @@ public class CocoStudioUIEditor {
 
 
     /**
-     * @param tweenType
-     * @return
-     * @author tian
      * 根据传入的值返回插值类型
      */
     public Interpolation getInterpolation(int tweenType) {
@@ -254,29 +246,29 @@ public class CocoStudioUIEditor {
             case 3:
                 return Interpolation.sine;
             case 4:
-                return Interpolation.linear;//不支持Quad_EaseIn
+                return Interpolation.linear; //不支持Quad_EaseIn
             case 5:
-                return Interpolation.linear;//不支持Quad_EaseOut
+                return Interpolation.linear; //不支持Quad_EaseOut
             case 6:
-                return Interpolation.linear;//不支持Quad_EaseInOut
+                return Interpolation.linear; //不支持Quad_EaseInOut
             case 7:
-                return Interpolation.linear;//不支持Cubic_EaseIn
+                return Interpolation.linear; //不支持Cubic_EaseIn
             case 8:
-                return Interpolation.linear;//不支持Cubic_EaseOut
+                return Interpolation.linear; //不支持Cubic_EaseOut
             case 9:
-                return Interpolation.linear;//不支持Cubic_EaseInOut
+                return Interpolation.linear; //不支持Cubic_EaseInOut
             case 10:
-                return Interpolation.linear;//不支持Quart_EaseIn
+                return Interpolation.linear; //不支持Quart_EaseIn
             case 11:
-                return Interpolation.linear;//不支持Quart_EaseOut
+                return Interpolation.linear; //不支持Quart_EaseOut
             case 12:
-                return Interpolation.linear;//不支持Quart_EaseInOut
+                return Interpolation.linear; //不支持Quart_EaseInOut
             case 13:
-                return Interpolation.linear;//不支持Quint_EaseIn
+                return Interpolation.linear; //不支持Quint_EaseIn
             case 14:
-                return Interpolation.linear;//不支持Quint_EaseOut
+                return Interpolation.linear; //不支持Quint_EaseOut
             case 15:
-                return Interpolation.linear;//不支持Quint_EaseInOut
+                return Interpolation.linear; //不支持Quint_EaseInOut
             case 16:
                 return Interpolation.exp10In;
             case 17:
@@ -296,11 +288,11 @@ public class CocoStudioUIEditor {
             case 24:
                 return Interpolation.elastic;
             case 25:
-                return Interpolation.linear;//不支持Back_EaseIn
+                return Interpolation.linear; //不支持Back_EaseIn
             case 26:
-                return Interpolation.linear;//不支持Back_EaseOut
+                return Interpolation.linear; //不支持Back_EaseOut
             case 27:
-                return Interpolation.linear;//不支持Back_EaseInOut
+                return Interpolation.linear; //不支持Back_EaseInOut
             case 28:
                 return Interpolation.bounceIn;
             case 29:
@@ -343,7 +335,7 @@ public class CocoStudioUIEditor {
             return null;
         }
 
-        return (dirName + name);
+        return dirName + name;
     }
 
     /**

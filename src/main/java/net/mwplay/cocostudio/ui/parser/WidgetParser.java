@@ -27,8 +27,6 @@ import net.mwplay.cocostudio.ui.model.Scale;
 
 /**
  * 单控件转换器
- *
- * @author i see
  */
 public abstract class WidgetParser extends BaseWidgetParser {
 

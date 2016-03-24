@@ -17,8 +17,6 @@ package net.mwplay.cocostudio.ui.model;
 
 /**
  * ui json结构
- *
- * @author i see
  */
 public class CCExport {
 

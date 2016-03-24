@@ -27,14 +27,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane.ScrollPaneStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-
 import net.mwplay.cocostudio.ui.CocoStudioUIEditor;
-import net.mwplay.cocostudio.ui.parser.GroupParser;
 import net.mwplay.cocostudio.ui.model.ObjectData;
+import net.mwplay.cocostudio.ui.parser.GroupParser;
 
 /**
- * @author i see
- * tip 滚动方向, 回弹滚动支持不是很好
+ *         tip 滚动方向, 回弹滚动支持不是很好
  */
 public class CCScrollView extends GroupParser {
 
@@ -88,8 +86,6 @@ public class CCScrollView extends GroupParser {
 
             table.setBackground(drawable);
             pixmap.dispose();
-
-        } else {// 渐变色
 
         }
         scrollPane.setWidget(table);

@@ -25,14 +25,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-
 import net.mwplay.cocostudio.ui.CocoStudioUIEditor;
 import net.mwplay.cocostudio.ui.model.ObjectData;
 import net.mwplay.cocostudio.ui.model.Size;
 import net.mwplay.cocostudio.ui.parser.GroupParser;
 
 /**
- * @author i see
  * tip 还未支持单色背景属性, 背景图片在Cocostudio里面并不是铺满, 而是居中
  */
 public class CCPanel extends GroupParser {
@@ -47,7 +45,7 @@ public class CCPanel extends GroupParser {
         Table table = new Table();
 
         Size size = widget.getSize();
-        if (widget.getComboBoxIndex() == 0) {// 无颜色
+        if (widget.getComboBoxIndex() == 0) { // 无颜色
 
         } else if (widget.getComboBoxIndex() == 1) {// 单色
 
@@ -65,8 +63,6 @@ public class CCPanel extends GroupParser {
             pixmap.dispose();
 
             // table.addActor(new Image(d));
-
-        } else {// 渐变色
 
         }
 

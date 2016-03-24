@@ -40,10 +40,6 @@ public class CCButton extends GroupParser {
     @Override
     public Actor parse(CocoStudioUIEditor editor, final ObjectData widget) {
         this.editor = editor;
-        /*ImageButtonStyle style = new ImageButtonStyle(null, null, null,
-                editor.findDrawable(widget, widget.getNormalFileData()),
-				editor.findDrawable(widget, widget.getPressedFileData()), null);*/
-        //
 
         final Button button;
         //分开解决TextButton和ImageButton
