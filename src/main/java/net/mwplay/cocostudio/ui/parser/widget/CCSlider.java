@@ -22,45 +22,32 @@ import net.mwplay.cocostudio.ui.CocoStudioUIEditor;
 import net.mwplay.cocostudio.ui.model.ObjectData;
 import net.mwplay.cocostudio.ui.parser.GroupParser;
 
-/**
- * 滑动条
- *
- * @author i see
- */
 public class CCSlider extends GroupParser {
 
     @Override
     public String getClassName() {
-        return "SliderObjectData2";
+        return "SliderObjectData";
     }
 
     @Override
     public Actor parse(CocoStudioUIEditor editor, ObjectData widget) {
 
-        SliderStyle style = new SliderStyle(editor.findDrawable(widget,
-            widget.getBackGroundData()), editor.findDrawable(widget,
-            widget.getBallNormalData()));
+        SliderStyle style = new SliderStyle(
+            editor.findDrawable(widget, widget.getBackGroundData()),
+            editor.findDrawable(widget, widget.getBallNormalData()));
 
-
-        style.knob = editor.findDrawable(widget,
-            widget.getProgressBarData());
-        style.disabledBackground = editor.findDrawable(widget,
-            widget.getBallDisabledData());
         if (widget.getProgressBarData() != null) {
-            style.knobBefore = editor.findDrawable(widget,
-                widget.getProgressBarData());
+            style.knobBefore = editor.findDrawable(widget, widget.getProgressBarData());
         }
         if (widget.getBallDisabledData() != null) {
-            style.disabledKnob = editor.findDrawable(widget,
-                widget.getBallDisabledData());
+            style.disabledKnob = editor.findDrawable(widget, widget.getBallDisabledData());
         }
-        // 这里滑动条只支持1以上?
+        if (widget.getBallPressedData() != null) {
+            style.knobDown = editor.findDrawable(widget, widget.getBallPressedData());
+        }
 
         float percent = widget.getPercentInfo();
 
-        // if (percent <= 0) {// 进度不能小于等于0
-        // percent = 0.1f;
-        // }
         Slider slider = new Slider(0.1f, 100f, 0.1f, false, style);
         slider.setValue(percent);
         return slider;
