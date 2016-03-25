@@ -63,7 +63,7 @@ public class DemoScreen extends ScreenAdapter {
                         return name.equalsIgnoreCase("MainScene.json");
                     }
                 });
-                return mainJsons.length > 0;
+                return mainJsons != null && mainJsons.length > 0;
             }
         });
         for (FileHandle handle : demoFolder) {
