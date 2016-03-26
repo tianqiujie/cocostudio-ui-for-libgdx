@@ -51,7 +51,7 @@ public class CCSpriteViewTest {
         assertThat(actions.size, is(1));
         RepeatAction repeatAction = (RepeatAction) actions.get(0);
         ParallelAction parallelAction = (ParallelAction) repeatAction.getAction();
-        assertThat(parallelAction.getActions().size, is(2));
+        assertThat(parallelAction.getActions().size, is(3));
         assertThat(parallelAction.getActions(), (Matcher) everyItem(instanceOf(SequenceAction.class)));
         SequenceAction moveAction = (SequenceAction) parallelAction.getActions().get(0);
         SequenceAction scaleAction = (SequenceAction) parallelAction.getActions().get(1);
