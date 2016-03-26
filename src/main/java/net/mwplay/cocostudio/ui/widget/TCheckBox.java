@@ -74,20 +74,30 @@ public class TCheckBox extends TextButton {
     public void setPosition(float x, float y) {
         super.setPosition(x, y);
 
-        bg.setPosition(x, y);
+        if (bg != null){
+            bg.setPosition(x, y);
+        }
     }
 
     @Override
     public void setPosition(float x, float y, int alignment) {
         super.setPosition(x, y, alignment);
-        bg.setPosition(x, y, alignment);
+        if (bg != null){
+            bg.setPosition(x, y, alignment);
+        }
     }
 
     public void draw(Batch batch, float parentAlpha) {
-        bg.draw(batch, parentAlpha);
+        if (bg != null){
+            bg.draw(batch, parentAlpha);
+        }
+
         Drawable checkbox = null;
         if (isDisabled()) {
-            bg.setDrawable(style.disableBack);
+            if (bg != null){
+                bg.setDrawable(style.disableBack);
+            }
+
             if (isChecked()) {
                 checkbox = style.nodeDissable;
             } else {
@@ -170,6 +180,38 @@ public class TCheckBox extends TextButton {
         super.setHeight(height);
         if (bg != null) {
             bg.setHeight(height);
+        }
+    }
+
+    @Override
+    public void setOrigin(int alignment) {
+        super.setOrigin(alignment);
+        if (bg != null) {
+            bg.setOrigin(alignment);
+        }
+    }
+
+    @Override
+    public void setOrigin(float originX, float originY) {
+        super.setOrigin(originX, originY);
+        if (bg != null) {
+            bg.setOrigin(originX, originY);
+        }
+    }
+
+    @Override
+    public void setOriginX(float originX) {
+        super.setOriginX(originX);
+        if (bg != null) {
+            bg.setOriginX(originX);
+        }
+    }
+
+    @Override
+    public void setOriginY(float originY) {
+        super.setOriginY(originY);
+        if (bg != null) {
+            bg.setOriginY(originY);
         }
     }
 
