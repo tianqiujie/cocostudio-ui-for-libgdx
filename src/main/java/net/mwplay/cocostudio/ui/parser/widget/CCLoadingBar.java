@@ -15,7 +15,9 @@
  */
 package net.mwplay.cocostudio.ui.parser.widget;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import net.mwplay.cocostudio.ui.CocoStudioUIEditor;
 import net.mwplay.cocostudio.ui.model.ObjectData;
@@ -33,15 +35,16 @@ public class CCLoadingBar extends WidgetParser {
     public Actor parse(CocoStudioUIEditor editor, ObjectData widget) {
 
         if (widget.getImageFileData() == null) {
-            return new TLoadingBar();
+            return new Image();
         }
-        Drawable tr = editor.findDrawable(widget, widget.getImageFileData());
-        if (tr == null) {
-            return new TLoadingBar();
+
+        TextureRegion textureRegion = editor.findTextureRegion(widget, widget.getImageFileData()
+                .getPath());
+        if (textureRegion == null) {
+            return new Image();
         }
-        TLoadingBar loadingBar = new TLoadingBar(tr);
-        loadingBar.setBar(editor.findTextureRegion(widget, widget.getImageFileData().getPath()));
-        loadingBar.setValue(widget.getPercentInfo());
+        TLoadingBar loadingBar = new TLoadingBar(textureRegion);
+        loadingBar.setValue(widget.getProgressInfo());
 
         return loadingBar;
     }

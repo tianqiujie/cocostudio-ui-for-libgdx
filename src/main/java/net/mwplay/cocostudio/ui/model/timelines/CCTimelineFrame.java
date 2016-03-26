@@ -27,6 +27,8 @@ public class CCTimelineFrame {
 
     private FileData TextureFile;
 
+    private boolean Value;
+
     private boolean Tween;
 
     public float getX() {
@@ -75,5 +77,35 @@ public class CCTimelineFrame {
 
     public void setTextureFile(FileData textureFile) {
         TextureFile = textureFile;
+    }
+
+    public boolean isTween() {
+        return Tween;
+    }
+
+    public void setTween(boolean tween) {
+        Tween = tween;
+    }
+
+    public boolean isValue() {
+        return Value;
+    }
+
+    public void setValue(boolean value) {
+        Value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "CCTimelineFrame{" +
+                "X=" + X +
+                ", Y=" + Y +
+                ", FrameIndex=" + FrameIndex +
+                ", EasingData=" + EasingData +
+                ", ctype='" + ctype + '\'' +
+                ", TextureFile=" + TextureFile +
+                ", Value=" + Value +
+                ", Tween=" + Tween +
+                '}';
     }
 }

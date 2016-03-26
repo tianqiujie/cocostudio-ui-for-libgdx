@@ -29,9 +29,11 @@ import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
+
 import net.mwplay.cocostudio.ui.model.ObjectData;
 import net.mwplay.cocostudio.ui.model.timelines.CCTimelineActionData;
 import net.mwplay.cocostudio.ui.model.timelines.CCTimelineData;
+import net.mwplay.cocostudio.ui.model.timelines.CCTimelineEasingData;
 import net.mwplay.cocostudio.ui.model.timelines.CCTimelineFrame;
 import net.mwplay.cocostudio.ui.util.LogUtil;
 
@@ -55,7 +57,7 @@ public abstract class BaseWidgetParser {
 
     /**
      * common attribute parser
-     *
+     * <p/>
      * according cocstudio ui setting properties of the configuration file
      *
      * @param editor
@@ -72,19 +74,19 @@ public abstract class BaseWidgetParser {
         // set origin
         if (widget.getAnchorPoint() != null) {
             actor.setOrigin(widget.getAnchorPoint().getScaleX() * actor.getWidth(),
-                widget.getAnchorPoint().getScaleY() * actor.getHeight());
+                    widget.getAnchorPoint().getScaleY() * actor.getHeight());
         }
         //判空，因为新版本的单独节点没有Postion属性
         if (widget.getPosition() != null) {
             actor.setPosition(widget.getPosition().getX() - actor.getOriginX(),
-                widget.getPosition().getY() - actor.getOriginY());
+                    widget.getPosition().getY() - actor.getOriginY());
         }
 
         // CocoStudio的编辑器ScaleX,ScaleY 会有负数情况
         //判空，因为新版本的单独节点没有Scale属性
         if (widget.getScale() != null) {
             actor.setScale(widget.getScale().getScaleX(), widget.getScale()
-                .getScaleY());
+                    .getScaleY());
         }
 
         if (widget.getRotation() != 0) {// CocoStudio 是顺时针方向旋转,转换下.
@@ -129,7 +131,7 @@ public abstract class BaseWidgetParser {
 
     private void parseAction(final Actor actor, final ObjectData widget) {
         CCTimelineActionData ccTimelineActionData = editor.export.getContent().getContent()
-            .getAnimation();
+                .getAnimation();
         float duration = ccTimelineActionData.getDuration();
         float speed = ccTimelineActionData.getSpeed();
 
@@ -147,12 +149,24 @@ public abstract class BaseWidgetParser {
                     SequenceAction sequenceAction = Actions.sequence();
 
                     for (CCTimelineFrame ccTimelineFrame : ccTimelineFrames) {
-                        Action moveTo = Actions.moveTo(
-                            ccTimelineFrame.getX() - actor.getWidth() / 2,
-                            ccTimelineFrame.getY() - actor.getHeight() / 2
-                            , speed / duration * ccTimelineFrame.getFrameIndex(),
+                        Action moveTo = null;
+                        //假如没有插值
+                        if (null == ccTimelineFrame.getEasingData()) {
+                            moveTo = Actions.moveTo(
+                                    ccTimelineFrame.getX() - actor.getWidth() / 2,
+                                    ccTimelineFrame.getY() - actor.getHeight() / 2
+                                    , speed / duration * ccTimelineFrame.getFrameIndex()
+                            );
+                        } else {//有插值
+                            moveTo = Actions.moveTo(
+                                    ccTimelineFrame.getX() - actor.getWidth() / 2,
+                                    ccTimelineFrame.getY() - actor.getHeight() / 2
+                                    , speed / duration * ccTimelineFrame.getFrameIndex(),
+                                    editor.getInterpolation(
+                                            ccTimelineFrame.getEasingData().getType()
+                                    ));
+                        }
 
-                            editor.getInterpolation(ccTimelineFrame.getEasingData().getType()));
                         sequenceAction.addAction(moveTo);
                     }
 
@@ -175,14 +189,23 @@ public abstract class BaseWidgetParser {
                     parallelAction.addAction(sequenceAction);
                 } else if (ccTimelineData.getProperty().equals("Scale")) {
                     SequenceAction sequenceAction = Actions.sequence();
+
                     for (CCTimelineFrame ccTimelineFrame : ccTimelineFrames) {
-                        LogUtil.Log(speed / duration * ccTimelineFrame.getFrameIndex());
-                        Action scaleTo = Actions.scaleTo(
-                            ccTimelineFrame.getX(),
-                            ccTimelineFrame.getY(),
-                            speed / duration * ccTimelineFrame.getFrameIndex(),
-                            editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
-                        );
+                        Action scaleTo = null;
+                        if (ccTimelineFrame.getEasingData() != null) {
+                            scaleTo = Actions.scaleTo(
+                                    ccTimelineFrame.getX(),
+                                    ccTimelineFrame.getY(),
+                                    speed / duration * ccTimelineFrame.getFrameIndex(),
+                                    editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
+                            );
+                        } else {
+                            scaleTo = Actions.scaleTo(
+                                    ccTimelineFrame.getX(),
+                                    ccTimelineFrame.getY(),
+                                    speed / duration * ccTimelineFrame.getFrameIndex()
+                            );
+                        }
 
                         sequenceAction.addAction(scaleTo);
                     }
@@ -191,18 +214,54 @@ public abstract class BaseWidgetParser {
                 } else if (ccTimelineData.getProperty().equals("RotationSkew")) {
                     SequenceAction sequenceAction = Actions.sequence();
                     for (CCTimelineFrame ccTimelineFrame : ccTimelineFrames) {
-
+                        Action rotation = null;
                         float angle = new Vector2(ccTimelineFrame.getX(), ccTimelineFrame.getY()).angle();
-                        Action rotation = Actions.rotateTo(
-                            angle,
-                            speed / duration * ccTimelineFrame.getFrameIndex(),
-                            editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
-                        );
+                        if (ccTimelineFrame.getEasingData() != null) {
+                            rotation = Actions.rotateTo(
+                                    angle,
+                                    speed / duration * ccTimelineFrame.getFrameIndex(),
+                                    editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
+                            );
+                        } else {
+                            rotation = Actions.rotateTo(
+                                    angle,
+                                    speed / duration * ccTimelineFrame.getFrameIndex()
+                            );
+                        }
 
                         sequenceAction.addAction(rotation);
                     }
 
                     // parallelAction.addAction(sequenceAction);
+                }
+                //VisibleForFrame
+                else if (ccTimelineData.getProperty().equals("VisibleForFrame")) {
+                    SequenceAction sequenceAction = Actions.sequence();
+                    for (CCTimelineFrame ccTimelineFrame : ccTimelineFrames) {
+                        Action alpha = null;
+                        float alphaValue = 0;
+                        //显示
+                        if (ccTimelineFrame.isValue()) {
+                            alphaValue = 1;
+                        }
+
+                        if (ccTimelineFrame.getEasingData() != null) {
+                            alpha = Actions.alpha(
+                                    alphaValue,
+                                    speed / duration * ccTimelineFrame.getFrameIndex(),
+                                    editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
+                            );
+                        }else {
+                            alpha = Actions.alpha(
+                                    alphaValue,
+                                    speed / duration * ccTimelineFrame.getFrameIndex()
+                            );
+                        }
+
+                        sequenceAction.addAction(alpha);
+                    }
+
+                    parallelAction.addAction(sequenceAction);
                 }
             }
         }
@@ -213,7 +272,7 @@ public abstract class BaseWidgetParser {
 
     public void addCallback(final Actor actor, final ObjectData widget) {
         if (widget.getCallBackType() == null
-            || widget.getCallBackType().isEmpty()) {
+                || widget.getCallBackType().isEmpty()) {
             return;
         }
         if ("Click".equals(widget.getCallBackType())) {
@@ -296,7 +355,7 @@ public abstract class BaseWidgetParser {
             @Override
             public int compare(Actor arg0, Actor arg1) {
                 return getZOrder(widget, arg0.getName())
-                    - getZOrder(widget, arg1.getName());
+                        - getZOrder(widget, arg1.getName());
             }
         });
 

@@ -16,13 +16,20 @@
 package net.mwplay.cocostudio.ui.model.timelines;
 
 public class CCTimelineEasingData {
-    private int Type;
+    private Integer Type;
 
-    public int getType() {
+    public Integer getType() {
         return Type;
     }
 
-    public void setType(int type) {
+    public void setType(Integer type) {
         Type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "CCTimelineEasingData{" +
+                "Type=" + Type +
+                '}';
     }
 }

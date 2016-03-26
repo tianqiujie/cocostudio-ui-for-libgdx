@@ -299,9 +299,10 @@ public class CocoStudioUIEditor {
                 return Interpolation.bounceOut;
             case 30:
                 return Interpolation.bounce;
-        }
 
-        return null;
+            default:
+                return Interpolation.linear;
+        }
     }
 
     protected TextureRegion findRegion(String name) {

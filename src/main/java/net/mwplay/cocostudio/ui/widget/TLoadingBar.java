@@ -19,96 +19,48 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TransformDrawable;
 import com.badlogic.gdx.utils.Scaling;
 
-public class TLoadingBar extends Image {
+import net.mwplay.cocostudio.ui.model.Size;
+import net.mwplay.cocostudio.ui.util.LogUtil;
+
+/**
+ * @author tian
+ */
+public class TLoadingBar extends Actor {
     private int value = 100;
     private TextureRegion bar;
-
-    public void setBar(TextureRegion bar) {
-        this.bar = bar;
-    }
+    private Size rect;
 
     public TextureRegion getBar() {
         return bar;
     }
 
-    public TLoadingBar() {
-    }
-
-    public TLoadingBar(NinePatch patch) {
-        super(patch);
-    }
-
-    public TLoadingBar(TextureRegion region) {
-        super(region);
-    }
-
-    public TLoadingBar(Texture texture) {
-        super(texture);
-    }
-
-    public TLoadingBar(Skin skin, String drawableName) {
-        super(skin, drawableName);
-    }
-
-    public TLoadingBar(Drawable drawable) {
-        super(drawable);
-    }
-
-    public TLoadingBar(Drawable drawable, Scaling scaling) {
-        super(drawable, scaling);
-    }
-
-    public TLoadingBar(Drawable drawable, Scaling scaling, int align) {
-        super(drawable, scaling, align);
+    public TLoadingBar(TextureRegion bar) {
+        this.bar = bar;
+        rect = new Size();
+        rect.setX(bar.getRegionWidth());
+        rect.setY(bar.getRegionHeight());
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        validate();
-
-        Color color = getColor();
-        batch.setColor(color.r, color.g, color.b, color.a * parentAlpha);
-
-        float x = getX();
-        float y = getY();
-        float scaleX = getScaleX();
-        float scaleY = getScaleY();
-        Drawable drawable = getDrawable();
-
-        float imageX = getImageX();
-        float imageY = getImageY();
-        float imageWidth = getImageWidth();
-        float imageHeight = getImageHeight();
-
-        if (drawable instanceof TransformDrawable) {
-            float rotation = getRotation();
-            if (scaleX != 1 || scaleY != 1 || rotation != 0) {
-                // ((TransformDrawable)drawable).draw(batch, x + imageX, y + imageY, getOriginX() -
-                //                 imageX, getOriginY() - imageY,
-                //         imageWidth, imageHeight, scaleX, scaleY, rotation);
-
-                batch.draw(bar, x + imageX, y + imageY, getOriginX() - imageX, getOriginY() - imageY,
-                    imageWidth, imageHeight, scaleX, scaleY, rotation);
-
-                return;
-            }
-        }
-
-        if (drawable != null) {
-            drawable.draw(batch, x + imageX, y + imageY, imageWidth * scaleX,
-                imageHeight * scaleY);
-        }
+        super.draw(batch, parentAlpha);
+        batch.draw(bar, getX(), getY(), getOriginX(), getOriginY(), bar.getRegionWidth(), bar.getRegionHeight(),
+                getScaleX(), getScaleY(), getRotation());
     }
 
     public void setValue(int value) {
         this.value = value;
+        bar.setRegion(0, 0, (int) (rect.getX() * value / 100f), (int)(rect.getY()));
     }
 
     public int getValue() {
