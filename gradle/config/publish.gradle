@@ -1,17 +1,15 @@
 apply plugin: 'maven'
-//apply plugin: 'signing' //使用signing plugin做数字签名
 
-//定义GroupID和Version，ArtefactID会自动使用Project名
 group = 'net.mwplay'
 archivesBaseName = "cocos-libgdx-ui"
 
 ext {
     M_description = 'It is a ui library of ligdx with cocostudio.'
 
-    M_url = 'https://github.com/tianqiujie/cocostudio-ui-for-libgdx'
-    M_scm_url = 'scm:git@git@github.com:tianqiujie/cocostudio-ui-for-libgdx.git'
-    M_scm_connection = 'scm:git@git@github.com:tianqiujie/cocostudio-ui-for-libgdx.git'
-    M_scm_developerConnection = 'git@github.com:tianqiujie/cocostudio-ui-for-libgdx.git'
+    M_url = 'https://github.com/varFamily/cocos-ui-libgdx.git'
+    M_scm_url = 'scm:git@git@github.com:varFamily/cocos-ui-libgdx.git'
+    M_scm_connection = 'scm:git@git@github.com:varFamily/cocos-ui-libgdx.git'
+    M_scm_developerConnection = 'git@github.com:varFamily/cocos-ui-libgdx.git'
 
     M_license_name = 'The Apache Software License, Version 2.0'
     M_license_url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
@@ -23,13 +21,9 @@ ext {
 uploadArchives {
     repositories {
         mavenDeployer {
-            //为Pom文件做数字签名
-            //beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-            //指定项目部署到的中央库地址，UserName和Password就是Part 1中注册的账号。
             repository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
                 authentication(userName: M_username, password: M_password)
             }
-            //构造项目的Pom文件，参见Part 2中Pom文件的规范，不要遗漏必填项
             pom.project {
                 name project.name
                 packaging 'jar'
@@ -55,13 +49,17 @@ uploadArchives {
                         id 'qq200600'
                         name 'Tian qiujie'
                     }
+                    developer {
+                        id 'htynkn'
+                        name 'Yunkun Huang'
+                        email 'htynkn@gmail.com'
+                    }
                 }
             }
         }
     }
 }
 
-//清除上次的编译过的文件
 task clearPj(type: Delete) {
     delete 'build', 'target'
 }
@@ -73,7 +71,7 @@ task sourcesJar(type: Jar) {
     exclude('test/')
 }
 
-task makeJar(type: Jar){
+task makeJar(type: Jar) {
     from sourceSets.main.java.srcDirs
     exclude('demo/')
     exclude('test/')
@@ -83,7 +81,6 @@ javadoc {
     options.encoding = 'UTF-8'
 }
 
-//参见Part 2， 为项目生成**.jar/**-javadoc.jar/**-sources.jar
 task javadocJar(type: Jar, dependsOn: [javadoc]) {
     classifier = 'javadoc'
     from 'build/docs/javadoc'
@@ -94,8 +91,3 @@ artifacts {
     archives javadocJar
     archives sourcesJar
 }
-
-//为所有的jar包做数字签名
-//signing {
-//    sign configurations.archives
-//}
