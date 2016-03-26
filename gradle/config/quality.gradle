@@ -10,5 +10,3 @@ checkstyle {
 
 apply plugin: "net.saliman.cobertura"
 cobertura.coverageFormats = ['html', 'xml']
-
-apply plugin: "com.github.kt3k.coveralls"

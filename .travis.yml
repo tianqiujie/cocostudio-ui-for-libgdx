@@ -12,9 +12,12 @@ env:
  - GDX_VERSION=1.8.0
  - GDX_VERSION=1.7.0
 
+before_install:
+  - sudo pip install codecov
+
 before_script:
  - .travis/xvfb.sh
 
 after_success:
- - ./gradlew cobertura coveralls
+ - .travis/coverage.sh
  - .travis/deploy.sh
