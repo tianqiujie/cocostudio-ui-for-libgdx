@@ -66,6 +66,10 @@ public class DemoScreen extends ScreenAdapter {
                 return mainJsons != null && mainJsons.length > 0;
             }
         });
+        FileHandle root = Gdx.files.internal("./MainScene.json");
+        if (root.exists()) {
+            demos.add(root.parent().path());
+        }
         for (FileHandle handle : demoFolder) {
             demos.add(handle.name());
         }
