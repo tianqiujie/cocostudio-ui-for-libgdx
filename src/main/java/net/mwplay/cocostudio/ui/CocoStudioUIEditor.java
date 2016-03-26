@@ -45,6 +45,7 @@ import net.mwplay.cocostudio.ui.parser.widget.CCImageView;
 import net.mwplay.cocostudio.ui.parser.widget.CCLabelBMFont;
 import net.mwplay.cocostudio.ui.parser.widget.CCSlider;
 import net.mwplay.cocostudio.ui.parser.widget.CCSpriteView;
+import net.mwplay.cocostudio.ui.parser.widget.CCTextAtlas;
 import net.mwplay.cocostudio.ui.widget.TTFLabelStyle;
 import net.mwplay.cocostudio.ui.model.ObjectData;
 import net.mwplay.cocostudio.ui.parser.group.CCButton;
@@ -149,6 +150,7 @@ public class CocoStudioUIEditor {
         addParser(new CCScrollView());
         addParser(new CCTextField());
         addParser(new CCLoadingBar());
+        addParser(new CCTextAtlas());
 
         addParser(new CCLayer());
 
