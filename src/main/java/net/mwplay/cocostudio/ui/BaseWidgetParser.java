@@ -33,9 +33,7 @@ import com.badlogic.gdx.utils.Array;
 import net.mwplay.cocostudio.ui.model.ObjectData;
 import net.mwplay.cocostudio.ui.model.timelines.CCTimelineActionData;
 import net.mwplay.cocostudio.ui.model.timelines.CCTimelineData;
-import net.mwplay.cocostudio.ui.model.timelines.CCTimelineEasingData;
 import net.mwplay.cocostudio.ui.model.timelines.CCTimelineFrame;
-import net.mwplay.cocostudio.ui.util.LogUtil;
 
 import java.lang.reflect.Method;
 import java.util.Comparator;
@@ -57,7 +55,6 @@ public abstract class BaseWidgetParser {
 
     /**
      * common attribute parser
-     * <p/>
      * according cocstudio ui setting properties of the configuration file
      *
      * @param editor
@@ -232,10 +229,8 @@ public abstract class BaseWidgetParser {
                         sequenceAction.addAction(rotation);
                     }
 
-                    // parallelAction.addAction(sequenceAction);
-                }
-                //VisibleForFrame
-                else if (ccTimelineData.getProperty().equals("VisibleForFrame")) {
+                     parallelAction.addAction(sequenceAction);
+                } else if (ccTimelineData.getProperty().equals("VisibleForFrame")) {
                     SequenceAction sequenceAction = Actions.sequence();
                     for (CCTimelineFrame ccTimelineFrame : ccTimelineFrames) {
                         Action alpha = null;

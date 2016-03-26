@@ -15,25 +15,15 @@
  */
 package net.mwplay.cocostudio.ui.widget;
 
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.NinePatch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.scenes.scene2d.utils.TransformDrawable;
-import com.badlogic.gdx.utils.Scaling;
 
 import net.mwplay.cocostudio.ui.model.Size;
-import net.mwplay.cocostudio.ui.util.LogUtil;
 
 /**
- * @author tian
+ * author Tian
+ * email:tqj.zyy@gmail.com
  */
 public class TLoadingBar extends Actor {
     private int value = 100;

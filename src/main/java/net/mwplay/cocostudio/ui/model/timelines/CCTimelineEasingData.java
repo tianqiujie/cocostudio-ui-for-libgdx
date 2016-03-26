@@ -28,8 +28,8 @@ public class CCTimelineEasingData {
 
     @Override
     public String toString() {
-        return "CCTimelineEasingData{" +
-                "Type=" + Type +
-                '}';
+        return "CCTimelineEasingData{"
+                + "Type=" + Type
+                + '}';
     }
 }

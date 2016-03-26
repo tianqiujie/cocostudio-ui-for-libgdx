@@ -97,15 +97,15 @@ public class CCTimelineFrame {
 
     @Override
     public String toString() {
-        return "CCTimelineFrame{" +
-                "X=" + X +
-                ", Y=" + Y +
-                ", FrameIndex=" + FrameIndex +
-                ", EasingData=" + EasingData +
-                ", ctype='" + ctype + '\'' +
-                ", TextureFile=" + TextureFile +
-                ", Value=" + Value +
-                ", Tween=" + Tween +
-                '}';
+        return "CCTimelineFrame{"
+                + "X=" + X
+                + ", Y=" + Y
+                + ", FrameIndex=" + FrameIndex
+                + ", EasingData=" + EasingData
+                + ", ctype='" + ctype + '\''
+                + ", TextureFile=" + TextureFile
+                + ", Value=" + Value
+                + ", Tween=" + Tween
+                + '}';
     }
 }
