@@ -57,7 +57,7 @@
 ##关于作者
 
 ```java
- String badboy = {
+ String badboy[] = {
     name  : "纯洁的坏蛋",
     site : "http://www.i7play.com"
   }
