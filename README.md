@@ -63,14 +63,6 @@
   }
 ```
 
-# cocostudio-ui-for-libgdx
-a ui library of ligdx with cocostudio
-
-* Thank for the project: https://github.com/121077313/cocostudio-ui-libgdx
-* 非常感谢cocostudio-ui-libgdx项目。这个项目是基于该项目修改的。
-
-
-
 ### 下一步计划
 + 完善cocos2dx的粒子系统
 + 添加单元测试
