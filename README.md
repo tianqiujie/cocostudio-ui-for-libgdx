@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/varFamily/cocos-ui-libgdx.svg?branch=master)](https://travis-ci.org/varFamily/cocos-ui-libgdx)
 [![Coverage Status](https://coveralls.io/repos/github/varFamily/cocos-ui-libgdx/badge.svg?branch=master)](https://coveralls.io/github/varFamily/cocos-ui-libgdx?branch=master)
-[![Maintenance](https://img.shields.io/maintenance/yes/2016.svg)]
+[![Maintenance](https://img.shields.io/maintenance/yes/2016.svg)](https://github.com/varFamily/cocos-ui-libgdx)
 [![Apache 2](http://img.shields.io/badge/license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 ##cocos-ui-libgdx
