@@ -33,30 +33,30 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
-
 import net.mwplay.cocostudio.ui.model.CCExport;
 import net.mwplay.cocostudio.ui.model.CColor;
 import net.mwplay.cocostudio.ui.model.FileData;
+import net.mwplay.cocostudio.ui.model.ObjectData;
+import net.mwplay.cocostudio.ui.parser.group.CCButton;
 import net.mwplay.cocostudio.ui.parser.group.CCCheckBox;
 import net.mwplay.cocostudio.ui.parser.group.CCLabelAtlas;
 import net.mwplay.cocostudio.ui.parser.group.CCLayer;
 import net.mwplay.cocostudio.ui.parser.group.CCNode;
-import net.mwplay.cocostudio.ui.parser.widget.CCImageView;
-import net.mwplay.cocostudio.ui.parser.widget.CCLabelBMFont;
-import net.mwplay.cocostudio.ui.parser.widget.CCSlider;
-import net.mwplay.cocostudio.ui.parser.widget.CCSpriteView;
-import net.mwplay.cocostudio.ui.parser.widget.CCTextAtlas;
-import net.mwplay.cocostudio.ui.widget.TTFLabelStyle;
-import net.mwplay.cocostudio.ui.model.ObjectData;
-import net.mwplay.cocostudio.ui.parser.group.CCButton;
+import net.mwplay.cocostudio.ui.parser.group.CCPageView;
 import net.mwplay.cocostudio.ui.parser.group.CCPanel;
 import net.mwplay.cocostudio.ui.parser.group.CCProjectNode;
 import net.mwplay.cocostudio.ui.parser.group.CCScrollView;
+import net.mwplay.cocostudio.ui.parser.widget.CCImageView;
 import net.mwplay.cocostudio.ui.parser.widget.CCLabel;
+import net.mwplay.cocostudio.ui.parser.widget.CCLabelBMFont;
 import net.mwplay.cocostudio.ui.parser.widget.CCLoadingBar;
 import net.mwplay.cocostudio.ui.parser.widget.CCParticle;
+import net.mwplay.cocostudio.ui.parser.widget.CCSlider;
+import net.mwplay.cocostudio.ui.parser.widget.CCSpriteView;
+import net.mwplay.cocostudio.ui.parser.widget.CCTextAtlas;
 import net.mwplay.cocostudio.ui.parser.widget.CCTextField;
 import net.mwplay.cocostudio.ui.util.FontUtil;
+import net.mwplay.cocostudio.ui.widget.TTFLabelStyle;
 
 import java.io.File;
 import java.util.Collection;
@@ -162,6 +162,7 @@ public class CocoStudioUIEditor {
 
         addParser(new CCParticle());
         addParser(new CCProjectNode());
+        addParser(new CCPageView());
 
         actors = new HashMap<String, Array<Actor>>();
         actionActors = new HashMap<Integer, Actor>();
@@ -465,7 +466,8 @@ public class CocoStudioUIEditor {
 
     /***
      * 解析节点,创建控件
-     *@param parent
+     *
+     * @param parent
      * @param widget
      * @return
      */
