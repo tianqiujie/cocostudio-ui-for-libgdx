@@ -119,9 +119,12 @@ public class ObjectData {
     int BackColorAlpha;
 
     CColor FirstColor;
-
+    int CharWidth;
+    int CharHeight;
+    String StartChar;
     String LabelText;
     FileData LabelBMFontFile_CNB;
+    FileData LabelAtlasFileImage_CNB;
 
     boolean MaxLengthEnable;
     int MaxLengthText;
@@ -726,5 +729,21 @@ public class ObjectData {
 
     public int getScale9OriginY() {
         return Scale9OriginY;
+    }
+
+    public int getCharWidth() {
+        return CharWidth;
+    }
+
+    public int getCharHeight() {
+        return CharHeight;
+    }
+
+    public net.mwplay.cocostudio.ui.model.FileData getLabelAtlasFileImage_CNB() {
+        return LabelAtlasFileImage_CNB;
+    }
+
+    public String getStartChar() {
+        return StartChar;
     }
 }

@@ -47,8 +47,7 @@ public class CCPanel extends GroupParser {
         Size size = widget.getSize();
         if (widget.getComboBoxIndex() == 0) { // 无颜色
 
-        } else if (widget.getComboBoxIndex() == 1) {// 单色
-
+        } else if (widget.getComboBoxIndex() == 1 && widget.getBackColorAlpha() != 0) {// 单色
             Pixmap pixmap = new Pixmap((int) size.getX(), (int) size.getY(),
                 Format.RGBA8888);
 
@@ -61,9 +60,6 @@ public class CCPanel extends GroupParser {
                 new Texture(pixmap)));
             table.setBackground(d);
             pixmap.dispose();
-
-            // table.addActor(new Image(d));
-
         }
 
         if (widget.getFileData() != null) {// Panel的图片并不是拉伸平铺的!!.但是这里修改为填充
