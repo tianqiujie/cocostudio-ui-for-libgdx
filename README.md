@@ -24,7 +24,7 @@
 * 部分支持Cocos Studio的动画效果，包括位移动画，缩放动画，帧动画（倾斜动画不支持）
 
 ## 快速入门
-本项目目前没有发布正式版本，只有`0.1.0-snapshot`版。
+本项目目前没有发布正式版本，只有`0.1.1-snapshot`版。
 
 在`build.gradle`中添加
 
@@ -35,7 +35,7 @@
     }
 
     dependencies {
-       compile "net.mwplay:cocos-libgdx-ui:0.1.0-SNAPSHOT"
+       compile "net.mwplay:cocos-libgdx-ui:0.1.1-SNAPSHOT"
     }
 ```
 在代码中
