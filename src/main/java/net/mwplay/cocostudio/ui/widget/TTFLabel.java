@@ -17,7 +17,9 @@ package net.mwplay.cocostudio.ui.widget;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+
 import net.mwplay.cocostudio.ui.util.FontUtil;
+import net.mwplay.nativefont.NativeFont;
 
 /**
  * 让Label支持TTF,使用ttf后Label的font不会发生变化,每次修改Text的时候重新创建font
@@ -31,7 +33,11 @@ public class TTFLabel extends Label {
     @Override
     public void setText(CharSequence newText) {
         LabelStyle style = getStyle();
-        style.font = createFont((TTFLabelStyle) style, "" + newText);
+        if (style.font instanceof NativeFont) {
+            ((NativeFont) style.font).appendText(newText.toString());
+        } else {
+            style.font = createFont((TTFLabelStyle) style, "" + newText);
+        }
 
         super.setStyle(style);
         super.setText(newText);
@@ -50,12 +56,16 @@ public class TTFLabel extends Label {
 
     @Override
     public void setStyle(LabelStyle style) {
-        style.font = createFont((TTFLabelStyle) style, "" + getText());
-
+        TTFLabelStyle ttfLabelStyle = (TTFLabelStyle) style;
+        if (ttfLabelStyle.font != null) {
+            style.font = ttfLabelStyle.font;
+        } else {
+            style.font = createFont(ttfLabelStyle, "" + getText());
+        }
         super.setStyle(style);
     }
 
-    BitmapFont createFont(TTFLabelStyle ttfStyle, String text) {
+    private BitmapFont createFont(TTFLabelStyle ttfStyle, String text) {
         return FontUtil.createFont(ttfStyle.getFontFileHandle(), text,
             ttfStyle.getFontSize());
     }

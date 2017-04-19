@@ -22,7 +22,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
 import net.mwplay.cocostudio.ui.CocoStudioUIEditor;
 import net.mwplay.cocostudio.ui.model.ObjectData;
 import net.mwplay.cocostudio.ui.parser.WidgetParser;
-import net.mwplay.cocostudio.ui.util.FontUtil;
+//import net.mwplay.cocostudio.ui.util.FontUtil;
 import net.mwplay.cocostudio.ui.widget.TTFLabelStyle;
 
 public class CCTextField extends WidgetParser {
@@ -53,9 +53,9 @@ public class CCTextField extends WidgetParser {
             public void setText(String text) {
                 String sumText = text + getMessageText() + defaultText;
 
-                getStyle().font = FontUtil.createFont(
+                /*getStyle().font = FontUtil.createFont(
                         labelStyle.getFontFileHandle(), sumText,
-                        labelStyle.getFontSize());
+                        labelStyle.getFontSize());*/
 
                 super.setText(text);
             }
@@ -65,9 +65,9 @@ public class CCTextField extends WidgetParser {
 
                 String sumText = messageText + getText() + defaultText;
 
-                getStyle().font = FontUtil.createFont(
+                /*getStyle().font = FontUtil.createFont(
                     labelStyle.getFontFileHandle(), sumText,
-                    labelStyle.getFontSize());
+                    labelStyle.getFontSize());*/
                 super.setMessageText(messageText);
             }
 

@@ -33,6 +33,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
+
 import net.mwplay.cocostudio.ui.model.CCExport;
 import net.mwplay.cocostudio.ui.model.CColor;
 import net.mwplay.cocostudio.ui.model.FileData;
@@ -56,7 +57,10 @@ import net.mwplay.cocostudio.ui.parser.widget.CCSpriteView;
 import net.mwplay.cocostudio.ui.parser.widget.CCTextAtlas;
 import net.mwplay.cocostudio.ui.parser.widget.CCTextField;
 import net.mwplay.cocostudio.ui.util.FontUtil;
+import net.mwplay.cocostudio.ui.util.LogUtil;
 import net.mwplay.cocostudio.ui.widget.TTFLabelStyle;
+import net.mwplay.nativefont.NativeFont;
+import net.mwplay.nativefont.NativeFontPaint;
 
 import java.io.File;
 import java.util.Collection;
@@ -431,9 +435,7 @@ public class CocoStudioUIEditor {
                 textureRegion.getRegionWidth() - option.getScale9Width() - option.getScale9OriginX(),
                 option.getScale9OriginY(),
                 textureRegion.getRegionHeight() - option.getScale9Height() - option.getScale9OriginY());
-            if (np == null) {
-                return null;
-            }
+
             np.setColor(getColor(option.getCColor(), option.getAlpha()));
             return new NinePatchDrawable(np);
         }
@@ -452,7 +454,7 @@ public class CocoStudioUIEditor {
     }
 
     public void debug(ObjectData option, String message) {
-        Gdx.app.debug(tag, "控件: " + option.getCtype() + "," + option.getName()
+        Gdx.app.log(tag, "控件: " + option.getCtype() + "," + option.getName()
             + " " + message);
     }
 
@@ -532,6 +534,10 @@ public class CocoStudioUIEditor {
      * @param option
      * @return
      */
+
+    public static Map<String, NativeFont> fonts = new HashMap<>();
+    public static final String DEFAULT_CHARS =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!`?'.,;:()[]{}<>|/@\\^$-%+=#_&~*";
     public TTFLabelStyle createLabelStyle(ObjectData option, String text,
                                           Color color) {
 
@@ -545,12 +551,25 @@ public class CocoStudioUIEditor {
         }
 
         if (fontFile == null) {
-            debug(option, "ttf字体:" + option.getFontResource().getPath()
-                + " 不存在,使用默认字体");
+            debug(option, "ttf字体不存在,使用默认字体");
         }
 
-        BitmapFont font = FontUtil.createFont(fontFile, text,
-            option.getFontSize());
+        BitmapFont font = null;
+        if (fontFile == null) {
+            String name = "nativefont" + option.getFontSize();
+            NativeFont nativeFont = fonts.get(name);
+            if (nativeFont == null){
+                nativeFont = new NativeFont(new NativeFontPaint(option.getFontSize()));
+                nativeFont.appendText(DEFAULT_CHARS);
+                fonts.put(name, nativeFont);
+            }
+
+            nativeFont.appendText(option.getLabelText());
+            LogUtil.Log(option.getLabelText());
+            font = nativeFont;
+        } else {
+            font = FontUtil.createFont(fontFile, text, option.getFontSize());
+        }
 
         return new TTFLabelStyle(new LabelStyle(font, color), fontFile,
             option.getFontSize());

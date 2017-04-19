@@ -31,11 +31,12 @@
 ``` groovy
     repositories {
        mavenCentral()
-       maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+       maven { url 'https://jitpack.io' }
     }
 
     dependencies {
-       compile "net.mwplay:cocos-libgdx-ui:0.1.1-SNAPSHOT"
+       compile 'com.github.varFamily:cocos-ui-libgdx:0.1.1'
+       compile 'com.github.tianqiujie:nativefont:2.5.0'
     }
 ```
 在代码中

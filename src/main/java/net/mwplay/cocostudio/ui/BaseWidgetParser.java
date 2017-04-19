@@ -71,23 +71,28 @@ public abstract class BaseWidgetParser {
         // set origin
         if (widget.getAnchorPoint() != null) {
             actor.setOrigin(widget.getAnchorPoint().getScaleX() * actor.getWidth(),
-                    widget.getAnchorPoint().getScaleY() * actor.getHeight());
+                widget.getAnchorPoint().getScaleY() * actor.getHeight());
         }
+
         //判空，因为新版本的单独节点没有Postion属性
         if (widget.getPosition() != null) {
             actor.setPosition(widget.getPosition().getX() - actor.getOriginX(),
-                    widget.getPosition().getY() - actor.getOriginY());
+                widget.getPosition().getY() - actor.getOriginY());
         }
 
         // CocoStudio的编辑器ScaleX,ScaleY 会有负数情况
         //判空，因为新版本的单独节点没有Scale属性
         if (widget.getScale() != null) {
             actor.setScale(widget.getScale().getScaleX(), widget.getScale()
-                    .getScaleY());
+                .getScaleY());
         }
 
         if (widget.getRotation() != 0) {// CocoStudio 是顺时针方向旋转,转换下.
             actor.setRotation(360 - widget.getRotation() % 360);
+        }
+        //添加倾斜角
+        if (widget.getRotationSkewX() != 0 && widget.getRotationSkewX() == widget.getRotationSkewY()) {
+            actor.setRotation(360 - widget.getRotationSkewX() % 360);
         }
 
         // 设置可见
@@ -128,7 +133,7 @@ public abstract class BaseWidgetParser {
 
     private void parseAction(final Actor actor, final ObjectData widget) {
         CCTimelineActionData ccTimelineActionData = editor.export.getContent().getContent()
-                .getAnimation();
+            .getAnimation();
         float duration = ccTimelineActionData.getDuration();
         float speed = ccTimelineActionData.getSpeed();
 
@@ -150,18 +155,18 @@ public abstract class BaseWidgetParser {
                         //假如没有插值
                         if (null == ccTimelineFrame.getEasingData()) {
                             moveTo = Actions.moveTo(
-                                    ccTimelineFrame.getX() - actor.getWidth() / 2,
-                                    ccTimelineFrame.getY() - actor.getHeight() / 2
-                                    , speed / duration * ccTimelineFrame.getFrameIndex()
+                                ccTimelineFrame.getX() - actor.getWidth() / 2,
+                                ccTimelineFrame.getY() - actor.getHeight() / 2
+                                , speed / duration * ccTimelineFrame.getFrameIndex()
                             );
                         } else {//有插值
                             moveTo = Actions.moveTo(
-                                    ccTimelineFrame.getX() - actor.getWidth() / 2,
-                                    ccTimelineFrame.getY() - actor.getHeight() / 2
-                                    , speed / duration * ccTimelineFrame.getFrameIndex(),
-                                    editor.getInterpolation(
-                                            ccTimelineFrame.getEasingData().getType()
-                                    ));
+                                ccTimelineFrame.getX() - actor.getWidth() / 2,
+                                ccTimelineFrame.getY() - actor.getHeight() / 2
+                                , speed / duration * ccTimelineFrame.getFrameIndex(),
+                                editor.getInterpolation(
+                                    ccTimelineFrame.getEasingData().getType()
+                                ));
                         }
 
                         sequenceAction.addAction(moveTo);
@@ -191,16 +196,16 @@ public abstract class BaseWidgetParser {
                         Action scaleTo = null;
                         if (ccTimelineFrame.getEasingData() != null) {
                             scaleTo = Actions.scaleTo(
-                                    ccTimelineFrame.getX(),
-                                    ccTimelineFrame.getY(),
-                                    speed / duration * ccTimelineFrame.getFrameIndex(),
-                                    editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
+                                ccTimelineFrame.getX(),
+                                ccTimelineFrame.getY(),
+                                speed / duration * ccTimelineFrame.getFrameIndex(),
+                                editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
                             );
                         } else {
                             scaleTo = Actions.scaleTo(
-                                    ccTimelineFrame.getX(),
-                                    ccTimelineFrame.getY(),
-                                    speed / duration * ccTimelineFrame.getFrameIndex()
+                                ccTimelineFrame.getX(),
+                                ccTimelineFrame.getY(),
+                                speed / duration * ccTimelineFrame.getFrameIndex()
                             );
                         }
 
@@ -215,21 +220,21 @@ public abstract class BaseWidgetParser {
                         float angle = new Vector2(ccTimelineFrame.getX(), ccTimelineFrame.getY()).angle();
                         if (ccTimelineFrame.getEasingData() != null) {
                             rotation = Actions.rotateTo(
-                                    angle,
-                                    speed / duration * ccTimelineFrame.getFrameIndex(),
-                                    editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
+                                angle,
+                                speed / duration * ccTimelineFrame.getFrameIndex(),
+                                editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
                             );
                         } else {
                             rotation = Actions.rotateTo(
-                                    angle,
-                                    speed / duration * ccTimelineFrame.getFrameIndex()
+                                angle,
+                                speed / duration * ccTimelineFrame.getFrameIndex()
                             );
                         }
 
                         sequenceAction.addAction(rotation);
                     }
 
-                     parallelAction.addAction(sequenceAction);
+                    parallelAction.addAction(sequenceAction);
                 } else if (ccTimelineData.getProperty().equals("VisibleForFrame")) {
                     SequenceAction sequenceAction = Actions.sequence();
                     for (CCTimelineFrame ccTimelineFrame : ccTimelineFrames) {
@@ -242,14 +247,14 @@ public abstract class BaseWidgetParser {
 
                         if (ccTimelineFrame.getEasingData() != null) {
                             alpha = Actions.alpha(
-                                    alphaValue,
-                                    speed / duration * ccTimelineFrame.getFrameIndex(),
-                                    editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
+                                alphaValue,
+                                speed / duration * ccTimelineFrame.getFrameIndex(),
+                                editor.getInterpolation(ccTimelineFrame.getEasingData().getType())
                             );
-                        }else {
+                        } else {
                             alpha = Actions.alpha(
-                                    alphaValue,
-                                    speed / duration * ccTimelineFrame.getFrameIndex()
+                                alphaValue,
+                                speed / duration * ccTimelineFrame.getFrameIndex()
                             );
                         }
 
@@ -267,7 +272,7 @@ public abstract class BaseWidgetParser {
 
     public void addCallback(final Actor actor, final ObjectData widget) {
         if (widget.getCallBackType() == null
-                || widget.getCallBackType().isEmpty()) {
+            || widget.getCallBackType().isEmpty()) {
             return;
         }
         if ("Click".equals(widget.getCallBackType())) {
@@ -350,7 +355,7 @@ public abstract class BaseWidgetParser {
             @Override
             public int compare(Actor arg0, Actor arg1) {
                 return getZOrder(widget, arg0.getName())
-                        - getZOrder(widget, arg1.getName());
+                    - getZOrder(widget, arg1.getName());
             }
         });
 

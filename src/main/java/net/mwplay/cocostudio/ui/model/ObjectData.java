@@ -163,6 +163,25 @@ public class ObjectData {
 
     String CallBackName;
 
+    float RotationSkewX;
+    float RotationSkewY;
+
+    public void setRotationSkewX(float rotationSkewX) {
+        RotationSkewX = rotationSkewX;
+    }
+
+    public void setRotationSkewY(float rotationSkewY) {
+        RotationSkewY = rotationSkewY;
+    }
+
+    public float getRotationSkewX() {
+        return RotationSkewX;
+    }
+
+    public float getRotationSkewY() {
+        return RotationSkewY;
+    }
+
     public String getCallBackType() {
         return CallBackType;
     }

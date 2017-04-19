@@ -39,30 +39,28 @@ public class CCLabel extends WidgetParser {
 
         TTFLabel label = new TTFLabel(widget.getLabelText(), labelStyle);
         // 水平
-        int h = 0;
+        int h = Integer.MAX_VALUE;
         if ("HT_Center".equals(widget.getHorizontalAlignmentType())) {
             h = Align.center;
         } else if ("HT_Left".equals(widget.getHorizontalAlignmentType())) {
             h = Align.left;
         } else if ("HT_Right".equals(widget.getHorizontalAlignmentType())) {
             h = Align.right;
-        } else {//默认左对齐
-            h = Align.left;
         }
 
         // 垂直
-        int v = 0;
-        if ("HT_Center".equals(widget.getHorizontalAlignmentType())) {
+        int v = Integer.MAX_VALUE;
+        if ("HT_Center".equals(widget.getVerticalAlignmentType())) {
             v = Align.center;
-        } else if ("HT_Top".equals(widget.getHorizontalAlignmentType())) {
+        } else if ("HT_Top".equals(widget.getVerticalAlignmentType())) {
             v = Align.top;
-        } else if ("HT_Bottom".equals(widget.getHorizontalAlignmentType())) {
+        } else if ("HT_Bottom".equals(widget.getVerticalAlignmentType())) {
             v = Align.bottom;
-        } else {//默认居上
-            v = Align.top;
         }
 
-        label.setAlignment(h, v);
+        if (v != Integer.MAX_VALUE) {
+            label.setAlignment(h, v);
+        }
 
         return label;
     }
