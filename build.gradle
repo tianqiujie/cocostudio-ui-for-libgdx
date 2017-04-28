@@ -35,36 +35,3 @@ dependencies {
 }
 
 defaultTasks 'clean', 'build'
-
-/*task clearPj(type: Delete) {
-    delete 'build', 'target'
-}
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.java.srcDirs
-    exclude('demo/')
-    exclude('test/')
-}
-
-task makeJar(type: Jar) {
-    from sourceSets.main.java.srcDirs
-    exclude('demo/')
-    exclude('test/')
-}
-
-javadoc {
-    options.encoding = 'UTF-8'
-}
-
-task javadocJar(type: Jar, dependsOn: [javadoc]) {
-    classifier = 'javadoc'
-    from 'build/docs/javadoc'
-}
-
-artifacts {
-    archives makeJar
-    archives javadocJar
-    archives sourcesJar
-}
-*/

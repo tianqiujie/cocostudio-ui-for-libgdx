@@ -27,6 +27,15 @@ public class GameProjectData {
     List<CCAnimation> AnimationList;
 
     ObjectData ObjectData;
+    List<String> UsedResources;
+
+    public void setUsedResources(List<String> usedResources) {
+        UsedResources = usedResources;
+    }
+
+    public List<String> getUsedResources() {
+        return UsedResources;
+    }
 
     public CCTimelineActionData getAnimation() {
         return Animation;

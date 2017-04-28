@@ -17,6 +17,7 @@ package net.mwplay.cocostudio.ui.parser.group;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
+
 import net.mwplay.cocostudio.ui.CocoStudioUIEditor;
 import net.mwplay.cocostudio.ui.model.ObjectData;
 import net.mwplay.cocostudio.ui.parser.GroupParser;
@@ -33,9 +34,7 @@ public class CCNode extends GroupParser {
 
     @Override
     public Actor parse(CocoStudioUIEditor editor, ObjectData widget) {
-        Group table = new Group();
-
-        return table;
+        return new Group();
     }
 
 }

@@ -165,6 +165,16 @@ public class ObjectData {
 
     float RotationSkewX;
     float RotationSkewY;
+    //自定义属性
+    String ButtonType;
+
+    public void setButtonType(String buttonType) {
+        ButtonType = buttonType;
+    }
+
+    public String getButtonType() {
+        return ButtonType;
+    }
 
     public void setRotationSkewX(float rotationSkewX) {
         RotationSkewX = rotationSkewX;

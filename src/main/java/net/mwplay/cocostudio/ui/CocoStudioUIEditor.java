@@ -16,6 +16,7 @@
 package net.mwplay.cocostudio.ui;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -54,6 +55,7 @@ import net.mwplay.cocostudio.ui.parser.widget.CCLoadingBar;
 import net.mwplay.cocostudio.ui.parser.widget.CCParticle;
 import net.mwplay.cocostudio.ui.parser.widget.CCSlider;
 import net.mwplay.cocostudio.ui.parser.widget.CCSpriteView;
+import net.mwplay.cocostudio.ui.parser.widget.CCTImageView;
 import net.mwplay.cocostudio.ui.parser.widget.CCTextAtlas;
 import net.mwplay.cocostudio.ui.parser.widget.CCTextField;
 import net.mwplay.cocostudio.ui.util.FontUtil;
@@ -65,6 +67,7 @@ import net.mwplay.nativefont.NativeFontPaint;
 import java.io.File;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -78,7 +81,7 @@ public class CocoStudioUIEditor {
     /**
      * json文件所在目录
      */
-    protected String dirName;
+    public static String dirName;
 
     /**
      * 所有纹理
@@ -143,7 +146,7 @@ public class CocoStudioUIEditor {
         this.ttfs = ttfs;
         this.bitmapFonts = bitmapFonts;
         this.defaultFont = defaultFont;
-        parsers = new HashMap<String, BaseWidgetParser>();
+        parsers = new HashMap<>();
 
         addParser(new CCButton());
         addParser(new CCCheckBox());
@@ -168,6 +171,8 @@ public class CocoStudioUIEditor {
         addParser(new CCProjectNode());
         addParser(new CCPageView());
 
+        addParser(new CCTImageView());
+
         actors = new HashMap<String, Array<Actor>>();
         actionActors = new HashMap<Integer, Actor>();
 
@@ -184,6 +189,19 @@ public class CocoStudioUIEditor {
         Json jj = new Json();
         jj.setIgnoreUnknownFields(true);
         export = jj.fromJson(CCExport.class, json);
+    }
+
+    public static List<String> getResources(FileHandle jsonFile) {
+        dirName = jsonFile.parent().toString();
+
+        if (!dirName.equals("")) {
+            dirName += File.separator;
+        }
+        String json = jsonFile.readString("utf-8");
+        Json jj = new Json();
+        jj.setIgnoreUnknownFields(true);
+        CCExport export = jj.fromJson(CCExport.class, json);
+        return export.getContent().getContent().getUsedResources();
     }
 
     /**
@@ -221,6 +239,15 @@ public class CocoStudioUIEditor {
      * @return
      */
     public Group createGroup() {
+        Actor actor = parseWidget(null, export.getContent().getContent()
+            .getObjectData());
+
+        return (Group) actor;
+    }
+
+    AssetManager assetManager;
+    public Group createGroup(AssetManager assetManager) {
+        this.assetManager = assetManager;
         Actor actor = parseWidget(null, export.getContent().getContent()
             .getObjectData());
 
@@ -359,6 +386,10 @@ public class CocoStudioUIEditor {
         }
         TextureRegion tr = null;
 
+        if (assetManager != null) {
+            return new TextureRegion(assetManager.get(dirName + name, Texture.class));
+        }
+
         if (textureAtlas == null || textureAtlas.size() == 0) {// 不使用合并纹理
             tr = new TextureRegion(new Texture(Gdx.files.internal(dirName
                 + name)));
@@ -399,6 +430,7 @@ public class CocoStudioUIEditor {
                 }
             }
         }
+
         if (tr == null) {
             debug(option, "找不到纹理");
             return null;
@@ -424,6 +456,15 @@ public class CocoStudioUIEditor {
         }
 
         return findDrawable(option, fileData.getPath());
+    }
+
+    public Texture findTexture(ObjectData option, FileData fileData) {
+        //显示Default
+        if (fileData == null) {// 默认值不显示
+            return null;
+        }
+
+        return new Texture(dirName + fileData.getPath());
     }
 
     public Drawable findDrawable(ObjectData option, String name) {
@@ -538,6 +579,7 @@ public class CocoStudioUIEditor {
     public static Map<String, NativeFont> fonts = new HashMap<>();
     public static final String DEFAULT_CHARS =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!`?'.,;:()[]{}<>|/@\\^$-%+=#_&~*";
+
     public TTFLabelStyle createLabelStyle(ObjectData option, String text,
                                           Color color) {
 
@@ -558,7 +600,7 @@ public class CocoStudioUIEditor {
         if (fontFile == null) {
             String name = "nativefont" + option.getFontSize();
             NativeFont nativeFont = fonts.get(name);
-            if (nativeFont == null){
+            if (nativeFont == null) {
                 nativeFont = new NativeFont(new NativeFontPaint(option.getFontSize()));
                 nativeFont.appendText(DEFAULT_CHARS);
                 fonts.put(name, nativeFont);

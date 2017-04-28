@@ -34,8 +34,7 @@ public class CCLayer extends GroupParser {
 
     @Override
     public Actor parse(CocoStudioUIEditor editor, ObjectData widget) {
-        Group table = new Group();
-        return table;
+        return new Group();
     }
 
 }

@@ -16,11 +16,12 @@
 package net.mwplay.cocostudio.ui.parser.widget;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.Slider;
-import com.badlogic.gdx.scenes.scene2d.ui.Slider.SliderStyle;
+
 import net.mwplay.cocostudio.ui.CocoStudioUIEditor;
 import net.mwplay.cocostudio.ui.model.ObjectData;
 import net.mwplay.cocostudio.ui.parser.GroupParser;
+import net.mwplay.cocostudio.ui.widget.TSlider;
+//import net.mwplay.cocostudio.ui.widget.TSlider;
 
 public class CCSlider extends GroupParser {
 
@@ -32,7 +33,7 @@ public class CCSlider extends GroupParser {
     @Override
     public Actor parse(CocoStudioUIEditor editor, ObjectData widget) {
 
-        SliderStyle style = new SliderStyle(
+        /*SliderStyle style = new SliderStyle(
             editor.findDrawable(widget, widget.getBackGroundData()),
             editor.findDrawable(widget, widget.getBallNormalData()));
 
@@ -49,8 +50,17 @@ public class CCSlider extends GroupParser {
         float percent = widget.getPercentInfo();
 
         Slider slider = new Slider(0.1f, 100f, 0.1f, false, style);
-        slider.setValue(percent);
-        return slider;
+        slider.setValue(percent);*/
+
+        /*TSlider slider = new TSlider(editor.findTextureRegion(widget, widget.getBackGroundData().getPath()),
+            editor.findTextureRegion(widget, widget.getProgressBarData().getPath()),
+            editor.findTextureRegion(widget, widget.getBallNormalData().getPath()));
+        slider.setValue(widget.getPercentInfo());*/
+        TSlider mySlider = new TSlider(0, 100, 1, false, editor.findTextureRegion(widget, widget.getBackGroundData().getPath()),
+            editor.findTextureRegion(widget, widget.getBallNormalData().getPath()),
+            editor.findTextureRegion(widget, widget.getProgressBarData().getPath()));
+        mySlider.setValue(widget.getPercentInfo());
+        return mySlider;
     }
 
 }
