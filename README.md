@@ -1,10 +1,11 @@
 [![Build Status](https://travis-ci.org/varFamily/cocos-ui-libgdx.svg?branch=master)](https://travis-ci.org/varFamily/cocos-ui-libgdx)
+[![](https://jitpack.io/v/varFamily/cocos-ui-libgdx.svg)](https://jitpack.io/#varFamily/cocos-ui-libgdx)
 [![Coverage Status](https://coveralls.io/repos/github/varFamily/cocos-ui-libgdx/badge.svg?branch=master)](https://coveralls.io/github/varFamily/cocos-ui-libgdx?branch=master)
 [![Maintenance](https://img.shields.io/maintenance/no/2016.svg)](https://github.com/varFamily/cocos-ui-libgdx)
 [![Apache 2](http://img.shields.io/badge/license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 ## 存档状态
-由于Cocos Studio已经处于实质上被官方放弃的状态，本项目不再维护。
+虽然Cocos Studio已经处于实质上被官方放弃的状态，但是本项目依然不定期维护。
 
 ##cocos-ui-libgdx
 * 在libGDX中使用Cocos Studio
