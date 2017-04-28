@@ -47,7 +47,7 @@ public class CocoStudioUIEditorTest {
 
         Map<String, BaseWidgetParser> parsers = (Map<String, BaseWidgetParser>) Whitebox.getInternalState(editor, "parsers");
 
-        assertThat(parsers.size(), is(18));
+        assertThat(parsers.size(), is(19));
     }
 
     @Test

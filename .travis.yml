@@ -7,10 +7,10 @@ jdk:
   - oraclejdk7
 
 env:
- - GDX_VERSION=1.9.2
- - GDX_VERSION=1.9.0
- - GDX_VERSION=1.8.0
- - GDX_VERSION=1.7.0
+ - GDX_VERSION=1.9.6
+ - GDX_VERSION=1.9.5
+ - GDX_VERSION=1.9.4
+ - GDX_VERSION=1.9.3
 
 before_script:
  - "export DISPLAY=:99.0"
