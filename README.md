@@ -6,6 +6,7 @@
 
 ## 存档状态
 虽然Cocos Studio已经处于实质上被官方放弃的状态，但是本项目依然不定期维护。
+注意:必须把cocostudio的"编辑"选择 "拖动改变尺寸"
 
 ##cocos-ui-libgdx
 * 在libGDX中使用Cocos Studio
@@ -48,6 +49,28 @@ CocoStudioUIEditor editor = new CocoStudioUIEditor(
     Gdx.files.internal("demo/MainScene.json"), null, null, defaultFont, null);
 Group group = editor.createGroup();
 ```
+使用AssetManager
+
+```
+//load
+ assetManager = new AssetManager();
+        assetManager.setLogger(new Logger("hehehe", Logger.DEBUG));
+        assetManager.setLoader(CocosScene.class, new CocosLoader(new InternalFileHandleResolver()));
+        assetManager.load("mainscene/MenuScene.json", CocosScene.class);
+//render
+if (!init) {
+            if (assetManager.update()) {
+                init = true;
+                initUi();
+            }
+        }
+//initUi
+CocosScene cocosScene = assetManager.get("mainscene/MenuScene.json", CocosScene.class);
+        root = cocosScene.getRoot();
+        stage.addActor(cocosScene.getRoot(assetManager));
+        Gdx.input.setInputProcessor(stage);
+```
+###详细demo请看AMScreen
 
 ## 源码构建
 项目使用gradle管理，直接运行`./gradlew build`即可。
