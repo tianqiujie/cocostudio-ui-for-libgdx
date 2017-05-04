@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/varFamily/cocos-ui-libgdx.svg?branch=master)](https://travis-ci.org/varFamily/cocos-ui-libgdx)
 [![](https://jitpack.io/v/varFamily/cocos-ui-libgdx.svg)](https://jitpack.io/#varFamily/cocos-ui-libgdx)
 [![Coverage Status](https://coveralls.io/repos/github/varFamily/cocos-ui-libgdx/badge.svg?branch=master)](https://coveralls.io/github/varFamily/cocos-ui-libgdx?branch=master)
-[![Maintenance](https://img.shields.io/maintenance/no/2016.svg)](https://github.com/varFamily/cocos-ui-libgdx)
+[![Maintenance](https://img.shields.io/maintenance/yes/2017.svg)](https://github.com/varFamily/cocos-ui-libgdx)
 [![Apache 2](http://img.shields.io/badge/license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 ## 存档状态
@@ -12,8 +12,9 @@
 * 在libGDX中使用Cocos Studio
 * 基于[cocostudio-ui-libgdx](https://github.com/121077313/cocostudio-ui-libgdx)修改而来。
 
-## 展示(图片来自网络,学习之用,如有侵权,请通知删除)
+## 展示
 
+图片来自网络,学习之用,如有侵权,请通知删除
 <img src="docs/screenshot-1.gif" width="600px"/>
 <img src="docs/screenshot-3.gif" width="600px"/>
 <img src="docs/screenshot-2.gif" width="600px"/>
