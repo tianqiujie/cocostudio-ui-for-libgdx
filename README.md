@@ -26,7 +26,6 @@
 * 部分支持Cocos Studio的动画效果，包括位移动画，缩放动画，帧动画（倾斜动画不支持）
 
 ## 快速入门
-本项目目前没有发布正式版本，只有`0.1.1-snapshot`版。
 
 在`build.gradle`中添加
 
@@ -37,7 +36,7 @@
     }
 
     dependencies {
-       compile 'com.github.varFamily:cocos-ui-libgdx:0.1.1'
+       compile 'com.github.varFamily:cocos-ui-libgdx:0.1.4'
        compile 'com.github.tianqiujie:nativefont:2.5.0'
     }
 ```
