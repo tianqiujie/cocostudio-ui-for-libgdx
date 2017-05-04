@@ -12,7 +12,7 @@
 * 在libGDX中使用Cocos Studio
 * 基于[cocostudio-ui-libgdx](https://github.com/121077313/cocostudio-ui-libgdx)修改而来。
 
-## 展示
+## 展示(图片来自网络,学习之用,如有侵权,请通知删除)
 
 <img src="docs/screenshot-1.gif" width="600px"/>
 <img src="docs/screenshot-3.gif" width="600px"/>
