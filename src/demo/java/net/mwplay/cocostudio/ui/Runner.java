@@ -22,8 +22,11 @@ public class Runner {
 
     public static void main(String[] args) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.width = DemoGame.GAME_WIDTH;
-        config.height = DemoGame.GAME_HEIGHT;
+        //config.width = DemoGame.GAME_WIDTH;
+        // config.height = DemoGame.GAME_HEIGHT;
+        //以下作为assetmanager使用
+        config.width = 1280;
+        config.height = 720;
         new LwjglApplication(new DemoGame(), config);
     }
 }

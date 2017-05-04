@@ -13,9 +13,9 @@
 
 ## 展示
 
-<img src="docs/screenshot-1.gif" width="400px"/>
-<img src="docs/screenshot-3.gif" width="400px"/>
-<img src="docs/screenshot-2.gif" width="400px"/>
+<img src="docs/screenshot-1.gif" width="500px"/>
+<img src="docs/screenshot-3.gif" width="500px"/>
+<img src="docs/screenshot-2.gif" width="500px"/>
 
 ##特性
 * 支持最新版的[Cocos Studio](http://www.cocos.com/download/)进行开发，版本号v3.10

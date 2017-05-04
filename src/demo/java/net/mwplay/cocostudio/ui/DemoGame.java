@@ -26,6 +26,7 @@ public class DemoGame extends Game {
     @Override
     public void create() {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
-        setScreen(new DemoScreen());
+        //setScreen(new DemoScreen());
+        setScreen(new AMScreen());
     }
 }

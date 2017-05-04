@@ -1,0 +1,577 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "MainScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg.jpg",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 1.5285
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0021
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "TopMargin": -1.5285,
+            "BottomMargin": 1.5285,
+            "Tag": 3,
+            "ActionTag": 787617528,
+            "Size": {
+              "X": 1280.0,
+              "Y": 720.0
+            },
+            "Name": "bg_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "yonghuxieyi.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 640.0,
+              "Y": 37.7905
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.0525
+            },
+            "PreSize": {
+              "X": 0.4523,
+              "Y": 0.0597
+            },
+            "LeftMargin": 350.5,
+            "RightMargin": 350.5,
+            "TopMargin": 660.7095,
+            "BottomMargin": 16.2905,
+            "Tag": 5,
+            "ActionTag": -758623665,
+            "Size": {
+              "X": 579.0,
+              "Y": 43.0
+            },
+            "Name": "yonghuxieyi_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "CheckedState": true,
+            "NormalBackFileData": {
+              "Type": "Normal",
+              "Path": "btn_checkbox.png",
+              "Plist": ""
+            },
+            "PressedBackFileData": {
+              "Type": "Normal",
+              "Path": "check_mark.png",
+              "Plist": ""
+            },
+            "DisableBackFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBox_Disable.png",
+              "Plist": ""
+            },
+            "NodeNormalFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBoxNode_Normal.png",
+              "Plist": ""
+            },
+            "NodeDisableFileData": {
+              "Type": "Default",
+              "Path": "Default/CheckBoxNode_Disable.png",
+              "Plist": ""
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 483.2284,
+              "Y": 36.441
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3775,
+              "Y": 0.0506
+            },
+            "PreSize": {
+              "X": 0.0367,
+              "Y": 0.0667
+            },
+            "LeftMargin": 459.7284,
+            "RightMargin": 773.2716,
+            "TopMargin": 659.559,
+            "BottomMargin": 12.441,
+            "Tag": 4,
+            "ActionTag": 757663983,
+            "Size": {
+              "X": 47.0,
+              "Y": 48.0
+            },
+            "Name": "CheckBox_1",
+            "ctype": "CheckBoxObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "btn_weixin.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 640.0,
+              "Y": 147.1518
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.2044
+            },
+            "PreSize": {
+              "X": 0.3102,
+              "Y": 0.1903
+            },
+            "LeftMargin": 441.5,
+            "RightMargin": 441.5,
+            "TopMargin": 504.3482,
+            "BottomMargin": 78.6518,
+            "Tag": 6,
+            "ActionTag": 1352086235,
+            "Size": {
+              "X": 397.0,
+              "Y": 137.0
+            },
+            "Name": "weixin",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "btn_ traveler.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 639.9941,
+              "Y": 287.5642
+            },
+            "Scale": {
+              "ScaleX": 0.7619,
+              "ScaleY": 0.7619
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.3994
+            },
+            "PreSize": {
+              "X": 0.3102,
+              "Y": 0.1903
+            },
+            "LeftMargin": 441.4941,
+            "RightMargin": 441.5059,
+            "TopMargin": 363.9358,
+            "BottomMargin": 219.0642,
+            "Tag": 7,
+            "ActionTag": 199906292,
+            "Size": {
+              "X": 397.0,
+              "Y": 137.0
+            },
+            "Name": "youke",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1.5286,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0012,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 1.5286,
+            "RightMargin": -1.5286,
+            "Tag": 10,
+            "Children": [
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 1.5286,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 127,
+                  "G": 127,
+                  "B": 127
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0012,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1.5286,
+                "RightMargin": -1.5286,
+                "Tag": 16,
+                "ActionTag": -380812245,
+                "Size": {
+                  "X": 1280.0,
+                  "Y": 720.0
+                },
+                "Name": "Panel_2",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "public_frame_a.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 68,
+                "Scale9OriginY": 68,
+                "Scale9Width": 72,
+                "Scale9Height": 73,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 635.0981,
+                  "Y": 421.2302
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4962,
+                  "Y": 0.585
+                },
+                "PreSize": {
+                  "X": 0.3125,
+                  "Y": 0.3472
+                },
+                "LeftMargin": 435.0981,
+                "RightMargin": 444.9019,
+                "TopMargin": 173.7698,
+                "BottomMargin": 296.2302,
+                "Tag": 14,
+                "ActionTag": 295251777,
+                "Size": {
+                  "X": 400.0,
+                  "Y": 250.0
+                },
+                "Name": "Image_1",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "jzcycle.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 635.0981,
+                  "Y": 390.1765
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4962,
+                  "Y": 0.5419
+                },
+                "PreSize": {
+                  "X": 0.0797,
+                  "Y": 0.1417
+                },
+                "LeftMargin": 584.0981,
+                "RightMargin": 593.9019,
+                "TopMargin": 278.8235,
+                "BottomMargin": 339.1765,
+                "Tag": 11,
+                "ActionTag": -657410856,
+                "Size": {
+                  "X": 102.0,
+                  "Y": 102.0
+                },
+                "Name": "loading_circle",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 24,
+                "LabelText": "正在登录...",
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 635.0981,
+                  "Y": 475.236
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 173,
+                  "G": 55,
+                  "B": 55
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4962,
+                  "Y": 0.66
+                },
+                "PreSize": {
+                  "X": 0.1031,
+                  "Y": 0.0333
+                },
+                "LeftMargin": 569.0981,
+                "RightMargin": 578.9019,
+                "TopMargin": 232.764,
+                "BottomMargin": 463.236,
+                "Tag": 15,
+                "ActionTag": -1924598520,
+                "Size": {
+                  "X": 132.0,
+                  "Y": 24.0
+                },
+                "Name": "Text_1",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 1418957190,
+            "Size": {
+              "X": 1280.0,
+              "Y": 720.0
+            },
+            "VisibleForFrame": false,
+            "Name": "loadingLayer",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ButtonType": "ColorButton",
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bangzhu.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 22,
+            "Scale9OriginY": 26,
+            "Scale9Width": 23,
+            "Scale9Height": 27,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 110.9303,
+              "Y": 438.7592
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0867,
+              "Y": 0.6094
+            },
+            "PreSize": {
+              "X": 0.0523,
+              "Y": 0.1097
+            },
+            "LeftMargin": 77.4303,
+            "RightMargin": 1135.5697,
+            "TopMargin": 241.7408,
+            "BottomMargin": 399.2592,
+            "Tag": 12,
+            "ActionTag": 2142952631,
+            "Size": {
+              "X": 67.0,
+              "Y": 79.0
+            },
+            "Name": "TImage_1",
+            "ctype": "TImageObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1280.0,
+          "Y": 720.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bangzhu.png",
+        "bg.jpg",
+        "btn_ traveler.png",
+        "btn_checkbox.png",
+        "btn_weixin.png",
+        "check_mark.png",
+        "Default/CheckBox_Disable.png",
+        "Default/CheckBoxNode_Disable.png",
+        "Default/CheckBoxNode_Normal.png",
+        "jzcycle.png",
+        "public_frame_a.png",
+        "yonghuxieyi.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

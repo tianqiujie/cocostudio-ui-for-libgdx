@@ -53,7 +53,7 @@ public class DemoScreen extends ScreenAdapter {
     }
 
     private void findAllDemos() {
-        demos = new ArrayList<String>();
+        demos = new ArrayList<>();
         FileHandle[] demoFolder = Gdx.files.internal("./").list(new FileFilter() {
             @Override
             public boolean accept(File pathname) {
