@@ -1,4 +1,5 @@
 apply plugin: 'checkstyle'
+apply plugin: 'jacoco'
 
 checkstyle {
     toolVersion = '6.5'
@@ -8,7 +9,9 @@ checkstyle {
 //    ignoreFailures = true
 }
 
-apply plugin: "net.saliman.cobertura"
-cobertura.coverageFormats = ['html', 'xml']
-
-apply plugin: "com.github.kt3k.coveralls"
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
+}

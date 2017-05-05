@@ -51,8 +51,8 @@ public class LibgdxRunner extends BlockJUnit4ClassRunner {
             JglfwApplicationConfiguration cfg = new JglfwApplicationConfiguration();
             cfg.preferencesLocation = String.format("tmp/%d/.prefs/", random.nextLong());
             cfg.title = "Libgdx Runner";
-            cfg.width = 1;
-            cfg.height = 1;
+            cfg.width = 2;
+            cfg.height = 2;
             cfg.forceExit = true;
             new JglfwApplication(new TestApplicationListener(), cfg);
             ConditionWaiter.wait(new Condition() {
