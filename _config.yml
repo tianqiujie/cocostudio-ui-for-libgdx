@@ -1,0 +1,8 @@
+title: Cocos-ui-libgdx
+description: a ui library of ligdx with cocostudio 一个cocostudio的ui解析库
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
