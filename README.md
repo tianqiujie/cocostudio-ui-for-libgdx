@@ -9,7 +9,7 @@
 虽然Cocos Studio已经处于实质上被官方放弃的状态，但是本项目依然不定期维护。
 注意:必须把cocostudio的"编辑"选择 "拖动改变尺寸"
 
-##cocos-ui-libgdx
+## cocos-ui-libgdx
 * 在libGDX中使用Cocos Studio
 * 基于[cocostudio-ui-libgdx](https://github.com/121077313/cocostudio-ui-libgdx)修改而来。
 
@@ -20,7 +20,7 @@
 <img src="docs/screenshot-3.gif" width="600px"/>
 <img src="docs/screenshot-2.gif" width="600px"/>
 
-##特性
+## 特性
 * 支持最新版的[Cocos Studio](http://www.cocos.com/download/)进行开发，版本号v3.10
 * 仅支持Cocos Studio的Json格式，请在发布项目时选择Json格式
 * 支持Cocos Studio中大部分控件
@@ -91,5 +91,5 @@ CocosScene cocosScene = assetManager.get("mainscene/MenuScene.json", CocosScene.
 + 检测所有Cocos Studio的demo，确保没有遗漏
 
 
-##感谢
+## 感谢
 + 群友@Hey贡献了粒子解析效果的代码
