@@ -38,6 +38,11 @@ import java.nio.charset.Charset;
 import static com.badlogic.gdx.graphics.g2d.Batch.*;
 
 public class CCParticleActor extends Actor implements Disposable {
+    protected boolean ownesTexture;
+    private Vector2 tmp = new Vector2();
+    private Vector2 radial = new Vector2();
+    private Vector2 tangential = new Vector2();
+
     public CCParticleActor() {
         init();
     }
@@ -81,8 +86,6 @@ public class CCParticleActor extends Actor implements Disposable {
         ObjectMap<String, Object> map = LyU.createDictionaryWithContentsOfFile(handle);
         initWithDictionary(map, dir, texture);
     }
-
-    protected boolean ownesTexture;
 
     @Override
     public void dispose() {
@@ -213,7 +216,7 @@ public class CCParticleActor extends Actor implements Disposable {
             ownesTexture = true;
             String textureName = (String) dictionary.get("textureFileName");
             FileHandle handle;
-            if (dir.equals("")) {
+            if ("".equals(dir)) {
                 handle = Gdx.files.internal(textureName);
             } else {
                 handle = Gdx.files.internal(dir + "/" + textureName);
@@ -291,10 +294,6 @@ public class CCParticleActor extends Actor implements Disposable {
         super.act(delta);
         update(delta);
     }
-
-    Vector2 tmp = new Vector2();
-    Vector2 radial = new Vector2();
-    Vector2 tangential = new Vector2();
 
     protected void update(float dt) {
         if (_isActive && _emissionRate != 0) {

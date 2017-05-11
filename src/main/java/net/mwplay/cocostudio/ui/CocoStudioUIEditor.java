@@ -607,7 +607,7 @@ public class CocoStudioUIEditor {
             }
 
             nativeFont.appendText(option.getLabelText());
-            LogUtil.Log(option.getLabelText());
+            LogUtil.log(option.getLabelText());
             font = nativeFont;
         } else {
             font = FontUtil.createFont(fontFile, text, option.getFontSize());
