@@ -72,7 +72,7 @@ public class AMScreen extends ScreenAdapter {
                 init = true;
                 initUi();
             } else {
-                LogUtil.Log(assetManager.getProgress());
+                LogUtil.log(assetManager.getProgress());
                 stage.getBatch().begin();
                 font.draw(stage.getBatch(),
                     "正在加载..." + (int) (assetManager.getProgress() * 100) + "%",
@@ -121,7 +121,7 @@ public class AMScreen extends ScreenAdapter {
     private class MyListener implements T.TClickListener {
         @Override
         public void onClick(Actor actor) {
-            LogUtil.Log("clicked: " + actor.getName());
+            LogUtil.log("clicked: " + actor.getName());
             switch (actor.getName()) {
                 case "createroom":
                     break;

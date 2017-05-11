@@ -147,7 +147,7 @@ public class T {
     }
 
     public T print() {
-        LogUtil.Log(actor.getX() + " " + actor.getY());
+        LogUtil.log(actor.getX() + " " + actor.getY());
         return this;
     }
 
