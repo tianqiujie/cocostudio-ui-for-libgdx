@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/varFamily/cocos-ui-libgdx.svg?branch=master)](https://travis-ci.org/varFamily/cocos-ui-libgdx)
 [![](https://jitpack.io/v/varFamily/cocos-ui-libgdx.svg)](https://jitpack.io/#varFamily/cocos-ui-libgdx)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b02254b3bc3e430bbe12eac913b75fb9)](https://www.codacy.com/app/htynkn/cocos-ui-libgdx?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=varFamily/cocos-ui-libgdx&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://codecov.io/github/varFamily/cocos-ui-libgdx/coverage.svg?branch=master)](https://codecov.io/gh/varFamily/cocos-ui-libgdx/branch/master)
 [![Maintenance](https://img.shields.io/maintenance/yes/2017.svg)](https://github.com/varFamily/cocos-ui-libgdx)
 [![Apache 2](http://img.shields.io/badge/license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0)
