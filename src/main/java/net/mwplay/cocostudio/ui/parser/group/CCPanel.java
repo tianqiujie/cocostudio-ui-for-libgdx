@@ -45,7 +45,7 @@ public class CCPanel extends GroupParser {
         Table table = new Table();
 
         Size size = widget.getSize();
-        if (widget.getComboBoxIndex() == 0) { // 无颜色
+        if (0 == widget.getComboBoxIndex()) { // 无颜色
 
         } else if (widget.getComboBoxIndex() == 1 && widget.getBackColorAlpha() != 0) {// 单色
             Pixmap pixmap = new Pixmap((int) size.getX(), (int) size.getY(),

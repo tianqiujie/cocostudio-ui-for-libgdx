@@ -38,6 +38,26 @@ import java.nio.charset.Charset;
 import static com.badlogic.gdx.graphics.g2d.Batch.*;
 
 public class CCParticleActor extends Actor implements Disposable {
+    private static final Pool<Particle> particlePool = Pools.get(Particle.class, 1000);
+    private Vector2 currentPosition = new Vector2();
+    private Vector3 p1 = new Vector3();
+    private Vector3 p2 = new Vector3();
+    private Vector2 newPos = new Vector2();
+    private Vector2 tmp = new Vector2();
+    private Vector2 radial = new Vector2();
+    private Vector2 tangential = new Vector2();
+    //持续时间无限
+    private static final float DURATION_INFINITY = -1;
+    //开始大小等于结束大小
+    private static final float START_SIZE_EQUAL_TO_END_SIZE = -1;
+    //开始半径等于结束半径
+    private static final float START_RADIUS_EQUAL_TO_END_RADIUS = -1;
+    private static final int ParticleModeGravity = 0;
+    private static final int ParticleModeRadius = 1;
+    private static final int PositionTypeFree = 0;
+    private static final int PositionTypeRelative = 1;
+    private static final int PositionTypeGrouped = 2;
+
     public CCParticleActor() {
         init();
     }
@@ -292,10 +312,6 @@ public class CCParticleActor extends Actor implements Disposable {
         update(delta);
     }
 
-    Vector2 tmp = new Vector2();
-    Vector2 radial = new Vector2();
-    Vector2 tangential = new Vector2();
-
     protected void update(float dt) {
         if (_isActive && _emissionRate != 0) {
             float rate = 1.0f / _emissionRate;
@@ -470,7 +486,7 @@ public class CCParticleActor extends Actor implements Disposable {
             newPos.x -= p2.x - pos.x;
             newPos.y -= p2.y - pos.y;
 
-            updatePosWithParticle(_particleData, newPos, _particleData.size, _particleData.rotation, idx);
+            updatePosWithParticle(newPos, _particleData.size, _particleData.rotation, idx);
 
 
         } else if (_positionType == PositionTypeRelative) {
@@ -479,11 +495,11 @@ public class CCParticleActor extends Actor implements Disposable {
             newPos.x = _particleData.pos.x - (currentPosition.x - _particleData.startPos.x);
             newPos.y = _particleData.pos.y - (currentPosition.y - _particleData.startPos.y);
             newPos.add(pos);
-            updatePosWithParticle(_particleData, newPos, _particleData.size, _particleData.rotation, idx);
+            updatePosWithParticle(newPos, _particleData.size, _particleData.rotation, idx);
         } else {
             newPos.setZero();
             newPos.set(_particleData.pos.x + pos.x, _particleData.pos.y + pos.y);
-            updatePosWithParticle(_particleData, newPos, _particleData.size, _particleData.rotation, idx);
+            updatePosWithParticle(newPos, _particleData.size, _particleData.rotation, idx);
         }
 
 
@@ -515,13 +531,8 @@ public class CCParticleActor extends Actor implements Disposable {
         }
     }
 
-    Vector2 currentPosition = new Vector2();
-    Vector3 p1 = new Vector3();
-    Vector3 p2 = new Vector3();
-    Vector2 newPos = new Vector2();
 
-
-    private void updatePosWithParticle(Particle _particleData, Vector2 newPosition, float size, float rotation, int pidx) {
+    private void updatePosWithParticle(Vector2 newPosition, float size, float rotation, int pidx) {
 
         float[] toUpdate = vertices[pidx];
 
@@ -650,8 +661,6 @@ public class CCParticleActor extends Actor implements Disposable {
     public boolean isFull() {
         return (_particleCount == _totalParticles);
     }
-
-    static final Pool<Particle> particlePool = Pools.get(Particle.class, 1000);
 
     private float RANDOM_M11() {
         return MathUtils.random(-1f, 1f);
@@ -819,20 +828,6 @@ public class CCParticleActor extends Actor implements Disposable {
         }
         _emitterMode = mode;
     }
-
-    //持续时间无限
-    public static final float DURATION_INFINITY = -1;
-    //开始大小等于结束大小
-    public static final float START_SIZE_EQUAL_TO_END_SIZE = -1;
-    //开始半径等于结束半径
-    public static final float START_RADIUS_EQUAL_TO_END_RADIUS = -1;
-
-    public static final int ParticleModeGravity = 0;
-    public static final int ParticleModeRadius = 1;
-
-    public static final int PositionTypeFree = 0;
-    public static final int PositionTypeRelative = 1;
-    public static final int PositionTypeGrouped = 2;
 
 
     static class ModeA {
